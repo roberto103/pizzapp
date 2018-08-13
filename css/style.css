@@ -1,0 +1,194 @@
+body, html {
+	width: 100%;
+	height: 100%;
+}
+
+body{
+	background-image:url('../img/pz.jpg');
+	background-attachment: fixed;
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center;
+	padding: 0;
+}
+
+.container {
+	margin: 0 auto;
+	padding: 0;	
+}
+
+i{
+	color: white;
+}
+
+span{
+	color: white;
+}
+
+#info{
+	margin-top: 20%;
+}
+
+#cads{
+	margin-top: 10%;
+}
+
+#pizzas{
+	margin-top: 25px;
+	height: 200px;
+	width: 100%;
+	background-image: url('../img/pizza.jpg');
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+#bebidas{
+	height: 200px;
+	width: 100%;
+	background-image: url('../img/bebidas.jpg');
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+#porcoes{
+	height: 200px;
+	width: 100%;
+	background-image: url('../img/batata.jpg');
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+#cart{
+	margin-top: 7%;
+}
+
+@media (max-width: 768px){
+	#info{
+		margin-top: 90%
+	}
+	#cart{
+		margin-top: 20%;
+	}
+	#cads{
+		margin-top: 20%;
+	}
+}
+
+@media (max-width: 576px){
+	#cardapioItens{
+		padding-top: 20% !important; 
+	}
+}
+
+.form-control{
+	border-radius: 0;
+}
+
+a:hover{
+	text-decoration: none !important;
+}
+
+h1{
+	text-shadow: 1px 1px 2px black;
+}
+
+#carrinho-vazio{
+	width: 100%;
+	height: 100%;
+	background-color: white;
+	padding: 20px;
+}
+
+#carrinho-vazio a{
+	margin-top: 30px;
+	display: block;
+}
+
+#lista_bebidas{
+	margin: 10px auto;
+	min-height: 10px;
+	z-index: 1;
+	position: relative;
+	background: #fff;
+	border-radius: 2px;
+	box-sizing: border-box;
+}
+
+#img-prod{
+	width: 80px;
+	float: left;
+	margin: 10px;
+	border-radius: 5px;
+}
+
+#precoBebidas{
+	padding-left: 35px;
+	padding-right: 35px;
+	padding-bottom: 10px;
+}
+
+#comprar{
+	float: right;
+	margin-top: -10px;
+}
+
+#info_pedido{
+	display: -webkit-inline-box;
+	width: 250px;
+}
+
+#img{
+	margin-left: -10px;
+	width: 20%;
+	margin-right: 20px;
+}
+
+@media (min-width: 768px){
+	#img{
+		width: 30%;
+	}
+}
+
+#infoBebidas h4{
+	padding-top: 10px;
+}
+
+#infoBebidas hr{
+	margin-top: 40px !important;
+}
+
+#precoBebidas span{
+	color: rgb(244, 67, 54); font-weight: bold;
+}
+
+#precoBebidas a{
+	float: right; margin-top: -10px;
+}
+
+#finalizar{
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	color: white;
+	font-size: 1.4em;
+	text-align: center;
+	background: #00b400;
+	border-top: 3px solid #008a00;
+	z-index: 10;
+	text-decoration: none;
+	padding: 5px;
+}
+
+#pizzaInfo{
+	text-shadow: 1px 1px 1px black;
+}
+
+.w-75{
+	width: 100% !important;
+}
+
+.card-footer{
+	background-color: #28a745 !important;
+	color: white;
+}
