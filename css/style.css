@@ -26,7 +26,7 @@ span{
 }
 
 #info{
-	margin-top: 9%;
+	margin-top: 20%;
 }
 
 #cads{
@@ -64,7 +64,7 @@ span{
 
 @media (max-width: 768px){
 	#info{
-		margin-top: 25%
+		margin-top: 90%
 	}
 	#cart{
 		margin-top: 20%;

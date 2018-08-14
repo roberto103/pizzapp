@@ -37,31 +37,25 @@
       <div class="row">
         <div class="col"></div>
         <div class="col-sm-4" id="info">
-
-          <img src="img/logo.png" class="rounded-circle mx-auto d-block mb-3" width="33%">
           
-        	<form method="post">
-
+        	<form action="" method="post">
     			  <div class="form-group">
-    			    <label for="email" style="color: white;">Email</label>
+    			    <label for="exampleInputEmail1" style="color: white;">Email</label>
     			    <input type="email" name="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Digite seu email." style="border-radius: 0px;">
     			  </div>
-
     			  <div class="form-group">
-    			    <label for="senha" style="color: white;">Senha</label>
+    			    <label for="exampleInputPassword1" style="color: white;">Senha</label>
     			    <input type="password" name="senha" class="form-control" id="senha" placeholder="Digite sua senha." style="border-radius: 0px;">
     			  </div>
-
     			  <div class="custom-control custom-checkbox">
       				<input type="checkbox" class="custom-control-input" id="customCheck1">
      			 	  <label class="custom-control-label" for="customCheck1" style="color: white;">Mantenha-me conectado</label>
     			  </div>
-
     			  <hr class="mb-3">
-
-    			  <button id="btLogin" type="submit" class="btn btn-primary mb-3" style="width: 100%; border-radius: 0;"><i class="fas fa-check-circle"></i> Login</button>
-
-            <a href="cadastro.php" class="btn btn-primary mb-3" style="width: 100%; border-radius: 0;">Cadastrar</a>
+    			  <button id="btLogin" type="submit" class="btn btn-primary" style="width: 100%; border-radius: 0;"><i class="fas fa-check-circle"></i> Login</button>
+            <br> <br>
+            <a href="cadastro.php" class="btn btn-primary" style="width: 100%; border-radius: 0;">Cadastrar</a>
+    			  <hr class="mb-3">
     			</form>
 
         </div>

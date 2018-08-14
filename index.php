@@ -37,9 +37,6 @@
       <div class="row">
         <div class="col"></div>
         <div class="col-md-4" id="info">
-
-          <img src="img/logo.png" class="rounded-circle mx-auto d-block mb-5" width="40%">
-
           <center>
             <h6 style="color: white; text-shadow: 1px 1px 1px black;"><i class="fas fa-phone"></i> (81) 3634-1166 / (81) 9 9915-5568</h6>
             <h5 style="color: white; text-shadow: 1px 1px 1px black"><i class="fas fa-map-marker-alt"></i> Surubim - PE</h5>
