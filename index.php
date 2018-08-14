@@ -41,8 +41,8 @@
           <img src="img/logo.png" class="rounded-circle mx-auto d-block mb-5" width="40%">
 
           <center>
-            <h6 style="color: white; text-shadow: 1px 1px 1px black;"><i class="fas fa-phone"></i> (81) 3634-1166 / (81) 9 9915-5568</h6>
-            <h5 style="color: white; text-shadow: 1px 1px 1px black"><i class="fas fa-map-marker-alt"></i> Surubim - PE</h5>
+            <h6 style="color: white; text-shadow: 1px 1px 1px black; font-weight: 400;"><i class="fas fa-phone"></i> (81) 3634-1166 / (81) 9 9915-5568</h6>
+            <h5 style="color: white; text-shadow: 1px 1px 1px black; font-weight: 400;"><i class="fas fa-map-marker-alt"></i> Surubim - PE</h5>
 
             <a href="cardapio.php">
               <button type="button" class="btn btn-primary" style="width: 100%; border-radius: 0; margin-top: 15px; margin-bottom: 15px;"><i class="fas fa-shopping-cart"></i> FAÇA SEU PEDIDO</button>
