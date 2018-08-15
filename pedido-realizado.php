@@ -1,3 +1,15 @@
+<?php 
+
+  session_start();
+  require_once 'core/conexao.php';
+  
+  $sql = $pdo->prepare('SELECT * FROM pedidos WHERE sessao = :sessao');
+  $sql->bindValue(':sessao', $_SESSION['pedido']);
+  $sql->execute();
+
+  $registros = $sql->fetch(PDO::FETCH_OBJ);
+  
+?>
 <!doctype html>
 <html lang="pt-br">
   <head>
@@ -44,17 +56,22 @@
         <div class="col-md-8 text-center">
 
           <div class="bg-white text-center p-3">
-            <h3>ACOMPANHAR PEDIDO</h3>
+            <h3 style="font-weight: 400;">ACOMPANHAR PEDIDO</h3>
             <hr class="mb-3">
 
-            <span class="text-danger">Nº do seu pedido: <b>1651651</b></span>
-            <span>Pedido realizado às: <b>1:03h</b></span>
+            <span class="text-danger">Nº do seu pedido: <b><?php echo $registros->sessao; ?></b></span>
+            <span>Pedido realizado às: <b><?php echo $registros->hora; ?></b></span>
 
             <h5 class="mt-5 mb-3">Status do seu pedido:</h5>
             <hr class="mb-2">
 
             <span class="text-success">
-              <i class="fas fa-check-circle text-success"></i> Pedido atendido
+              <i class="fas fa-check-circle text-success"></i> Recebemos seu pedido
+            </span>
+            <hr class="mb-2">
+
+            <span class="text-muted">
+              <i class="fas fa-check-circle text-secondary"></i> Pedido atendido
             </span>
             <hr class="mb-2">
 
