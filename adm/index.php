@@ -327,42 +327,6 @@
           </div>
           <!-- /EDITAR PRODUTO -->
 
-          <!-- EDITAR PIZZA -->
-          <div id="modal-pizza" class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true" style="z-index: 9999 !important;">
-            <div class="modal-dialog modal-lg">
-              <div class="modal-content" style="padding: 15px;">
-
-                <form action="editarPizza.php" method="post" enctype="multipart/form-data">
-                  <div class="form-group">
-                    <label for="txtSaborPizza">Sabor da pizza</label>
-                    <input type="txt" class="form-control" id="txtSaborPizza" name="txtSaborPizza">
-                  </div>
-
-                  <div class="form-group">
-                    <label for="txtDescricaoPizza">Descrição do Produto</label>
-                    <textarea class="form-control" id="txtDescricaoPizza" name="txtDescricaoPizza"></textarea>
-                  </div>
-
-                  <div class="form-row">
-                    <div class="form-group col-md-6">
-                      <label for="txtPrecoPizza">Preço do Produto</label>
-                      <input type="txt" class="form-control money" id="txtPrecoPizza" name="txtPrecoPizza" maxlength="6">
-                    </div>
-
-                  <div class="form-group">
-                    <label for="upload">Imagem do produto</label>
-                    <input type="file" class="form-control" name="img_pizza" id="upload">
-                    <img id="img" style="width: 15%">
-                  </div>
-
-                  <button type="submit" id="btn-editar" class="btn btn-success">Salvar</button>
-                </form>
-
-              </div>
-            </div>
-          </div>
-          <!-- /EDITAR PIZZA -->
-
         </div>
       </div>
     </div>
