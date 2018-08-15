@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.1
+-- version 4.7.0
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: 09-Ago-2018 às 03:31
--- Versão do servidor: 10.1.33-MariaDB
--- PHP Version: 7.2.6
+-- Generation Time: 15-Ago-2018 às 20:45
+-- Versão do servidor: 10.1.25-MariaDB
+-- PHP Version: 7.1.7
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -60,6 +60,13 @@ CREATE TABLE `carrinho_temporario` (
   `temporario_sessao` varchar(50) COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
+--
+-- Extraindo dados da tabela `carrinho_temporario`
+--
+
+INSERT INTO `carrinho_temporario` (`ID`, `temporario_produto`, `temporario_nome`, `temporario_quantidade`, `temporario_preco`, `temporario_img`, `temporario_data`, `temporario_sessao`) VALUES
+(1, '1', 'Coca-Cola 2L', 1, 800, 'coca-cola-2l.jpg', '2018-08-15 15:34:11', '59795');
+
 -- --------------------------------------------------------
 
 --
@@ -97,17 +104,19 @@ CREATE TABLE `pedidos` (
   `preco` float NOT NULL,
   `valor_total` int(10) NOT NULL,
   `hora` time NOT NULL,
-  `sessao` varchar(15) COLLATE utf8_unicode_ci NOT NULL
+  `sessao` varchar(15) COLLATE utf8_unicode_ci NOT NULL,
+  `status` varchar(100) COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Extraindo dados da tabela `pedidos`
 --
 
-INSERT INTO `pedidos` (`id`, `produto_id`, `produto_nome`, `quantidade`, `preco`, `valor_total`, `hora`, `sessao`) VALUES
-(22, 1, 'Coca-Cola 2L', 1, 500, 0, '11:56:51', '83295'),
-(23, 1, 'Coca-Cola 2L', 1, 700, 0, '19:18:17', '88412'),
-(24, 1, 'Coca-Cola 2L', 5, 700, 0, '18:29:08', '82432');
+INSERT INTO `pedidos` (`id`, `produto_id`, `produto_nome`, `quantidade`, `preco`, `valor_total`, `hora`, `sessao`, `status`) VALUES
+(22, 1, 'Coca-Cola 2L', 1, 500, 0, '11:56:51', '83295', ''),
+(23, 1, 'Coca-Cola 2L', 1, 700, 0, '19:18:17', '88412', ''),
+(24, 1, 'Coca-Cola 2L', 5, 700, 0, '18:29:08', '82432', ''),
+(25, 1, 'Coca-Cola 2L', 1, 800, 0, '15:34:30', '59795', '');
 
 -- --------------------------------------------------------
 
@@ -265,49 +274,41 @@ ALTER TABLE `usuarios`
 --
 ALTER TABLE `adm`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
-
 --
 -- AUTO_INCREMENT for table `carrinho_temporario`
 --
 ALTER TABLE `carrinho_temporario`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
-
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT for table `comentarios`
 --
 ALTER TABLE `comentarios`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
-
 --
 -- AUTO_INCREMENT for table `pedidos`
 --
 ALTER TABLE `pedidos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
-
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 --
 -- AUTO_INCREMENT for table `pizzas`
 --
 ALTER TABLE `pizzas`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
-
 --
 -- AUTO_INCREMENT for table `produtos`
 --
 ALTER TABLE `produtos`
-  MODIFY `prod_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
-
+  MODIFY `prod_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 --
 -- AUTO_INCREMENT for table `promocoes`
 --
 ALTER TABLE `promocoes`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
-
 --
 -- AUTO_INCREMENT for table `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
-COMMIT;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
