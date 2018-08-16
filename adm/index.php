@@ -96,7 +96,7 @@
                         <option selected disabled><?php echo $pedido->status; ?></option>
                         <option value="Pedido atendido">Atender</option>
                         <option value="Pedido pronto">Pedido Pronto</option>
-                        <option value="Pedido retirado">Pedido Retirado</option>
+                        <option value="Pedido saiu para entrega">Pedido Retirado</option>
                       </select>
                     </td>
                     <td>
