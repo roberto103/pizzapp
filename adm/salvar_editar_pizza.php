@@ -9,7 +9,7 @@
 		$diretorio = '../img/produtos/uploads/';
 
 		// Atualiza os dados no banco de dados
-		$sql = $pdo->prepare("UPDATE pizza SET sabor = :sabor, descricao = :descricao, preco = :preco, img_pizza = :img_pizza WHERE id = :id");
+		$sql = $pdo->prepare("UPDATE pizzas SET sabor = :sabor, descricao = :descricao, preco = :preco, img_pizza = :img WHERE id = :id");
 
 		$sql->bindValue(':sabor', $_POST['txtSaborPizza']);
 		$sql->bindValue(':descricao', $_POST['txtDescricaoPizza']);
