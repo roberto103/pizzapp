@@ -115,7 +115,7 @@
 
             <a href="finalizar-pedido.php?ref=<?php echo $mostra['temporario_sessao']; ?>" class="btn btn-success" style="width: 100%; border-radius: 0;">Finalizar pedido</a>
 
-            <center class="mt-3">
+            <center class="mt-3 mb-3">
               <a href="cardapio.php">
                 <i class="fas fa-reply" style="color: #007bff;"></i> CONTINUAR COMPRANDO
               </a>
