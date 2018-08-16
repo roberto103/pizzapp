@@ -1,5 +1,12 @@
 <?php 
 	require_once 'core/consultas.php';
+
+	$p = $pdo->prepare('SELECT * FROM pizzas WHERE id = :id ORDER BY id ASC');
+	$p->bindvalue(':id',$_GET['id']);
+    $p->execute();
+
+    $p = $p->fetch(PDO::FETCH_OBJ);
+
  ?>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
@@ -43,14 +50,16 @@
 
       <form method="POST" action="salvar_editar_pizza.php" enctype="multipart/form-data" style="padding-bottom: 20px;">
 
+      	<input type="hidden" name="id" value="<?php echo $p->id; ?>">
+
         <div class="form-group">
           <label for="txtSaborPizza">Sabor</label>
-          <input type="text" class="form-control" id="txtSaborPizza" name="txtSaborPizza" placeholder="Nome da pizza">
+          <input type="text" class="form-control" id="txtSaborPizza" name="txtSaborPizza" placeholder="Nome da pizza" value="<?php echo $p->sabor; ?>">
         </div>
 
         <div class="form-group">
           <label for="txtPrecoPizza">Preço</label>
-          <input type="text" class="form-control" id="txtPrecoPizza" name="txtPrecoPizza" placeholder="Preço da pizza">
+          <input value="<?php echo decimalTela($p->preco); ?>" type="text" class="form-control" id="txtPrecoPizza" name="txtPrecoPizza" placeholder="Preço da pizza">
         </div>
 
         <div class="form-group">

@@ -2,7 +2,9 @@
 
 	require_once 'core/conexao.php';
 
-	if (isset($_FILES['img_pizza'])) {
+	// if (isset($_FILES['img_pizza']['name'])) {
+
+		echo "1";
 
 		$extensao = strtolower(substr($_FILES['img_pizza']['name'], -4));
 		$novo_nome = md5(time()) . $extensao;
@@ -19,6 +21,6 @@
 		$sql->execute();
 		header('location:index.php');
 
-	}	
+	// }	
 	
  ?>
