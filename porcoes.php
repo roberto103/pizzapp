@@ -68,8 +68,7 @@
 
                 <div id="precoBebidas">
                   <span>R$ <?php echo $porcoes->prod_preco; ?></span>
-                  <input type="hidden" id="produto" value="<?php echo $porcoes->prod_ID ?>">
-                  <a class="comprarProduto">
+                  <a class="comprarProduto" data-id_porcao="<?php echo $porcoes->prod_ID ?>">
                     <button class="btn btn-danger">
                       <i class="fas fa-shopping-cart"></i>
                     </button>
@@ -90,5 +89,35 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
+
+        <script type="text/javascript">
+      $(document).ready(function(){
+
+        $('.comprarProduto').click(function(){
+
+          var produto = $(this).attr('data-id_porcao');
+            
+            $.ajax({
+              url : "comprar.php",
+              type : 'post',
+              data : {
+                   prod : produto
+              },
+              success : function(data){
+                 if (data == 1) {
+                    alert('O Produto foi adicionado ao carrinho.');
+                 } else if(data == 2){
+                    alert('Foi adicionado mais uma unidade desse produto!');
+                 } else {
+                    alert('O Produto não pôde ser adicionado ao carrinho.');
+                 } 
+              }//success
+            });//ajax
+            return false;
+        });//#comprarProduto
+
+      });//documento.ready
+    </script>
+    
   </body>
 </html>

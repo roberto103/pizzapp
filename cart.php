@@ -80,8 +80,7 @@
                     <img class="img-fluid" src="img/produtos/uploads/<?php echo $mostra['temporario_img']; ?>">
                   </div>
                   <h6 class="my-0" style="margin-right: 10px;"><?php echo $mostra['temporario_nome']; ?></h6>
-                  <input type="hidden" id="produto" value="<?php echo $mostra['ID']; ?>">
-                  <a class="removerProduto" href>
+                  <a class="removerProduto" data-id_produto="<?php echo $mostra['ID']; ?>" href>
                     <i class="fas fa-trash-alt" style="color: black;"></i>
                   </a>
                 </div>
@@ -115,7 +114,7 @@
 
             <a href="finalizar-pedido.php?ref=<?php echo $mostra['temporario_sessao']; ?>" class="btn btn-success" style="width: 100%; border-radius: 0;">Finalizar pedido</a>
 
-            <center class="mt-3">
+            <center class="mt-3 mb-3">
               <a href="cardapio.php">
                 <i class="fas fa-reply" style="color: #007bff;"></i> CONTINUAR COMPRANDO
               </a>
@@ -198,7 +197,7 @@
         // REMOVER PRODUTO DO CARRINHO
         $('.removerProduto').click(function(){
 
-            var produto = $("#produto").val();
+            var produto = $(this).attr('data-id_produto');
             
             $.ajax({
               url : "remover.php",
