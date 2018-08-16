@@ -58,8 +58,7 @@
           <?php foreach ($promo as $promocao) {   ?>
 
           <div class="card mb-3" style="border: 0;">
-            <input type="hidden" id="id_promocao" value="<?php echo $promocao->id; ?>">
-            <a class="comprarCombo" href>
+            <a class="comprarCombo" data-id_promocao="<?php echo $promocao->id; ?>" href>
               <img class="card-img-top" src="img/produtos/uploads/<?php echo $promocao->img_promo; ?>" title="<?php echo $promocao->titulo; ?>" alt="<?php echo $promocao->titulo; ?>">
             </a>
             <div class="card-body">
@@ -89,7 +88,7 @@
 
         $('.comprarCombo').click(function(){
 
-            var id_promocao = $("#id_promocao").val();
+            var id_promocao = $(this).attr('data-id_promocao');
             
             $.ajax({
               url : "comprarPromocao.php",

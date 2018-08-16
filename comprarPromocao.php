@@ -78,7 +78,7 @@
 		if ($inserir) {
 			// echo "<script>alert('Produto foi adicionado ao carrinho.');</script>";
 			// echo "<script>window.history.go(-1);</script>";
-			// echo 1;
+			echo 1;
 		}else{
 			// echo "<script>alert('O Produto não pôde ser adicionado ao carrinho.');</script>";
 			echo 0;
