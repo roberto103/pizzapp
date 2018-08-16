@@ -65,10 +65,10 @@
               <h4 class="display-4" style="font-size: 2.5rem;">Pedidos</h4>
               <hr class="mb-3">
               <!-- Filtros dos pedidos -->
-              <button type="button" class="btn btn-warning">Para ser atendidos</button>
+              <!-- <button type="button" class="btn btn-warning">Para ser atendidos</button>
               <button type="button" class="btn btn-warning">Prontos</button>
               <button type="button" class="btn btn-warning">Entregues</button>
-              <hr class="mb-2">
+              <hr class="mb-2"> -->
 
               <table class="table table-hover" id="myTable">
               <thead>
@@ -79,6 +79,7 @@
                   <th scope="col">ID Pedido</th>
                   <th scope="col">Hora</th>
                   <th scope="col">Status</th>
+                  <th scope="col"></th>
                 </tr>
               </thead>
               <tbody>
@@ -91,12 +92,15 @@
                     <td><?php echo $pedido->sessao; ?></td>
                     <td><?php echo $pedido->hora; ?></td>
                     <td>
-                      <select class="custom-select">
-                        <option selected>Status do produto</option>
-                        <option value="atender">Atender</option>
+                      <select class="custom-select" id="status_pedido">
+                        <option selected><?php echo $pedido->status; ?></option>
+                        <option value="atendido">Atender</option>
                         <option value="pronto">Pedido Pronto</option>
                         <option value="retirado">Pedido Retirado</option>
                       </select>
+                    </td>
+                    <td>
+                    	<button class="btn btn-outline-primary btn-status" data-sessao_pedido="<?php echo $pedido->sessao; ?>">OK</button>
                     </td>
                   </tr>
               <?php } ?>
@@ -410,6 +414,30 @@
           $("#btn-editar").attr('data-id',id);
            $('#modal-pizza').modal();
         });
+
+        // Altera status do pedido
+        $('.btn-status').click(function(){
+
+        	var sessao_pedido = $(this).attr('data-sessao_pedido');
+        	var status_pedido = $('#status_pedido').val();
+
+        	$.ajax({
+        		url: 'core/status_pedido.php',
+        		type: 'post',
+        		data: {
+        			status_pedido: status_pedido,
+        			sessao: sessao_pedido
+        		},
+	        	success:function(data){
+	        		if (data == 1) {
+	        			alert('Status do pedido alterado.');
+	        		}else{
+						alert('O status do pedido não pôde ser alterado.');
+	        		}
+	        	}
+        	});
+        });
+        // 
 
         $("#btn-salvar").click(function(){
 
