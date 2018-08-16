@@ -14,16 +14,20 @@
 		$produto_nome = $mostra['temporario_nome'];
 		$produto_quantidade = $mostra['temporario_quantidade'];
 		$produto_preco = $mostra['temporario_preco'];
+
+		$valor_total = ($produto_quantidade*$produto_preco);
+
 		$hora = date('H:i:s');
 		
-		$inserir = $pdo->prepare("INSERT INTO pedidos (produto_id, produto_nome, quantidade, preco, hora, sessao, status) VALUES (:produto_id, :produto_nome, :quantidade, :preco, :hora, :sessao, :status)");
+		$inserir = $pdo->prepare("INSERT INTO pedidos (produto_id, produto_nome, quantidade, preco, valor_total, hora, sessao, status) VALUES (:produto_id, :produto_nome, :quantidade, :preco, :valor_total, :hora, :sessao, :status)");
 		$inserir->bindValue(':produto_id', $produto_id);
 		$inserir->bindValue(':produto_nome', $produto_nome);
 		$inserir->bindValue(':quantidade', $produto_quantidade);
 		$inserir->bindValue(':preco', $produto_preco);
+		$inserir->bindValue(':valor_total', $valor_total);
 		$inserir->bindValue(':hora', $hora);
 		$inserir->bindValue(':sessao', $sessao);
-		$altera->bindValue(':status', 'Aguardando atendimento');
+		$inserir->bindValue(':status', 'Aguardando atendimento');
 		$inserir->execute();
 
 		echo "<script>alert('Pedido finalizado!');</script>";
