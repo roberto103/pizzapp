@@ -70,19 +70,55 @@
             </span>
             <hr class="mb-2">
 
-            <span class="text-muted">
-              <i class="fas fa-check-circle text-secondary"></i> Pedido atendido
-            </span>
+            <!-- PEDIDO ATENDIDO -->
+            <?php if ($registros->status == 'Pedido atendido') { ?>
+              <span class="text-success">
+                <i class="fas fa-check-circle text-success"></i> Pedido atendido
+              </span>
+            <?php } elseif ($registros->status == 'Pedido pronto') { ?>
+              <span class="text-success">
+                <i class="fas fa-check-circle text-success"></i> Pedido atendido
+              </span>
+            <?php } elseif ($registros->status == 'Pedido saiu para entrega') { ?>
+              <span class="text-success">
+                <i class="fas fa-check-circle text-success"></i> Pedido atendido
+              </span>
+            <?php } else { ?>  
+              <span class="text-muted">
+                <i class="fas fa-check-circle text-secondary"></i> Pedido atendido
+              </span>
+            <?php } ?>
             <hr class="mb-2">
+            <!-- /PEDIDO ATENDIDO -->
 
-            <span class="text-muted">
-              <i class="fas fa-check-circle text-secondary"></i> Pedido pronto
-            </span>
+            <!-- PEDIDO PRONTO -->
+            <?php if ($registros->status == 'Pedido pronto') { ?>
+              <span class="text-success">
+                <i class="fas fa-check-circle text-success"></i> Pedido pronto
+              </span>
+            <?php } elseif ($registros->status == 'Pedido saiu para entrega') { ?>
+              <span class="text-success">
+                <i class="fas fa-check-circle text-success"></i> Pedido pronto
+              </span>
+            <?php } else { ?>  
+              <span class="text-muted">
+                <i class="fas fa-check-circle text-secondary"></i> Pedido pronto
+              </span>
+            <?php } ?>
             <hr class="mb-2">
+            <!-- /PEDIDO PRONTO -->
 
-            <span class="text-muted">
-              <i class="fas fa-check-circle text-secondary"></i> Pedido saiu para entrega
-            </span>
+            <!-- PEDIDO SAIU PARA ENTREGA -->
+            <?php if ($registros->status == 'Pedido saiu para entrega') { ?>
+              <span class="text-success">
+                <i class="fas fa-check-circle text-success"></i> Pedido saiu para entrega
+              </span>
+            <?php } else { ?>  
+              <span class="text-muted">
+                <i class="fas fa-check-circle text-secondary"></i> Pedido saiu para entrega
+              </span>
+            <?php } ?>
+            <!-- /PEDIDO SAIU PARA ENTREGA -->
           </div>
 
         </div>
