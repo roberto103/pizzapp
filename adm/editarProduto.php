@@ -2,13 +2,13 @@
 
 	require_once 'core/conexao.php';
 
-	$extensao = strtolower(substr($_FILES['img_promo']['name'], -4));
+	$extensao = strtolower(substr($_POST['prod_img'], -4));
 	$novo_nome = md5(time()) . $extensao;
 	$diretorio = '../img/produtos/uploads/';
 
 	$data = date('Y-m-d H:i:s');
 
-	move_uploaded_file($_FILES['img_promo']['tmp_name'], $diretorio.$novo_nome);
+	//move_uploaded_file($_FILES['upload']['tmp_name'], $diretorio.$novo_nome);
 
 	// Atualiza os dados no banco de dados
 	$sql = $pdo->prepare("UPDATE produtos SET prod_nome = :nome, prod_descricao = :descricao, prod_preco = :preco, prod_tipo = :tipo, prod_img = :img WHERE prod_ID = :id");
@@ -21,7 +21,7 @@
 	$sql->bindValue(':id', $_POST['prod']);
 	$sql->execute();
 
-	if ($sql) {
+	if ($sql->execute()) {
 		echo 1;
 	}else{
 		echo 0;
