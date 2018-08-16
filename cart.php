@@ -161,9 +161,9 @@
 		          },
 		          success : function(data){
 		             if (data == 1) {
-		                alert('OK!');
+		                alert('Quantidade do produto alterada!');
 		             } else {
-		                alert('Erro!');
+		                alert('Erro ao alterar quantidade!');
 		             } 
 		          }//success          
 		        });//ajax
@@ -185,9 +185,9 @@
 		          },
 		          success : function(data){
 		             if (data == 1) {
-		                alert('OK!');
+		                alert('Quantidade do produto alterada!');
 		             } else {
-		                alert('Erro!');
+		                alert('Erro ao alterar quantidade!');
 		             } 
 		          }//success          
 		        });//ajax
