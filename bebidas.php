@@ -68,8 +68,7 @@
 
                 <div id="precoBebidas">
                   <span>R$ <?php echo $bebidas->prod_preco; ?></span>
-                  <input type="hidden" id="produto" value="<?php echo $bebidas->prod_ID ?>">
-                  <a class="comprarProduto">
+                  <a class="comprarProduto" data-id_bebida="<?php echo $bebidas->prod_ID ?>">
                     <button class="btn btn-danger">
                       <i class="fas fa-shopping-cart"></i>
                     </button>
@@ -96,7 +95,7 @@
 
         $('.comprarProduto').click(function(){
 
-            var produto = $("#produto").val();
+          var produto = $(this).attr('data-id_bebida');
             
             $.ajax({
               url : "comprar.php",

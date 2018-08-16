@@ -5,10 +5,10 @@
   	require_once 'core/util.php';
 
 	//Carrega todos os itens da tabela produtos
-	$produto = $_GET['combo'];
+	$combo = $_POST['combo'];
 
-	$consulta = $pdo->prepare('SELECT * FROM pizza WHERE id = :id');
-	$consulta->bindValue(':id', $produto);
+	$consulta = $pdo->prepare('SELECT * FROM promocoes WHERE id = :id');
+	$consulta->bindValue(':id', $combo);
 	$consulta->execute();
 
 	$linhas = $consulta->rowCount();
@@ -22,7 +22,7 @@
 	$nome = $mostra['titulo'];
 	$quantidade = 1;
 	$preco = decimalBanco($mostra['preco_promo']);
-	$img = $mostra['prod_img'];
+	$img = $mostra['img_promo'];
 	$data = date('Y-m-d H:i:s');
 	$rand = rand(1000, 100000);
 	
@@ -36,7 +36,7 @@
 
   	//Verifica se o produto já existe no carrinho_temporario
 	$consulta = $pdo->prepare('SELECT * FROM carrinho_temporario WHERE temporario_produto = :product AND temporario_sessao = :sessao');
-	$consulta->bindValue(':product', $produto);
+	$consulta->bindValue(':product', $combo);
   	$consulta->bindValue(':sessao', $sessao);
 	$consulta->execute();
 
@@ -51,7 +51,7 @@
 		$altera = $pdo->prepare('UPDATE carrinho_temporario SET temporario_quantidade = :val WHERE temporario_sessao = :ses AND temporario_produto = :tp');
 		$altera->bindValue(':val', $valor);
 		$altera->bindValue(':ses', $sessao);
-		$altera->bindValue(':tp', $produto);
+		$altera->bindValue(':tp', $combo);
 		$altera->execute();
 
 		if ($altera) {
@@ -76,8 +76,8 @@
 		$inserir->execute();
 
 		if ($inserir) {
-			/*echo "<script>alert('Produto foi adicionado ao carrinho.');</script>";
-			echo "<script>window.history.go(-1);</script>";*/
+			// echo "<script>alert('Produto foi adicionado ao carrinho.');</script>";
+			// echo "<script>window.history.go(-1);</script>";
 			echo 1;
 		}else{
 			// echo "<script>alert('O Produto não pôde ser adicionado ao carrinho.');</script>";
