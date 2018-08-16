@@ -80,8 +80,7 @@
                     <img class="img-fluid" src="img/produtos/uploads/<?php echo $mostra['temporario_img']; ?>">
                   </div>
                   <h6 class="my-0" style="margin-right: 10px;"><?php echo $mostra['temporario_nome']; ?></h6>
-                  <input type="hidden" id="produto" value="<?php echo $mostra['ID']; ?>">
-                  <a class="removerProduto" href>
+                  <a class="removerProduto" data-id_produto="<?php echo $mostra['ID']; ?>" href>
                     <i class="fas fa-trash-alt" style="color: black;"></i>
                   </a>
                 </div>
@@ -198,7 +197,8 @@
         // REMOVER PRODUTO DO CARRINHO
         $('.removerProduto').click(function(){
 
-            var produto = $("#produto").val();
+            var produto = $(this).attr('data-id_produto');
+            //var produto = $("#produto").val();
             
             $.ajax({
               url : "remover.php",
