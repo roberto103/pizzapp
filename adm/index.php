@@ -75,7 +75,7 @@
                 <tr>
                   <th scope="col">Produto</th>
                   <th scope="col">Quantidade</th>
-                  <th scope="col">Preço</th>
+                  <th scope="col">Valor total</th>
                   <th scope="col">ID Pedido</th>
                   <th scope="col">Hora</th>
                   <th scope="col">Status</th>
@@ -88,15 +88,15 @@
                   <tr>
                     <td scope="row" style="text-transform: capitalize;"><?php echo $pedido->produto_nome; ?></td>
                     <td><?php echo $pedido->quantidade; ?></td>
-                    <td>R$ <?php echo decimalTela($pedido->preco); ?></td>
+                    <td>R$ <?php echo decimalTela($pedido->valor_total); ?></td>
                     <td><?php echo $pedido->sessao; ?></td>
                     <td><?php echo $pedido->hora; ?></td>
                     <td>
                       <select class="custom-select" id="status_pedido">
-                        <option selected><?php echo $pedido->status; ?></option>
-                        <option value="atendido">Atender</option>
-                        <option value="pronto">Pedido Pronto</option>
-                        <option value="retirado">Pedido Retirado</option>
+                        <option selected disabled><?php echo $pedido->status; ?></option>
+                        <option value="Pedido atendido">Atender</option>
+                        <option value="Pedido pronto">Pedido Pronto</option>
+                        <option value="Pedido retirado">Pedido Retirado</option>
                       </select>
                     </td>
                     <td>
