@@ -175,7 +175,7 @@
                       <p class="card-text" id="atualiza_<?php echo $pizza->id; ?>">R$ <?php echo $pizza->preco; ?></p>
                       <div class="btn-group" role="group">
 
-                        <a href="#" class="btn-editar btn btn-outline-primary" data-target="" data-id="<?php echo $pizza->id; ?>" data-sabor="<?php echo $pizza->sabor; ?>" data-descricao="<?php echo $pizza->descricao; ?>" data-preco="<?php echo $pizza->preco; ?>" data-upload="<?php echo $pizza->img_pizza; ?>">Editar</a>
+                        <a href="editar_pizza.php" class="btn-editar btn btn-outline-primary" data-target="" data-id="<?php echo $pizza->id; ?>" data-sabor="<?php echo $pizza->sabor; ?>" data-descricao="<?php echo $pizza->descricao; ?>" data-preco="<?php echo $pizza->preco; ?>" data-upload="<?php echo $pizza->img_pizza; ?>">Editar</a>
 
                         <a href="core/deletarPizza.php?id=<?php echo $pizza->id; ?>" class="btn-deletar btn btn-outline-danger" data-confirm="deletar" data-id="<?php echo $pizza->id; ?>">Excluir</a>
 
