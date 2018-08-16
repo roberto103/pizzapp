@@ -58,7 +58,8 @@
           <?php foreach ($promo as $promocao) {   ?>
 
           <div class="card mb-3" style="border: 0;">
-            <a href="comprarPromocao.php?combo=<?php echo $promocao->id; ?>">
+            <input type="hidden" id="id_promocao" value="<?php echo $promocao->id; ?>">
+            <a class="comprarCombo" href>
               <img class="card-img-top" src="img/produtos/uploads/<?php echo $promocao->img_promo; ?>" title="<?php echo $promocao->titulo; ?>" alt="<?php echo $promocao->titulo; ?>">
             </a>
             <div class="card-body">
@@ -82,5 +83,35 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
+
+    <script type="text/javascript">
+      $(document).ready(function(){
+
+        $('.comprarCombo').click(function(){
+
+            var id_promocao = $("#id_promocao").val();
+            
+            $.ajax({
+              url : "comprarPromocao.php",
+              type : 'post',
+              data : {
+                   combo : id_promocao
+              },
+              success : function(data){
+                 if (data == 1) {
+                    alert('O Produto foi adicionado ao carrinho.');
+                 } else if(data == 2){
+                    alert('Foi adicionado mais uma unidade desse produto!');
+                 } else {
+                    alert('O Produto não pôde ser adicionado ao carrinho.');
+                 } 
+              }//success
+            });//ajax
+            return false;
+        });//#comprarProduto
+
+      });//documento.ready
+    </script>
+
   </body>
 </html>
