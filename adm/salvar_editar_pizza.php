@@ -1,10 +1,9 @@
 <?php 
 
 	require_once 'core/conexao.php';
+	require_once 'core/util.php';
 
 	// if (isset($_FILES['img_pizza']['name'])) {
-
-		echo "1";
 
 		$extensao = strtolower(substr($_FILES['img_pizza']['name'], -4));
 		$novo_nome = md5(time()) . $extensao;
@@ -15,7 +14,7 @@
 
 		$sql->bindValue(':sabor', $_POST['txtSaborPizza']);
 		$sql->bindValue(':descricao', $_POST['txtDescricaoPizza']);
-		$sql->bindValue(':preco', $_POST['txtPrecoPizza']);
+		$sql->bindValue(':preco', decimalBanco($_POST['txtPrecoPizza']));
 		$sql->bindValue(':img', $novo_nome);
 		$sql->bindValue(':id', $_POST['id']);
 		$sql->execute();

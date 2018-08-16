@@ -67,7 +67,7 @@ function dataHoraBanco($pDataHora) {
 */
 function decimalTela($pDecimal) {
 	$pDecimal = $pDecimal/100;
-	return number_format($pDecimal,2,'.','.');
+	return number_format($pDecimal,2,',','.');
 }
 
 /**
