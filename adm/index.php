@@ -408,13 +408,6 @@
            $('#modal-produtos').modal();
         });
 
-        // Editar pizza
-        $(".btn-editar-pizza").click(function(){
-          var id = $(this).attr('data-id');
-          $("#btn-editar").attr('data-id',id);
-           $('#modal-pizza').modal();
-        });
-
         // Altera status do pedido
         $('.btn-status').click(function(){
 
