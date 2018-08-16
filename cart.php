@@ -198,7 +198,6 @@
         $('.removerProduto').click(function(){
 
             var produto = $(this).attr('data-id_produto');
-            //var produto = $("#produto").val();
             
             $.ajax({
               url : "remover.php",
