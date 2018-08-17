@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: 15-Ago-2018 às 20:45
+-- Generation Time: 17-Ago-2018 às 17:40
 -- Versão do servidor: 10.1.25-MariaDB
 -- PHP Version: 7.1.7
 
@@ -60,13 +60,6 @@ CREATE TABLE `carrinho_temporario` (
   `temporario_sessao` varchar(50) COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
---
--- Extraindo dados da tabela `carrinho_temporario`
---
-
-INSERT INTO `carrinho_temporario` (`ID`, `temporario_produto`, `temporario_nome`, `temporario_quantidade`, `temporario_preco`, `temporario_img`, `temporario_data`, `temporario_sessao`) VALUES
-(1, '1', 'Coca-Cola 2L', 1, 800, 'coca-cola-2l.jpg', '2018-08-15 15:34:11', '59795');
-
 -- --------------------------------------------------------
 
 --
@@ -87,8 +80,7 @@ CREATE TABLE `comentarios` (
 
 INSERT INTO `comentarios` (`ID`, `nome`, `email`, `data`, `comentario`) VALUES
 (7, 'Roberto', 'roberto@adm.com', '2018-06-24 00:00:00', 'Lorem Ipsum é simplesmente uma simulação de texto da indústria tipográfica e de impressos, e vem sendo utilizado desde o século XVI, quando um impressor desconhecido pegou uma bandeja de tipos e os embaralhou para fazer um livro de modelos de tipos. Lorem Ipsum sobreviveu não só a cinco séculos, como também ao salto para a editoração eletrônica, permanecendo essencialmente inalterado. Se popularizou na década de 60, quando a Letraset lançou decalques contendo passagens de Lorem Ipsum, e mais recentemente quando passou a ser integrado a softwares de editoração eletrônica como Aldus PageMaker.'),
-(8, 'Mateus', 'mateus@adm.com', '2018-06-24 22:42:59', 'É um fato conhecido de todos que um leitor se distrairá com o conteúdo de texto legível de uma página quando estiver examinando sua diagramação. A vantagem de usar Lorem Ipsum é que ele tem uma distribuição normal de letras, ao contrário de \"Conteúdo aqui, conteúdo aqui\", fazendo com que ele tenha uma aparência similar a de um texto legível. Muitos softwares de publicação e editores de páginas na internet agora usam Lorem Ipsum como texto-modelo padrão, e uma rápida busca por \'lorem ipsum\' mostra vários websites ainda em sua fase de construção. Várias versões novas surgiram ao longo dos anos, eventualmente por acidente, e às vezes de propósito (injetando humor, e coisas do gênero).'),
-(9, 'valsdldv', 'douglasriquinho@hotmail.com', '2018-08-02 00:00:00', 'adsfasdfsdfasdfsadfsdf');
+(8, 'Mateus', 'mateus@adm.com', '2018-06-24 22:42:59', 'É um fato conhecido de todos que um leitor se distrairá com o conteúdo de texto legível de uma página quando estiver examinando sua diagramação. A vantagem de usar Lorem Ipsum é que ele tem uma distribuição normal de letras, ao contrário de \"Conteúdo aqui, conteúdo aqui\", fazendo com que ele tenha uma aparência similar a de um texto legível. Muitos softwares de publicação e editores de páginas na internet agora usam Lorem Ipsum como texto-modelo padrão, e uma rápida busca por \'lorem ipsum\' mostra vários websites ainda em sua fase de construção. Várias versões novas surgiram ao longo dos anos, eventualmente por acidente, e às vezes de propósito (injetando humor, e coisas do gênero).');
 
 -- --------------------------------------------------------
 
@@ -107,16 +99,6 @@ CREATE TABLE `pedidos` (
   `sessao` varchar(15) COLLATE utf8_unicode_ci NOT NULL,
   `status` varchar(100) COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
---
--- Extraindo dados da tabela `pedidos`
---
-
-INSERT INTO `pedidos` (`id`, `produto_id`, `produto_nome`, `quantidade`, `preco`, `valor_total`, `hora`, `sessao`, `status`) VALUES
-(22, 1, 'Coca-Cola 2L', 1, 500, 0, '11:56:51', '83295', ''),
-(23, 1, 'Coca-Cola 2L', 1, 700, 0, '19:18:17', '88412', ''),
-(24, 1, 'Coca-Cola 2L', 5, 700, 0, '18:29:08', '82432', ''),
-(25, 1, 'Coca-Cola 2L', 1, 800, 0, '15:34:30', '59795', '');
 
 -- --------------------------------------------------------
 
@@ -137,7 +119,7 @@ CREATE TABLE `pizzas` (
 --
 
 INSERT INTO `pizzas` (`id`, `sabor`, `preco`, `descricao`, `img_pizza`) VALUES
-(6, 'Atum', 19.00, 'asasasasasasas', '');
+(6, 'Atum', 2088.00, 'Pizza sabor Atum', 'e093a1066b7ce0c4fb19bb7e7f996d61.png');
 
 -- --------------------------------------------------------
 
@@ -163,7 +145,8 @@ INSERT INTO `produtos` (`prod_ID`, `prod_nome`, `prod_descricao`, `prod_preco`, 
 (2, 'Coca-Cola 350ml', 'Refrigerante de Cola', '5,00', 'coca-cola-350ml.jpg', 'Bebidas'),
 (3, 'Fanta Laranja 2L', 'Refrigerante de Laranja', '5,00', 'fanta-laranja-2l.jpg', 'Bebidas'),
 (4, 'Fanta Laranja 350ml', 'Refrigerante de Laranja', '3,00', 'fanta-laranja-350ml.jpg', 'Bebidas'),
-(5, 'Guarana Antartica 2L', 'Refrigerante de Guarana', '7,00', 'guarana-antartica-2l.jpg', 'Porcoes');
+(5, 'Guarana Antartica 2L', 'Refrigerante de Guarana', '7,00', 'guarana-antartica-2l.jpg', 'Porcoes'),
+(6, 'Porção Teste', 'Porção Teste', '5,00', 'guarana-antartica-2l.jpg', 'Porcoes');
 
 -- --------------------------------------------------------
 
@@ -186,8 +169,8 @@ CREATE TABLE `promocoes` (
 --
 
 INSERT INTO `promocoes` (`id`, `titulo`, `desc_promo`, `preco_promo`, `duracao_promo`, `img_promo`, `data`) VALUES
-(3, 'Combo 1', 'Pizza G + Refrigerante 2L', 30.00, '3', '16efb49a8ed3fbbc0bc84666c6ea06f5.png', '2018-08-08 16:14:31'),
-(6, 'Combo 2', 'Pizza G + Refrigerante 2L', 60.00, '7', '4473633781b03784f3d21ad832e40422.png', '2018-08-08 22:12:35');
+(3, 'afsd', 'rtwrywyhw45y', 2500.00, '12', '2a71695b60ae1e9b8b48664e131065e9.png', '2018-08-17 12:39:02'),
+(6, 'Combo 2', 'Pizza G + Refrigerante 2L', 600.00, '7', '655c8462151d579b524e66b853d00c53.png', '2018-08-17 12:29:41');
 
 -- --------------------------------------------------------
 
@@ -278,7 +261,7 @@ ALTER TABLE `adm`
 -- AUTO_INCREMENT for table `carrinho_temporario`
 --
 ALTER TABLE `carrinho_temporario`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=44;
 --
 -- AUTO_INCREMENT for table `comentarios`
 --
@@ -288,7 +271,7 @@ ALTER TABLE `comentarios`
 -- AUTO_INCREMENT for table `pedidos`
 --
 ALTER TABLE `pedidos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
 --
 -- AUTO_INCREMENT for table `pizzas`
 --
@@ -298,7 +281,7 @@ ALTER TABLE `pizzas`
 -- AUTO_INCREMENT for table `produtos`
 --
 ALTER TABLE `produtos`
-  MODIFY `prod_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `prod_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 --
 -- AUTO_INCREMENT for table `promocoes`
 --
