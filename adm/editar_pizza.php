@@ -3,39 +3,37 @@
 
 	$p = $pdo->prepare('SELECT * FROM pizzas WHERE id = :id ORDER BY id ASC');
 	$p->bindvalue(':id',$_GET['id']);
-    $p->execute();
+  $p->execute();
 
-    $p = $p->fetch(PDO::FETCH_OBJ);
+  $p = $p->fetch(PDO::FETCH_OBJ);
 
  ?>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/fontawesome.css" integrity="sha384-GVa9GOgVQgOk+TNYXu7S/InPTfSDTtBalSgkgqQ7sCik56N9ztlkoTr2f/T44oKV" crossorigin="anonymous">
-
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/solid.css" integrity="sha384-Rw5qeepMFvJVEZdSo1nDQD5B6wX0m7c5Z/pLNvjkB14W6Yki1hKbSEQaX9ffUbWe" crossorigin="anonymous">
 
 <div class="container-fluid">
-      <div class="row" >
-        <div class="col-sm-12" style="background-color: #ff8a00 !important; height: 60px; position: absolute; z-index: 9999;">
-        </div> 
-      </div>
-      <div class="row">
-         <div class="col-sm-12" style="height: 100px; background-color: #343a40; color: white;">
-          <div style="float: left;">
-            <span>
-              <i class="fas fa-user-alt" style="margin-top: 70px;"></i>
-            </span>
-          </div>
-          <h6 style="margin-top: 68px; display: inline-block; margin-left: 15px; text-transform: capitalize;">Olá, <?php echo $_SESSION['nome_adm']; ?>!</h6>
-          <div style="display: inline-block; float: right;">
-            <a href="core/doLogout.php">
-              <i class="fas fa-sign-out-alt" style="margin-top: 70px;"></i>
-            </a>
-          </div>
-        </div>
-      </div>
 
-<div class="container-fluid">
+  <div class="row" >
+    <div class="col-sm-12" style="background-color: #ff8a00 !important; height: 60px; position: absolute; z-index: 9999;">
+    </div> 
+  </div>
+  <div class="row mb-4">
+     <div class="col-sm-12" style="height: 100px; background-color: #343a40; color: white;">
+      <div style="float: left;">
+        <span>
+          <i class="fas fa-user-alt" style="margin-top: 70px;"></i>
+        </span>
+      </div>
+      <h6 style="margin-top: 68px; display: inline-block; margin-left: 15px; text-transform: capitalize;">Olá, <?php echo $_SESSION['nome_adm']; ?>!</h6>
+      <div style="display: inline-block; float: right;">
+        <a href="core/doLogout.php">
+          <i class="fas fa-sign-out-alt" style="margin-top: 70px;"></i>
+        </a>
+      </div>
+    </div>
+  </div>
+
   <div class="row">
   	<div class="col-sm-1"></div>
     <div class="col-sm-10" id="novo-produto" style="padding: 0;">
@@ -44,10 +42,10 @@
       <a href="index.php">
         <button class="btn btn-outline-primary" style="margin-top: -20px; margin-left: 10px;">Todas as pizzas</button>
       </a>
-      <hr class="mb-3">
+      <hr class="mb-4">
       
-      <!-- novo produto -->
 
+      <!-- novo produto -->
       <form method="POST" action="salvar_editar_pizza.php" enctype="multipart/form-data" style="padding-bottom: 20px;">
 
       	<input type="hidden" name="id" value="<?php echo $p->id; ?>">
@@ -64,7 +62,7 @@
 
         <div class="form-group">
           <label for="txtDescricaoPizza">Descrição</label>
-          <textarea class="form-control" id="txtDescricaoPizza" name="txtDescricaoPizza" placeholder="Descrição da pizza"></textarea>
+          <textarea class="form-control" id="txtDescricaoPizza" name="txtDescricaoPizza" placeholder="Descrição da pizza"><?php echo $p->descricao; ?></textarea>
         </div>
 
         <div class="form-group">
