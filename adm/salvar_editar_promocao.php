@@ -9,6 +9,8 @@
 		$novo_nome = md5(time()) . $extensao;
 		$diretorio = '../img/produtos/uploads/';
 
+		move_uploaded_file($_FILES['img_promo']['tmp_name'], $diretorio.$novo_nome);
+
 		$data = date('Y-m-d H:i:s');
 
 		// Atualiza os dados no banco de dados
@@ -19,8 +21,8 @@
 		$sql->bindValue(':preco_promo', decimalBanco($_POST['txtPreco']));
 		$sql->bindValue(':img', $novo_nome);
 		$sql->bindValue(':duracao', $_POST['txtDuracao']);
-		$sql->bindValue(':id', $_POST['id']);
 		$sql->bindValue('data', $data);
+		$sql->bindValue(':id', $_POST['id']);
 		$sql->execute();
 		header('location:index.php');
 
