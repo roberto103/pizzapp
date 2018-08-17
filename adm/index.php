@@ -206,7 +206,7 @@
                   <?php foreach ($listarPromocao as $promocao) { ?>
                   <div class="card" style="width: 17rem; display: inline-block; margin-bottom: 10px; margin-right: 10px;">
                     <center>
-                      <img id="img-prod" class="card-img-top" src="../img/produtos/uploads/<?php echo $promocao->img_promo; ?>">
+                      <img class="card-img-top" src="../img/produtos/uploads/<?php echo $promocao->img_promo; ?>">
                     </center>
                     <div class="card-body">
                       <h5 class="card-title" id="atualizaTitle_<?php echo $promocao->id; ?>"><?php echo $promocao->titulo; ?></h5>
