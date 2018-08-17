@@ -92,6 +92,8 @@
               success : function(data){
                  if (data == 1) {
                     window.location = 'cardapio.php';
+                 }else if(data == 2){
+                    alert('Os campos não podem estar vazios');
                  } else {
                     alert('Senha ou email incorretos!');
                  } 

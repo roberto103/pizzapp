@@ -12,27 +12,33 @@ if (Sessao::login($_POST['email'],$_POST['senha']))
 	require_once '../core/util.php';
 	require_once '../core/conexao.php';
 
-	$email = $_POST['email'];
-	$senha = geraHash($_POST['senha'], SALT);
+	if (!empty($_POST['email']) || !empty($_POST['email'])) {
 
-	$buscarUsuario = $pdo->prepare("SELECT * FROM usuarios WHERE email = :email AND senha = :senha");
-	$buscarUsuario->bindValue(":email", $email);
-	$buscarUsuario->bindValue(":senha", $senha);
-	$buscarUsuario->execute();
+		$email = $_POST['email'];
+		$senha = geraHash($_POST['senha'], SALT);
 
-	while ($dado = $buscarUsuario->fetch()) {
-		session_start();
-		$_SESSION['nome'] = $dado['nome'];
-		$_SESSION['id'] = $dado['ID'];
-	}
+		$buscarUsuario = $pdo->prepare("SELECT * FROM usuarios WHERE email = :email AND senha = :senha");
+		$buscarUsuario->bindValue(":email", $email);
+		$buscarUsuario->bindValue(":senha", $senha);
+		$buscarUsuario->execute();
 
-	$rows = $buscarUsuario->rowCount();
-	if ($rows == 1) {
-		$_SESSION['email'] = $email;
-		$_SESSION['senha'] = $senha;
-		echo 1;
+		while ($dado = $buscarUsuario->fetch()) {
+			session_start();
+			$_SESSION['nome'] = $dado['nome'];
+			$_SESSION['id'] = $dado['ID'];
+		}
+
+		$rows = $buscarUsuario->rowCount();
+		if ($rows == 1) {
+			$_SESSION['email'] = $email;
+			$_SESSION['senha'] = $senha;
+			echo 1;
+		}else{
+			echo 0;
+		}
+
 	}else{
-		echo 0;
+		echo 2;
 	}
 
  ?>
