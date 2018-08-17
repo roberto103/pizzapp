@@ -9,6 +9,8 @@
 		$novo_nome = md5(time()) . $extensao;
 		$diretorio = '../img/produtos/uploads/';
 
+		move_uploaded_file($_FILES['img_pizza']['tmp_name'], $diretorio.$novo_nome);
+
 		// Atualiza os dados no banco de dados
 		$sql = $pdo->prepare("UPDATE pizzas SET sabor = :sabor, descricao = :descricao, preco = :preco, img_pizza = :img WHERE id = :id");
 
