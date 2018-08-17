@@ -96,7 +96,7 @@
             </div>
 
             <hr class="mb-2">
-            <button class="btn btn-primary btn-lg btn-block disabled" type="submit" style="border-radius: 0;" id="btSalvar">
+            <button class="btn btn-primary btn-lg btn-block" type="submit" style="border-radius: 0;" id="btSalvar">
               <i class="fas fa-check-circle"></i> Salvar
             </button>
             <hr class="mb-2">
@@ -115,9 +115,9 @@
       $(document).ready(function(){
           $('#txtConfirmar_senha').focusout(function(){
               if ($('#txtSenha').val() == $('#txtConfirmar_senha').val()) {
-                $('#btSalvar').removeClass('disabled');
+                $('#btSalvar').prop('disabled', false);
               } else {
-                $('#btSalvar').addClass('disabled');
+                $('#btSalvar').prop('disabled', true);
               }
           });
 
@@ -150,6 +150,8 @@
                     window.location = 'login.php';
                  }else if (data == 2) {
                     alert('Esse email já está sendo usado!');
+                 }else if (data == 3){
+                    alert('Preencha todos os campos!');
                  }else{
                     alert('Senhas não conferem!');
                  }
