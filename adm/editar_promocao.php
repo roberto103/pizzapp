@@ -48,34 +48,34 @@
       
       <!-- nova promocao -->
 
-      <form method="POST" action="salvar_editar_pizza.php" enctype="multipart/form-data" style="padding-bottom: 20px;">
+      <form method="POST" action="salvar_editar_promocao.php" enctype="multipart/form-data" style="padding-bottom: 20px;">
 
       	<input type="hidden" name="id" value="<?php echo $promocao->id; ?>">
 
         <div class="form-group">
-          <label for="txtSaborPizza">Título</label>
-          <input type="text" class="form-control" id="txtSaborPizza" name="txtSaborPizza" placeholder="Nome da pizza" value="<?php echo $promocao->titulo; ?>">
+          <label for="txtTitulo">Título</label>
+          <input type="text" class="form-control" id="txtTitulo" name="txtTitulo" placeholder="Nome da pizza" value="<?php echo $promocao->titulo; ?>">
         </div>
 
         <div class="form-group">
-          <label for="txtPrecoPizza">Preço</label>
-          <input value="<?php echo decimalTela($promocao->preco); ?>" type="text" class="form-control" id="txtPrecoPizza" name="txtPrecoPizza" placeholder="Preço da pizza">
+          <label for="txtPreco">Preço</label>
+          <input value="<?php echo decimalTela($promocao->preco_promo); ?>" type="text" class="form-control" id="txtPreco" name="txtPreco" placeholder="Preço da pizza">
         </div>
 
         <div class="form-group">
           <label for="txtDuracao">Duração</label>
-          <input value="<?php echo decimalTela($promocao->duracao); ?>" type="text" class="form-control" id="txtPrecoPizza" name="txtPrecoPizza" placeholder="Preço da pizza">
+          <input value="<?php echo $promocao->duracao_promo; ?>" type="text" class="form-control" id="txtDuracao" name="txtDuracao" placeholder="Preço da pizza">
         </div>
 
         <div class="form-group">
-          <label for="txtDescricaoPizza">Descrição</label>
-          <textarea class="form-control" id="txtDescricaoPizza" name="txtDescricaoPizza" placeholder="Descrição da pizza"></textarea>
+          <label for="txtDescricao">Descrição</label>
+          <textarea class="form-control" id="txtDescricao" name="txtDescricao"value="<?php echo $promocao->desc_promo; ?>"placeholder="Descrição da pizza"></textarea>
         </div>
 
         <div class="form-group">
           <label for="upload" style="display: block;">Imagem da pizza</label>
-          <img id="img_pizza" style="width: 15%">
-          <input type="file" class="form-control" name="img_pizza" id="upload_pizza">
+          <img id="img_promo" style="width: 15%">
+          <input type="file" class="form-control" name="img_promo" id="upload_pizza">
         </div>
 
         <button type="submit" class="btn btn-outline-success" style="width: 100%;">Salvar</button>

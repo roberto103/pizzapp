@@ -136,7 +136,7 @@
                       <p class="card-text" id="atualiza_<?php echo $produto->prod_ID; ?>">R$ <?php echo $produto->prod_preco; ?></p>
 											<div class="btn-group" role="group">
 
-												<a href="#" class="btn-editar btn btn-outline-primary" data-id="<?php echo $produto->prod_ID; ?>" data-nome="<?php echo $produto->prod_nome; ?>" data-descricao="<?php echo $produto->prod_descricao; ?>" data-preco="<?php echo $produto->prod_preco; ?>" data-upload="<?php echo $produto->prod_img; ?>" data-tipo="<?php echo $produto->prod_tipo; ?>">Editar</a>
+												<a href="#?<?php $produto->prod_ID;?>" class="btn-editar btn btn-outline-primary" data-id="<?php echo $produto->prod_ID; ?>" data-nome="<?php echo $produto->prod_nome; ?>" data-descricao="<?php echo $produto->prod_descricao; ?>" data-preco="<?php echo $produto->prod_preco; ?>" data-upload="<?php echo $produto->prod_img; ?>" data-tipo="<?php echo $produto->prod_tipo; ?>">Editar</a>
 
 												<a href="core/deletarProduto.php?prod_ID=<?php echo $produto->prod_ID; ?>" class="btn-deletar btn btn-outline-danger" data-confirm="deletar" data-id="<?php echo $produto->prod_ID; ?>" >Excluir</a>
 
@@ -213,7 +213,7 @@
                       <p class="card-text" id="atualizaDesc_<?php echo $promocao->id; ?>"><?php echo $promocao->desc_promo; ?></p>
                       <p class="card-text" id="atualiza_<?php echo $promocao->id; ?>">R$ <?php echo $promocao->preco_promo; ?></p>
                       <div class="btn-group" role="group">
-                        <a href="#" class="btn btn-outline-primary" data-id="<?php echo $promo->id; ?>">Editar</a>
+                        <a href="editar_promocao.php?<?php echo "id=$promocao->id"; ?>" class="btn btn-outline-primary" data-id="<?php echo $promo->id; ?>">Editar</a>
 
                         <a href="core/deletarPromocao.php?id=<?php echo $promocao->id; ?>" class="btn-deletar btn btn-outline-danger" data-confirm="deletar" data-id="<?php echo $promocao->id; ?>">Excluir</a>
 
