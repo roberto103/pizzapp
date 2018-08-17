@@ -31,7 +31,7 @@
       #img-prod{
         float: left;
         width: 60px;
-        margin-left: -20px;
+        margin-left: -5px;
         margin-top: 1px;
         display: inline !important;
       }
@@ -143,8 +143,8 @@
               <!-- LISTA DE SABORES -->
               <?php foreach ($pizza as $pizza) { ?>
               <div class="card w-75" style="margin-bottom: 10px;">
-                <div class="card-body"> <!-- <?php echo $pizza->img_pizza; ?> -->
-                  <img src="img/produtos/coca-cola-2l.jpg" class="img-fluid" id="img-prod">
+                <div class="card-body">
+                  <img src="img/produtos/uploads/<?php echo $pizza->img_pizza; ?>" class="img-fluid" id="img-prod">
                   <h5 class="card-title"><?php echo $pizza->sabor; ?> - R$ <?php echo decimalTela($pizza->preco); ?></h5>
                   <p class="card-text"><?php echo $pizza->descricao; ?></p>
                 </div>
