@@ -28,7 +28,6 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/solid.css" integrity="sha384-Rw5qeepMFvJVEZdSo1nDQD5B6wX0m7c5Z/pLNvjkB14W6Yki1hKbSEQaX9ffUbWe" crossorigin="anonymous">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/fontawesome.css" integrity="sha384-GVa9GOgVQgOk+TNYXu7S/InPTfSDTtBalSgkgqQ7sCik56N9ztlkoTr2f/T44oKV" crossorigin="anonymous">
-
     <link rel="stylesheet" type="text/css" href="css/toast.css">
 
   </head>
@@ -110,13 +109,10 @@
               success : function(data){
                  if (data == 1) {
                     M.toast({html: 'O Produto foi adicionado ao carrinho.'});
-                    // alert('O Produto foi adicionado ao carrinho.');
                  } else if(data == 2){
                     M.toast({html: 'Foi adicionado mais uma unidade desse produto!'});
-                    // alert('Foi adicionado mais uma unidade desse produto!');
                  } else {
                     M.toast({html: 'O Produto não pôde ser adicionado ao carrinho.'});
-                    // alert('O Produto não pôde ser adicionado ao carrinho.');
                  } 
               }//success
             });//ajax
