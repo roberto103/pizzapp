@@ -64,7 +64,8 @@
             </a>
             <div class="card-body">
               <h5 class="card-title" style="text-transform: capitalize;"><?php echo $promocao->titulo; ?></h5>
-              <p class="card-text"><?php echo $promocao->desc_promo; ?><strong>R$ <?php echo number_format($promocao->preco_promo,2,',','.'); ?></strong>
+              <p class="card-text"><?php echo $promocao->desc_promo; ?>
+              <strong class="d-block">R$ <?php echo decimalTela($promocao->preco_promo); ?></strong>
               </p>
             </div>
             <div class="card-footer text-center">
