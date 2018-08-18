@@ -1,13 +1,23 @@
-<?php 
-	require_once 'core/consultas.php';
+<?php
+  
+  require_once 'core/Sessao.php';
+  require_once 'core/conexao.php';
 
-	$p = $pdo->prepare('SELECT * FROM pizzas WHERE id = :id ORDER BY id ASC');
-	$p->bindvalue(':id',$_GET['id']);
+  if (!Sessao::estaLogado()) {
+    header('Location: login.php');
+  }
+
+  // Listar todas as pizzas
+  $p = $pdo->prepare('SELECT * FROM pizzas WHERE id = :id ORDER BY id ASC');
+  $p->bindvalue(':id',$_GET['id']);
   $p->execute();
 
   $p = $p->fetch(PDO::FETCH_OBJ);
 
  ?>
+
+<title>Editar Pizza</title>
+<link rel="shortcut icon" href="../img/favicon.ico" />
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/fontawesome.css" integrity="sha384-GVa9GOgVQgOk+TNYXu7S/InPTfSDTtBalSgkgqQ7sCik56N9ztlkoTr2f/T44oKV" crossorigin="anonymous">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/solid.css" integrity="sha384-Rw5qeepMFvJVEZdSo1nDQD5B6wX0m7c5Z/pLNvjkB14W6Yki1hKbSEQaX9ffUbWe" crossorigin="anonymous">
@@ -57,7 +67,7 @@
 
         <div class="form-group">
           <label for="txtPrecoPizza">Preço</label>
-          <input value="<?php echo decimalTela($p->preco); ?>" type="text" class="form-control" id="txtPrecoPizza" name="txtPrecoPizza" placeholder="Preço da pizza">
+          <input value="<?php echo decimalTela($p->preco); ?>" type="text" class="form-control money2" id="txtPrecoPizza" name="txtPrecoPizza" placeholder="Preço da pizza">
         </div>
 
         <div class="form-group">
@@ -82,6 +92,9 @@
 <script type="text/javascript" src="../js/jquery.mask.js"></script>
 
 <script type="text/javascript">
+
+  $('.money2').mask("0.000,00", {reverse: true});
+
   $('#upload_pizza').change(function(){
     const file = $(this)[0].files[0];
     const fileReader = new FileReader();
