@@ -1,7 +1,16 @@
 <?php 
+	
+ ?>
+ <?php 
 
   require_once 'core/Sessao.php';
   require_once 'core/conexao.php';
+  require_once 'core/util.php';
+
+  $sql = $pdo->prepare('SELECT * FROM carrinho_temporario WHERE ID = ID ORDER BY temporario_data ASC');
+  $sql->execute();
+
+  $carrinho = $sql->fetchAll(PDO::FETCH_OBJ);
 
   if (!Sessao::estaLogado()) {
       header('Location: login.php');
@@ -71,42 +80,24 @@
         </div>
 
       </div>
-      <div class="row">
-        <div class="col-sm-12" style="height: 60px; color: white; margin-top: 15px; border-bottom: solid 1px;">
-            <a href="historico.php" style="color: white;">
-              <h5>
-              <i class="fas fa-shopping-cart"></i> Meus pedidos
-            </h5>
-          </a>
-        </div>
-        <hr class="mb-6">
-        <div class="col-sm-12" style="height: 60px; color: white; margin-top: 15px; border-bottom: solid 1px;">
-            <a href="entrega.php" style="color: white;">
-              <h5>
-              <i class="fas fa-home"></i> Endereço
-            </h5>
-          </a>
-        </div>
-        <hr class="mb-6">
-        <div class="col-sm-12" style="height: 60px; color: white; margin-top: 15px; border-bottom: solid 1px;">
-            <a href="atualizarSenha.php" style="color: white;">
-              <h5>
-              <i class="fas fa-unlock-alt"></i> Alterar senha
-            </h5>
-          </a>
-        </div>
-        <hr class="mb-6">
-        <div class="col-sm-2">
-          
-        </div>
-        <div class="col-sm-8" style="margin-top: 40px;">
-          <a href="critica.php">
-            <button class="btn btn-primary btn-lg btn-block" type="submit" style="border-radius: 0;">
-               Fale conosco
-            </button>
-          </a>
-        </div>
-      </div>
+
+      <br>
+
+      <?php foreach ($carrinho as $cart) {
+      	
+       ?>
+	      <div class="card w-85">
+			  <div class="card-body">
+			    <h6 class="card-title"><?php echo dataTela($cart->temporario_data); ?> || ID: <?php echo $cart->ID; ?> || Preço: R$ <?php echo decimalTela($cart->temporario_preco); ?></h6>
+			    <p class="card-text">Status: Pedido entregue.</p>
+			    <hr class="mb-3">
+			    <a href="#" class="btn btn-primary">Visualizar pedido <i class="fas fa-arrow-right"></i></a>
+			    <a href="#" class="btn btn-primary">Acompanhar</a>
+			  </div>
+			</div>
+
+	  <?php } ?>
+
     </div>
 
     
