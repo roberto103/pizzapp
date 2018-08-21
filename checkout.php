@@ -76,7 +76,7 @@
 						<div class="row">
 							<div class="col-md-6 mb-3">
 								<label for="cc-nome">Nome no cartão</label>
-								<input type="text" class="form-control" id="cc-nome" placeholder="" required>
+								<input style="text-transform: capitalize;" type="text" class="form-control" id="cc-nome" placeholder="" required>
 								<small class="text-muted">Nome completo, como mostrado no cartão.</small>
 								<div class="invalid-feedback">
 									O nome que está no cartão é obrigatório.
@@ -84,7 +84,7 @@
 							</div>
 							<div class="col-md-6 mb-3">
 								<label for="cc-numero">Número do cartão de crédito</label>
-								<input type="text" class="form-control" id="cc-numero" placeholder="" required>
+								<input type="text" class="form-control cc-credit" id="cc-numero" placeholder="" required>
 								<div class="invalid-feedback">
 									O número do cartão de crédito é obrigatório.
 								</div>
@@ -94,14 +94,14 @@
 						<div class="row">
 							<div class="col-md-3 mb-3">
 								<label for="cc-expiracao">Data de expiração</label>
-								<input type="text" class="form-control" id="cc-expiracao" placeholder="" required>
+								<input type="text" class="form-control date" id="cc-expiracao" placeholder="" required>
 								<div class="invalid-feedback">
 									Data de expiração é obrigatória.
 								</div>
 							</div>
 							<div class="col-md-3 mb-3">
 								<label for="cc-cvv">CVV</label>
-								<input type="text" class="form-control" id="cc-cvv" placeholder="" required>
+								<input type="text" class="form-control cvv" id="cc-cvv" placeholder="" required>
 								<div class="invalid-feedback">
 									Código de segurança é obrigatório.
 								</div>
@@ -127,9 +127,17 @@
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
 		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/js/bootstrap.min.js" integrity="sha384-o+RDsa0aLu++PJvFqy8fFScvbHFLtbvScb8AjopnFD+iEQ7wo/CG0xlczd+2O/em" crossorigin="anonymous"></script>
+		<script src="js/jquery.mask.js"></script>
 		<script src="sidebar_includes/js/b4_sidebar.js"></script>
 
 		<script>
+
+			$(document).ready(function(){
+				$('.date').mask('00/00/0000');
+				$('.cc-credit').mask('0000 0000 0000 0000');
+				$('.cvv').mask('000');
+			});
+
 			// Exemplo de JavaScript para desativar o envio do formulário, se tiver algum campo inválido.
 			(function() {
 				'use strict';
