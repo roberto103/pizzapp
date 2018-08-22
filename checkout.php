@@ -58,6 +58,12 @@
 					<h4 class="mb-3">Pagamento</h4>
 					<form class="needs-validation" action="pagseguro/pay.php" novalidate>
 
+						<input type="hidden" name="brand">
+						<input type="hidden" name="token">
+						<input type="hidden" name="senderHash">
+						<input type="hidden" name="amount" value="100.00">
+						<input type="hidden" name="shippingCoast" value="1.00">
+
 						<div class="d-block my-3">
 							<div class="custom-control custom-radio">
 								<input id="credito" name="paymentMethod" type="radio" class="custom-control-input" checked required>
@@ -84,7 +90,7 @@
 							</div>
 							<div class="col-md-6 mb-3">
 								<label for="cc-numero">Número do cartão de crédito</label>
-								<input type="text" class="form-control cc-credit" id="cc-numero" placeholder="" required>
+								<input type="text" class="form-control cc-credit" id="cc-numero" name="cardNumber" placeholder="" required>
 								<div class="invalid-feedback">
 									O número do cartão de crédito é obrigatório.
 								</div>
@@ -94,14 +100,14 @@
 						<div class="row">
 							<div class="col-md-3 mb-3">
 								<label for="cc-expiracao">Data de expiração</label>
-								<input type="text" class="form-control date" id="cc-expiracao" placeholder="" required>
+								<input type="text" class="form-control date" id="cc-expiracao" name="cardExpiry" placeholder="" required>
 								<div class="invalid-feedback">
 									Data de expiração é obrigatória.
 								</div>
 							</div>
 							<div class="col-md-3 mb-3">
 								<label for="cc-cvv">CVV</label>
-								<input type="text" class="form-control cvv" id="cc-cvv" placeholder="" required>
+								<input type="text" class="form-control cvv" id="cc-cvv" name="cardCVC" placeholder="" required>
 								<div class="invalid-feedback">
 									Código de segurança é obrigatório.
 								</div>
@@ -129,6 +135,7 @@
 		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/js/bootstrap.min.js" integrity="sha384-o+RDsa0aLu++PJvFqy8fFScvbHFLtbvScb8AjopnFD+iEQ7wo/CG0xlczd+2O/em" crossorigin="anonymous"></script>
 		<script src="js/jquery.mask.js"></script>
 		<script src="sidebar_includes/js/b4_sidebar.js"></script>
+		<script src="pagseguro/pagseguro.js"></script>
 
 		<script>
 

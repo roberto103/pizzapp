@@ -11,6 +11,6 @@
         $JS_FILE_URL = "https://stc.sandbox.pagseguro.uol.com.br/pagseguro/api/v2/checkout/pagseguro.directpayment.js";
     }
 
-    $PAGSEGURO_EMAIL = 'YOUR_EMAIL';
-    $PAGSEGURO_TOKEN = 'YOUR_TOKEN';
+    $PAGSEGURO_EMAIL = 'c70210207025625405986@sandbox.pagseguro.com.br';
+    $PAGSEGURO_TOKEN = '47BEBF80F33F4AE3B9B518F4C2C5765D';
 ?>
