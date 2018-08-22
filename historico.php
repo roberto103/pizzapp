@@ -94,7 +94,7 @@
 			    <p class="card-text">Status: Pedido entregue.</p>
 			    <hr class="mb-3">
 			    <a href="#" class="btn btn-primary">Visualizar pedido <i class="fas fa-arrow-right"></i></a>
-			    <a href="#" class="btn btn-primary">Acompanhar</a>
+			    <a href="pedido-realizado.php" class="btn btn-primary">Acompanhar</a>
 			  </div>
 			</div>
 
