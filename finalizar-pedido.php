@@ -29,7 +29,9 @@
 		$inserir->bindValue(':sessao', $sessao);
 		$inserir->bindValue(':status', 'Aguardando atendimento');
 		$inserir->execute();
+	}
 
+	if ($inserir) {
 		echo "<script>alert('Pedido finalizado!');</script>";
 		echo "<script>window.history.go(-1);</script>";
 	}
