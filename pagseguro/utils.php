@@ -1,5 +1,5 @@
 <?php 
-    date_default_timezone_set('America/Sao_Paulo');
+    date_default_timezone_set('America/Recife');
     function curlExec($url, $post = NULL, array $header = array()){
         $ch = curl_init($url);
         
