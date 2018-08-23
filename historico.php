@@ -1,22 +1,20 @@
 <?php 
-	
- ?>
- <?php 
 
-  require_once 'core/Sessao.php';
-  require_once 'core/conexao.php';
-  require_once 'core/util.php';
+    require_once 'core/Sessao.php';
+    require_once 'core/conexao.php';
+    require_once 'core/util.php';
 
-  $sql = $pdo->prepare('SELECT * FROM carrinho_temporario WHERE ID = ID ORDER BY temporario_data ASC');
-  $sql->execute();
-
-  $carrinho = $sql->fetchAll(PDO::FETCH_OBJ);
-
-  if (!Sessao::estaLogado()) {
-      header('Location: login.php');
+    if (!Sessao::estaLogado()) {
+        header('Location: login.php');
     }
 
- ?>
+    $sql = $pdo->prepare('SELECT * FROM pedidos WHERE sessao = :sessao ORDER BY id ASC');
+    $sql->bindValue(':sessao', $_SESSION['pedido']);
+    $sql->execute();
+
+    $carrinho = $sql->fetchAll(PDO::FETCH_OBJ);
+
+?>
  <!DOCTYPE html>
 <html lang="pt-br">
   <head>
@@ -80,25 +78,29 @@
             </a>
           </div>
         </div>
-
       </div>
 
-      <br>
+      <div class="row">
+        <div class="col"></div>
 
-      <?php foreach ($carrinho as $cart) {
-      	
-       ?>
-	      <div class="card w-85">
-			  <div class="card-body">
-			    <h6 class="card-title"><?php echo dataTela($cart->temporario_data); ?> || ID: <?php echo $cart->ID; ?> || Preço: R$ <?php echo decimalTela($cart->temporario_preco); ?></h6>
-			    <p class="card-text">Status: Pedido entregue.</p>
-			    <hr class="mb-3">
-			    <a href="#" class="btn btn-primary">Visualizar pedido <i class="fas fa-arrow-right"></i></a>
-			    <a href="pedido-realizado.php" class="btn btn-primary">Acompanhar</a>
-			  </div>
-			</div>
+        <div class="col-md-6">
+        <?php foreach ($carrinho as $cart) { ?>
+          <div class="card mt-3">
+            <div class="card-body">
 
-	  <?php } ?>
+              <h6 class="card-title">Pedido nº <?php echo $cart->id; ?> as <?php echo dataTela($cart->hora); ?>h</h6>
+              Status: <p class="card-text text-success"><?php echo $cart->status; ?></p>
+              <hr class="mb-3">
+              <a href="#" class="btn btn-primary">Visualizar pedido <i class="fas fa-arrow-right"></i></a>
+              <a href="pedido-realizado.php" class="btn btn-primary">Acompanhar</a>
+              
+            </div>
+          </div>
+        <?php } ?>
+        </div>
+
+        <div class="col"></div>
+      </div>
 
     </div>
 
