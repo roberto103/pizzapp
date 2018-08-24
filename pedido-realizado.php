@@ -2,9 +2,11 @@
 
   session_start();
   require_once 'core/conexao.php';
+
+  $sessao = $_SESSION['pedido'];
   
   $sql = $pdo->prepare('SELECT * FROM pedidos WHERE sessao = :sessao');
-  $sql->bindValue(':sessao', $_SESSION['pedido']);
+  $sql->bindValue(':sessao', $sessao);
   $sql->execute();
 
   $registros = $sql->fetch(PDO::FETCH_OBJ);

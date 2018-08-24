@@ -3,7 +3,7 @@
 	session_start();
 	include_once 'core/conexao.php';
 	
-	$sessao = $_SESSION['pedido'];
+	$sessao = $_POST['ref'];
 	$consulta = $pdo->prepare("SELECT * FROM carrinho_temporario WHERE temporario_sessao = :ses");
 	$consulta->bindValue(':ses', $sessao);
 	$consulta->execute();
@@ -29,11 +29,15 @@
 		$inserir->bindValue(':sessao', $sessao);
 		$inserir->bindValue(':status', 'Aguardando atendimento');
 		$inserir->execute();
+
+		// Remove o pedido da tabela carrinho_temporario depois de ter adicionado na tabela de pedidos
+		$delete = $pdo->prepare('DELETE FROM carrinho_temporario WHERE temporario_sessao = :sessao');
+		$delete->bindValue(':sessao', $sessao);
+		$delete->execute();
 	}
 
-	if ($inserir) {
-		echo "<script>alert('Pedido finalizado!');</script>";
-		echo "<script>window.history.go(-1);</script>";
+	if ($inserir && $delete) {
+		echo 1;
 	}
 
 ?>

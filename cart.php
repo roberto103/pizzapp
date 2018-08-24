@@ -28,6 +28,7 @@
     <link rel="stylesheet" type="text/css" href="css/style.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/solid.css" integrity="sha384-wnAC7ln+XN0UKdcPvJvtqIH3jOjs9pnKnq9qX68ImXvOGz2JuFoEiCjT8jyZQX2z" crossorigin="anonymous">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/fontawesome.css" integrity="sha384-HbmWTHay9psM8qyzEKPc8odH4DsOuzdejtnr+OFtDmOcIVnhgReQ4GZBH7uwcjf6" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="css/toast.css">
     <style type="text/css">
       h4{color: white;}label{color: white;}
     </style>
@@ -114,7 +115,7 @@
               </li>
             </ul>
 
-            <a href="finalizar-pedido.php?ref=<?php echo $mostra['temporario_sessao']; ?>" class="btn btn-success" style="width: 100%; border-radius: 0;">Finalizar pedido</a>
+            <button class="btn btn-success btn-lg btn-block btn-finalizar rounded-0" type="submit" data-pedido="<?php echo $mostra['temporario_sessao']; ?>">Finalizar pedido</button>
 
             <center class="mt-3 mb-3">
               <a href="cardapio.php">
@@ -144,10 +145,33 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/js/materialize.min.js"></script>
     <script src="sidebar_includes/js/b4_sidebar.js"></script>
 
     <script type="text/javascript">
 		$(document).ready(function(){
+
+        // FINALIZAR PEDIDO
+        $('.btn-finalizar').click(function(){
+
+            var id_sessao = $(this).attr('data-pedido');
+            
+            $.ajax({
+              url: "finalizar-pedido.php",
+              type: 'post',
+              data: {
+                   ref: id_sessao
+              },
+              success: function(data){
+                 if (data == 1) {
+                    window.location = 'pedido-realizado.php?pedido='+id_sessao;
+                 } else {
+                    M.toast({html: 'Erro ao finalizar pedido!', classes: 'red'});
+                 } 
+              }//success
+            });//ajax
+        });//.btn-finalizar
+
 
 		    $('#qtd_menos').click(function(){
 
@@ -217,7 +241,6 @@
               }//success
             });//ajax
         });//.removerProduto
-
 
 		});//documento.ready
     </script>
