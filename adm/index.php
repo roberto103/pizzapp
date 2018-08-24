@@ -139,7 +139,7 @@
 											<p class="card-text" id="atualiza_<?php echo $produto->prod_ID; ?>">R$ <?php echo $produto->prod_preco; ?></p>
 											<div class="btn-group" role="group">
 
-												<a href="#?<?php $produto->prod_ID;?>" class="btn-editar btn btn-outline-primary" data-id="<?php echo $produto->prod_ID; ?>" data-nome="<?php echo $produto->prod_nome; ?>" data-descricao="<?php echo $produto->prod_descricao; ?>" data-preco="<?php echo $produto->prod_preco; ?>" data-upload="<?php echo $produto->prod_img; ?>" data-tipo="<?php echo $produto->prod_tipo; ?>">Editar</a>
+												<button class="btn-editar btn btn-outline-primary" data-toggle="modal" data-target="#modal-produtos" data-id="<?php echo $produto->prod_ID; ?>" data-nome="<?php echo $produto->prod_nome; ?>" data-descricao="<?php echo $produto->prod_descricao; ?>" data-preco="<?php echo $produto->prod_preco; ?>" data-upload="<?php echo $produto->prod_img; ?>" data-tipo="<?php echo $produto->prod_tipo; ?>">Editar</button>
 
 												<a href="core/deletarProduto.php?prod_ID=<?php echo $produto->prod_ID; ?>" class="btn-deletar btn btn-outline-danger" data-confirm="deletar" data-id="<?php echo $produto->prod_ID; ?>" >Excluir</a>
 
@@ -439,12 +439,12 @@
 					var href = $(this).attr('href');
 					$('#nova-promocao').load(href+'#nova-promocao');
 				});
-				
 
-				$(".btn-editar").click(function(){
-					var id = $(this).attr('data-id');
-					$("#btn-salvar").attr('data-id',id);
-					 $('#modal-produtos').modal();
+				// Carregamento da página de editar pizza
+				$('#editar_pizzas a').click(function(e){
+					e.preventDefault();
+					var href = $(this).attr('href');
+					$('#nova-pizza').load(href+'#nova-pizza');
 				});
 
 				// Altera status do pedido
@@ -513,19 +513,30 @@
 			// Exibir tudo sobre o produto
 
 			// Abri o modal
-			$(".btn-mostrar_pedido").click(function(){
-					var id = $(this).attr('data-id');
-					var id_pedido = $(this).attr('data-id_pedido');
-					var pedido = $(this).attr('data-pedido');
-					var qtd = $(this).attr('data-qtd');
-					var valor = $(this).attr('data-valor');
-					var desc = $(this).attr('data-desc');
-					var hora = $(this).attr('data-hora');
-					var status = $(this).attr('data-status');
+			// $(".btn-editar").click(function(){
+			// 		var id = $(this).attr('data-id');
+			// 		$("#btn-salvar").attr('data-id',id);
+			// 		 $('#modal-produtos').modal();
+			// 	});
 
-					$("#btn-salvar").attr('data-id',id);
-					$('#modal-mostrar_pedido').modal();
-			});
+
+		      $('#modal-produtos').on('show.bs.modal', function (event) {
+		        var button = $(event.relatedTarget) // Button that triggered the modal
+		        var recipient_id = button.data('id') // Extract info from data-* attributes
+		        var recipient_preco = button.data('valor')
+		        var recipient_desc = button.data('descricao')
+		        var recipient_upload = button.data('upload')
+		        var recipient_nome = button.data('nome')
+		        var recipient_tipo = button.data('tipo')
+
+		        var modal = $(this)
+
+		        modal.find('#txtDescricaoProduto').val(recipient_desc)
+		        modal.find('#txtPrecoProduto').val(recipient_preco)
+		        modal.find('#upload').val(recipient_upload)
+		        modal.find('#txtNomeProduto').val(recipient_nome)
+		        modal.find('#tiposProduto').val(recipient_tipo)
+		      })
 
 
 		</script>
