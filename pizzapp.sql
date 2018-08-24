@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: 17-Ago-2018 às 17:40
+-- Generation Time: 24-Ago-2018 às 21:26
 -- Versão do servidor: 10.1.25-MariaDB
 -- PHP Version: 7.1.7
 
@@ -92,6 +92,7 @@ CREATE TABLE `pedidos` (
   `id` int(11) NOT NULL,
   `produto_id` int(10) NOT NULL,
   `produto_nome` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
+  `descricao` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `quantidade` int(10) NOT NULL,
   `preco` float NOT NULL,
   `valor_total` int(10) NOT NULL,
@@ -169,7 +170,7 @@ CREATE TABLE `promocoes` (
 --
 
 INSERT INTO `promocoes` (`id`, `titulo`, `desc_promo`, `preco_promo`, `duracao_promo`, `img_promo`, `data`) VALUES
-(3, 'afsd', 'rtwrywyhw45y', 2500.00, '12', '2a71695b60ae1e9b8b48664e131065e9.png', '2018-08-17 12:39:02'),
+(3, 'Combo 1', 'Pizza M + Porção de Bata frita', 2500.00, '12', '2a71695b60ae1e9b8b48664e131065e9.png', '2018-08-17 12:39:02'),
 (6, 'Combo 2', 'Pizza G + Refrigerante 2L', 600.00, '7', '655c8462151d579b524e66b853d00c53.png', '2018-08-17 12:29:41');
 
 -- --------------------------------------------------------
@@ -261,17 +262,17 @@ ALTER TABLE `adm`
 -- AUTO_INCREMENT for table `carrinho_temporario`
 --
 ALTER TABLE `carrinho_temporario`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=44;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
 --
 -- AUTO_INCREMENT for table `comentarios`
 --
 ALTER TABLE `comentarios`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 --
 -- AUTO_INCREMENT for table `pedidos`
 --
 ALTER TABLE `pedidos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 --
 -- AUTO_INCREMENT for table `pizzas`
 --
@@ -291,7 +292,7 @@ ALTER TABLE `promocoes`
 -- AUTO_INCREMENT for table `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;COMMIT;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
