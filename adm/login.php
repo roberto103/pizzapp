@@ -10,13 +10,12 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="css/signin.css">
 
-    <link rel="stylesheet" type="text/css" href="sidebar_includes/css/b4_sidebar.css">
-
   </head>
 
   <body class="text-center">
+
     <form class="form-signin">
-      <img class="mb-4" src="" alt="" width="72" height="72">
+      <img class="mb-4 rounded-circle" src="../img/logo.png" alt="Logo" width="120" height="120">
 
       <h1 class="h3 mb-3 font-weight-normal">Logue-se, por favor.</h1>
       <label for="email" class="sr-only">Email</label>
@@ -34,8 +33,7 @@
       <p class="mt-5 mb-3 text-muted">&copy; Copyright 2018 por Império Sistemas. All Rights Reserved.</p>
 
     </form>
-
-    <script src="sidebar_includes/js/b4_sidebar.js"></script>
+    
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
     <script type="text/javascript">
