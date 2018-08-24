@@ -166,7 +166,7 @@
                  if (data == 1) {
                     window.location = 'pedido-realizado.php?pedido='+id_sessao;
                  } else {
-                    M.toast({html: 'Erro ao finalizar pedido!'});
+                    M.toast({html: 'Erro ao finalizar pedido!', classes: 'red'});
                  } 
               }//success
             });//ajax
