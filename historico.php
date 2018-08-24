@@ -8,7 +8,7 @@
         header('Location: login.php');
     }
 
-    $sql = $pdo->prepare('SELECT * FROM pedidos WHERE sessao = :sessao ORDER BY id ASC');
+    $sql = $pdo->prepare('SELECT * FROM pedidos WHERE sessao = :sessao ORDER BY id DESC');
     $sql->bindValue(':sessao', $_SESSION['pedido']);
     $sql->execute();
 
