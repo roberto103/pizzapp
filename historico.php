@@ -8,9 +8,13 @@
         header('Location: login.php');
     }
 
+    $sessao = @$_SESSION['pedido'];
+
     $sql = $pdo->prepare('SELECT * FROM pedidos WHERE sessao = :sessao ORDER BY id DESC');
-    $sql->bindValue(':sessao', $_SESSION['pedido']);
+    $sql->bindValue(':sessao', $sessao);
     $sql->execute();
+
+    $linhas = $sql->rowCount();
 
     $carrinho = $sql->fetchAll(PDO::FETCH_OBJ);
 
@@ -34,7 +38,7 @@
 
   </head>
   <body>
-    <div class="container-fluid">
+    <div class="container-fluid"> <!-- div container-fluid -->
       <div class="row" >
         <nav class="navbar navbar-expand-lg navbar-light bg-danger sidebarNavigation" data-sidebarClass="navbar-light bg-danger" style=" width: 100%; position: absolute; z-index: 9999; background-color: #bd2130 !important;">
               <button class="navbar-toggler leftNavbarToggler" type="button" data-toggle="collapse" data-target="#navbarMenu" aria-controls="navbarMenu" aria-expanded="false" aria-label="Toggle navigation">
@@ -55,7 +59,7 @@
         </nav>
       </div>
       
-      <div class="row">
+      <div class="row"> <!-- div row -->
          <div class="col-sm-12" style="height: 100px; background-color: #343a40; color: white;">
           <div style="float: left;">
             <span>
@@ -78,13 +82,24 @@
             </a>
           </div>
         </div>
-      </div>
+      </div> <!-- div row -->
 
       <div class="row">
         <div class="col"></div>
 
         <div class="col-md-6">
-        <?php foreach ($carrinho as $cart) { ?>
+        <?php if ($linhas == 0): ?> <!-- Carrinho vazio -->
+          
+          <div id="carrinho-vazio" class="text-center mt-4">
+            <img src="img/carrinho-vazio.png">
+            
+            <a href="cardapio.php">
+              <i class="fas fa-reply" style="color: #007bff;"></i> CONTINUAR COMPRANDO
+            </a>
+          </div> <!-- Carrinho vazio -->
+
+        <?php else: ?> <!-- carrinho com itens -->
+          <?php foreach ($carrinho as $cart) { ?> <!-- Abrindo o foreach -->
           <div class="card mt-3">
             <div class="card-body">
 
@@ -95,14 +110,17 @@
               <a href="pedido-realizado.php" class="btn btn-primary">Acompanhar</a>
               
             </div>
-          </div>
-        <?php } ?>
+          </div> 
+        <?php } ?> <!-- /Fechando o foreach -->
+                    <!-- /carrinho com itens -->
+
+        <?php endif ?>
         </div>
 
         <div class="col"></div>
       </div>
 
-    </div>
+    </div> <!-- /div container fluid -->
 
     
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
