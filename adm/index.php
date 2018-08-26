@@ -73,24 +73,21 @@
 							<table class="table table-hover" id="myTable">
 							<thead>
 								<tr>
-									<!-- <th scope="col">Valor total</th> -->
 									<th scope="col">ID Pedido</th>
 									<th scope="col">Hora</th>
 									<th scope="col">Pedido</th>
 									<th scope="col">Status</th>
-									<!-- <th scope="col"></th> -->
 								</tr>
 							</thead>
 							<tbody>
 
 							<?php foreach ($registros as $pedido){ ?>
 									<tr>
-										<!-- <td>R$ <?php echo decimalTela($pedido->valor_total); ?></td> -->
 										<td scope="row"><?php echo $pedido->sessao; ?></td>
 										<td><?php echo $pedido->hora; ?></td>
 										<td>
 											<center>
-												<button class="btn btn-outline-primary btn-mostrar_pedido" data-id="<?php echo $pedido->id; ?>" data-id_pedido="<?php echo $pedido->sessao; ?>" data-pedido="" data-qtd="" data-valor="" data-desc="" data-hora="" data-status="">Ver pedido</button>
+												<button class="btn btn-outline-primary btn-mostrar_pedido" data-toggle="modal" data-target="#modal-mostrar_pedido" data-id="<?php echo $pedido->id; ?>" data-id_pedido="<?php echo $pedido->sessao; ?>" data-valor="<?php echo decimalTela($pedido->valor_total); ?>" data-desc="<?php echo $pedido->descricao; ?>" data-hora="<?php echo $pedido->hora; ?>" data-status="<?php echo $pedido->status; ?>">Ver pedido</button>
 											</center>
 										</td>
 										<td>
@@ -102,9 +99,6 @@
 											</select>
 											<button class="btn btn-outline-primary btn-status" data-sessao_pedido="<?php echo $pedido->sessao; ?>">OK</button>
 										</td>
-										<!-- <td>
-											<button class="btn btn-outline-primary btn-status" data-sessao_pedido="<?php echo $pedido->sessao; ?>">OK</button>
-										</td> -->
 									</tr>
 							<?php } ?>
 
@@ -339,24 +333,21 @@
 					  <div class="modal-dialog modal-lg" role="document">
 					    <div class="modal-content">
 					      <div class="modal-header">
-					        <h5 class="modal-title" id="exampleModalLabel">Pedido número: </h5>
+					        <h5 class="modal-title" id="exampleModalLabel"></h5>
 					        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
 					          <span aria-hidden="true">&times;</span>
 					        </button>
 					      </div>
 					      <div class="modal-body">
 					      	<h5>Produtos:</h5>
-					        <span>prod 1</span><br>
-					        <span>prod 1</span><br>
-					        <span>prod 1</span><br>
-					        <span>prod 1</span>
+					        <span id="descricao"></span>
 					        <hr>
 
 					        <h5 class="mt-3 d-inline">Valor total:</h5>
-					        <span>R$ 34,23</span>
+					        <span id="valor"></span>
 
 					        <h5 class="mt-3 d-inline ml-3">Hora:</h5>
-					        <span>19:34</span>
+					        <span id="hora"></span>
 
 
 					      </div>
@@ -509,34 +500,45 @@
 				}); //btn-salvar
 			});
 
-		
-			// Exibir tudo sobre o produto
 
-			// Abri o modal
-			// $(".btn-editar").click(function(){
-			// 		var id = $(this).attr('data-id');
-			// 		$("#btn-salvar").attr('data-id',id);
-			// 		 $('#modal-produtos').modal();
-			// 	});
+			// MODAL PARA EDITAR PRODUTOS
+			$('#modal-produtos').on('show.bs.modal', function (event) {
+				var button = $(event.relatedTarget) // Button that triggered the modal
+				var recipient_id = button.data('id') // Extract info from data-* attributes
+				var recipient_preco = button.data('valor')
+				var recipient_desc = button.data('descricao')
+				var recipient_upload = button.data('upload')
+				var recipient_nome = button.data('nome')
+				var recipient_tipo = button.data('tipo')
+
+				var modal = $(this)
+
+				modal.find('#txtDescricaoProduto').val(recipient_desc)
+				modal.find('#txtPrecoProduto').val(recipient_preco)
+				modal.find('#upload').val(recipient_upload)
+				modal.find('#txtNomeProduto').val(recipient_nome)
+				modal.find('#tiposProduto').val(recipient_tipo)
+			})
 
 
-		      $('#modal-produtos').on('show.bs.modal', function (event) {
-		        var button = $(event.relatedTarget) // Button that triggered the modal
-		        var recipient_id = button.data('id') // Extract info from data-* attributes
-		        var recipient_preco = button.data('valor')
-		        var recipient_desc = button.data('descricao')
-		        var recipient_upload = button.data('upload')
-		        var recipient_nome = button.data('nome')
-		        var recipient_tipo = button.data('tipo')
+			// MOSTRAR PEDIDOS
+			$('#modal-mostrar_pedido').on('show.bs.modal', function (event) {
+				var button = $(event.relatedTarget) // Button that triggered the modal
+				var recipient_id = button.data('id') // Extract info from data-* attributes
+				var recipient_preco = button.data('valor')
+				var recipient_desc = button.data('desc')
+				var recipient_hora = button.data('hora')
+				var recipient_status = button.data('status')
+				// If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
+				// Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
+				var modal = $(this)
+				modal.find('.modal-title').text('Pedido número: ' + recipient_id)
 
-		        var modal = $(this)
-
-		        modal.find('#txtDescricaoProduto').val(recipient_desc)
-		        modal.find('#txtPrecoProduto').val(recipient_preco)
-		        modal.find('#upload').val(recipient_upload)
-		        modal.find('#txtNomeProduto').val(recipient_nome)
-		        modal.find('#tiposProduto').val(recipient_tipo)
-		      })
+				modal.find('#descricao').html(recipient_desc)
+				modal.find('#valor').html('R$ ' + recipient_preco)
+				modal.find('#hora').html(recipient_hora + ' Hrs')
+				modal.find('#status').html(recipient_status)
+			})
 
 
 		</script>
