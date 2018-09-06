@@ -18,10 +18,7 @@
 		$valor_total = ($produto_quantidade * $produto_preco);
 		$hora = date('H:i:s');
 
-		
-		for ($i=0; $i < $linhas; $i++) { 
-			$descricao = $produto_nome.' - '.$produto_quantidade.' Unidades </br>';
-		}
+		@$descricao = $descricao . $produto_nome.' - '.$produto_quantidade.' Unidades </br>';
 
 	}
 
