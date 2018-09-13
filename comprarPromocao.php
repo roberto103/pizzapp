@@ -69,7 +69,7 @@
 		$inserir->bindValue(':temporario_produto', $id);
 		$inserir->bindValue(':temporario_nome', $nome);
 		$inserir->bindValue(':temporario_quantidade', $quantidade);
-		$inserir->bindValue(':temporario_preco', $preco);
+		$inserir->bindValue(':temporario_preco', decimalBanco($preco));
 		$inserir->bindValue(':temporario_img', $img);
 		$inserir->bindValue(':temporario_data', $data);
 		$inserir->bindValue(':temporario_sessao', $sessao);
