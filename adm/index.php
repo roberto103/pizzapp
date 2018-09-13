@@ -2,6 +2,11 @@
 
 	require_once 'core/consultas.php';
 
+	function decimalTelaPromo($pDecimal) {
+    $pDecimal = $pDecimal/1;
+    return number_format($pDecimal,2,',','.');
+  }
+
  ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -208,7 +213,7 @@
 										<div class="card-body">
 											<h5 class="card-title" id="atualizaTitle_<?php echo $promocao->id; ?>"><?php echo $promocao->titulo; ?></h5>
 											<p class="card-text" id="atualizaDesc_<?php echo $promocao->id; ?>"><?php echo $promocao->desc_promo; ?></p>
-											<p class="card-text" id="atualiza_<?php echo $promocao->id; ?>">R$ <?php echo decimalTela($promocao->preco_promo); ?></p>
+											<p class="card-text" id="atualiza_<?php echo $promocao->id; ?>">R$ <?php echo decimalTelaPromo($promocao->preco_promo); ?></p>
 											<div class="btn-group" role="group">
 												<a href="editar_promocao.php?<?php echo "id=$promocao->id"; ?>" class="btn btn-outline-primary" data-id="<?php echo $promo->id; ?>">Editar</a>
 
