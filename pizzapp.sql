@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: 24-Ago-2018 às 21:26
+-- Generation Time: 14-Set-2018 às 17:25
 -- Versão do servidor: 10.1.25-MariaDB
 -- PHP Version: 7.1.7
 
@@ -51,6 +51,7 @@ INSERT INTO `adm` (`ID`, `nome`, `email`, `senha`) VALUES
 
 CREATE TABLE `carrinho_temporario` (
   `ID` int(11) NOT NULL,
+  `ID_usuarios` int(11) NOT NULL,
   `temporario_produto` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
   `temporario_nome` varchar(150) COLLATE utf8_unicode_ci NOT NULL,
   `temporario_quantidade` int(10) NOT NULL,
@@ -59,6 +60,14 @@ CREATE TABLE `carrinho_temporario` (
   `temporario_data` datetime NOT NULL,
   `temporario_sessao` varchar(50) COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Extraindo dados da tabela `carrinho_temporario`
+--
+
+INSERT INTO `carrinho_temporario` (`ID`, `ID_usuarios`, `temporario_produto`, `temporario_nome`, `temporario_quantidade`, `temporario_preco`, `temporario_img`, `temporario_data`, `temporario_sessao`) VALUES
+(1, 1, '1', 'Coca-Cola 2L', 1, 800, 'coca-cola-2l.jpg', '2018-09-13 15:50:53', '18046'),
+(2, 0, '2', 'Coca-Cola 350ml', 1, 500, 'coca-cola-350ml.jpg', '2018-09-13 15:50:54', '18046');
 
 -- --------------------------------------------------------
 
@@ -91,15 +100,23 @@ INSERT INTO `comentarios` (`ID`, `nome`, `email`, `data`, `comentario`) VALUES
 CREATE TABLE `pedidos` (
   `id` int(11) NOT NULL,
   `produto_id` int(10) NOT NULL,
-  `produto_nome` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
+  `cliente_nome` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `endereco` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `ponto_referencia` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `descricao` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `quantidade` int(10) NOT NULL,
-  `preco` float NOT NULL,
   `valor_total` int(10) NOT NULL,
   `hora` time NOT NULL,
   `sessao` varchar(15) COLLATE utf8_unicode_ci NOT NULL,
   `status` varchar(100) COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Extraindo dados da tabela `pedidos`
+--
+
+INSERT INTO `pedidos` (`id`, `produto_id`, `cliente_nome`, `endereco`, `ponto_referencia`, `descricao`, `valor_total`, `hora`, `sessao`, `status`) VALUES
+(9, 2, 'Roberto', 'sasasasasa', 'sasasasasa', 'Coca-Cola 350ml - 1 Unidades </br>', 500, '16:40:25', '98393', 'Aguardando atendimento'),
+(10, 2, 'Roberto', 'sasasasasa', 'sasasasasa', 'Coca-Cola 2L - 1 Unidades </br>Coca-Cola 350ml - 1 Unidades </br>', 500, '12:12:38', '40861', 'Aguardando atendimento');
 
 -- --------------------------------------------------------
 
@@ -211,7 +228,8 @@ ALTER TABLE `adm`
 -- Indexes for table `carrinho_temporario`
 --
 ALTER TABLE `carrinho_temporario`
-  ADD PRIMARY KEY (`ID`);
+  ADD PRIMARY KEY (`ID`),
+  ADD KEY `ID_usuarios` (`ID_usuarios`);
 
 --
 -- Indexes for table `comentarios`
@@ -262,7 +280,7 @@ ALTER TABLE `adm`
 -- AUTO_INCREMENT for table `carrinho_temporario`
 --
 ALTER TABLE `carrinho_temporario`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT for table `comentarios`
 --
@@ -272,7 +290,7 @@ ALTER TABLE `comentarios`
 -- AUTO_INCREMENT for table `pedidos`
 --
 ALTER TABLE `pedidos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 --
 -- AUTO_INCREMENT for table `pizzas`
 --
@@ -292,7 +310,7 @@ ALTER TABLE `promocoes`
 -- AUTO_INCREMENT for table `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;COMMIT;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
