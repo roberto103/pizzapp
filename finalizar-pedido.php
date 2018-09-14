@@ -17,7 +17,7 @@
 	
 	foreach ($consulta as $mostra) {
 
-		$cliente_nome = $mostra['nome'];
+		$cliente_nome = $mostra['nome'].' '.$mostra['sobrenome'];
 		$endereco = $mostra['endereco'];
 		$ponto_referencia = $mostra['ponto_de_referencia'];
 
@@ -47,7 +47,7 @@
 	$inserir->bindValue(':status', 'Aguardando atendimento');
 	$inserir->execute();
 
-	// // // Remove o pedido da tabela carrinho_temporario depois de ter adicionado na tabela de pedidos
+	// Remove o pedido da tabela carrinho_temporario depois de ter adicionado na tabela de pedidos
 	$delete = $pdo->prepare('DELETE FROM carrinho_temporario WHERE temporario_sessao = :sessao');
 	$delete->bindValue(':sessao', $sessao);
 	$delete->execute();
