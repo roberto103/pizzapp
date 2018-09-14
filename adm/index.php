@@ -32,7 +32,7 @@
 	<body>
 		<div class="container-fluid">
 			<div class="row" >
-				<div class="col-sm-12" style="background-color: #ff8a00 !important; height: 60px; position: absolute; z-index: 9999;">
+				<div class="col-sm-12" style="background-color: #ff8a00 !important; height: 60px; position: absolute; z-index: 999;">
 				</div> 
 			</div>
 			<div class="row">
@@ -92,7 +92,7 @@
 										<td><?php echo $pedido->hora; ?></td>
 										<td>
 											<center>
-												<button class="btn btn-outline-primary btn-mostrar_pedido" data-toggle="modal" data-target="#modal-mostrar_pedido" data-id="<?php echo $pedido->id; ?>" data-id_pedido="<?php echo $pedido->sessao; ?>" data-valor="<?php echo decimalTela($pedido->valor_total); ?>" data-desc="<?php echo $pedido->descricao; ?>" data-hora="<?php echo $pedido->hora; ?>" data-endereco="<?php echo $pedido->endereco; ?>" data-cliente="<?php echo $pedido->quantidade; ?>" data-status="<?php echo $pedido->status; ?>">Ver pedido</button>
+												<button class="btn btn-outline-primary btn-mostrar_pedido" data-toggle="modal" data-target="#modal-mostrar_pedido" data-id="<?php echo $pedido->id; ?>" data-id_pedido="<?php echo $pedido->sessao; ?>" data-valor="<?php echo decimalTela($pedido->valor_total); ?>" data-desc="<?php echo $pedido->descricao; ?>" data-hora="<?php echo $pedido->hora; ?>" data-endereco="<?php echo $pedido->endereco; ?>" data-referencia="<?php echo $pedido->ponto_referencia; ?>" data-cliente="<?php echo $pedido->cliente_nome; ?>" data-status="<?php echo $pedido->status; ?>">Ver pedido</button>
 											</center>
 										</td>
 										<td>
@@ -348,21 +348,25 @@
 					        <span id="descricao"></span>
 					        <hr>
 
-					        <h5 class="mt-4 d-inline">Endereço:</h5>
-					        <span id="endereco"></span>
+					        <div>
+					        	<h5 class="d-inline">Endereço:</h5>
+						        <span id="endereco"></span>
 
-					        <h5 class="ml-3 d-inline">Referência:</h5>
-					        <span id="referencia"></span><br>
+						        <h5 class="ml-3 d-inline">Referência:</h5>
+						        <span id="referencia"></span><br>
+					        </div>
 
-					        <h5 class="mt-4 d-inline">Cliente:</h5>
-					        <span id="endereco">aaaaaaaaaaaaa</span>
-					        <br>
+					        <div class="mt-1">
+					        	<h5 class="mt-4 d-inline">Cliente:</h5>
+						        <span id="nomeCliente"></span>
+								<br>
+					        </div>
 
 					        <div class="mt-4">
-						        <h5 class="mt-4 d-inline">Valor total:</h5>
+						        <h5 class="d-inline">Valor total:</h5>
 						        <span id="valor"></span>
 
-						        <h5 class="mt-4 d-inline ml-3">Hora:</h5>
+						        <h5 class="d-inline ml-3">Hora:</h5>
 						        <span id="hora"></span>
 					        </div>
 
@@ -545,6 +549,8 @@
 				var recipient_desc = button.data('desc')
 				var recipient_hora = button.data('hora')
 				var recipient_endereco = button.data('endereco')
+				var recipient_referencia = button.data('referencia')
+				var recipient_cliente_nome = button.data('cliente')
 				var recipient_status = button.data('status')
 				// If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
 				// Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
@@ -555,6 +561,8 @@
 				modal.find('#valor').html('R$ ' + recipient_preco)
 				modal.find('#hora').html(recipient_hora + ' Hrs')
 				modal.find('#endereco').html('Rua ' + recipient_endereco)
+				modal.find('#referencia').html(recipient_referencia)
+				modal.find('#nomeCliente').html(recipient_cliente_nome)
 				modal.find('#status').html(recipient_status)
 			})
 
