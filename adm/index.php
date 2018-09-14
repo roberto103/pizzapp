@@ -3,11 +3,11 @@
 	require_once 'core/consultas.php';
 
 	function decimalTelaPromo($pDecimal) {
-    $pDecimal = $pDecimal/1;
-    return number_format($pDecimal,2,',','.');
-  }
+		$pDecimal = $pDecimal/1;
+		return number_format($pDecimal,2,',','.');
+	}
 
- ?>
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 	<head>
@@ -92,7 +92,7 @@
 										<td><?php echo $pedido->hora; ?></td>
 										<td>
 											<center>
-												<button class="btn btn-outline-primary btn-mostrar_pedido" data-toggle="modal" data-target="#modal-mostrar_pedido" data-id="<?php echo $pedido->id; ?>" data-id_pedido="<?php echo $pedido->sessao; ?>" data-valor="<?php echo decimalTela($pedido->valor_total); ?>" data-desc="<?php echo $pedido->descricao; ?>" data-hora="<?php echo $pedido->hora; ?>" data-status="<?php echo $pedido->status; ?>">Ver pedido</button>
+												<button class="btn btn-outline-primary btn-mostrar_pedido" data-toggle="modal" data-target="#modal-mostrar_pedido" data-id="<?php echo $pedido->id; ?>" data-id_pedido="<?php echo $pedido->sessao; ?>" data-valor="<?php echo decimalTela($pedido->valor_total); ?>" data-desc="<?php echo $pedido->descricao; ?>" data-hora="<?php echo $pedido->hora; ?>" data-endereco="<?php echo $pedido->endereco; ?>" data-cliente="<?php echo $pedido->quantidade; ?>" data-status="<?php echo $pedido->status; ?>">Ver pedido</button>
 											</center>
 										</td>
 										<td>
@@ -348,12 +348,23 @@
 					        <span id="descricao"></span>
 					        <hr>
 
-					        <h5 class="mt-3 d-inline">Valor total:</h5>
-					        <span id="valor"></span>
+					        <h5 class="mt-4 d-inline">Endereço:</h5>
+					        <span id="endereco"></span>
 
-					        <h5 class="mt-3 d-inline ml-3">Hora:</h5>
-					        <span id="hora"></span>
+					        <h5 class="ml-3 d-inline">Referência:</h5>
+					        <span id="referencia"></span><br>
 
+					        <h5 class="mt-4 d-inline">Cliente:</h5>
+					        <span id="endereco">aaaaaaaaaaaaa</span>
+					        <br>
+
+					        <div class="mt-4">
+						        <h5 class="mt-4 d-inline">Valor total:</h5>
+						        <span id="valor"></span>
+
+						        <h5 class="mt-4 d-inline ml-3">Hora:</h5>
+						        <span id="hora"></span>
+					        </div>
 
 					      </div>
 					      <div class="modal-footer">
@@ -533,6 +544,7 @@
 				var recipient_preco = button.data('valor')
 				var recipient_desc = button.data('desc')
 				var recipient_hora = button.data('hora')
+				var recipient_endereco = button.data('endereco')
 				var recipient_status = button.data('status')
 				// If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
 				// Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
@@ -542,6 +554,7 @@
 				modal.find('#descricao').html(recipient_desc)
 				modal.find('#valor').html('R$ ' + recipient_preco)
 				modal.find('#hora').html(recipient_hora + ' Hrs')
+				modal.find('#endereco').html('Rua ' + recipient_endereco)
 				modal.find('#status').html(recipient_status)
 			})
 
