@@ -34,6 +34,9 @@
 		$sessao = $_SESSION['pedido'];
 	}
 
+	// Recupera a sessão com o ID do usuário
+	$id_usuario = $_SESSION['id'];
+
   	//Verifica se o produto já existe no carrinho_temporario
 	$consulta = $pdo->prepare('SELECT * FROM carrinho_temporario WHERE temporario_produto = :product AND temporario_sessao = :sessao');
 	$consulta->bindValue(':product', $produto);
@@ -65,8 +68,9 @@
 		}
 
 	}else{
-		$inserir = $pdo->prepare("INSERT INTO carrinho_temporario (temporario_produto, temporario_nome, temporario_quantidade, temporario_preco, temporario_img, temporario_data, temporario_sessao) VALUES (:temporario_produto, :temporario_nome, :temporario_quantidade, :temporario_preco, :temporario_img, :temporario_data, :temporario_sessao)");
+		$inserir = $pdo->prepare("INSERT INTO carrinho_temporario (ID_usuarios, temporario_produto, temporario_nome, temporario_quantidade, temporario_preco, temporario_img, temporario_data, temporario_sessao) VALUES (:ID_usuarios, :temporario_produto, :temporario_nome, :temporario_quantidade, :temporario_preco, :temporario_img, :temporario_data, :temporario_sessao)");
 		$inserir->bindValue(':temporario_produto', $id);
+		$inserir->bindValue(':ID_usuarios', $id_usuario);
 		$inserir->bindValue(':temporario_nome', $nome);
 		$inserir->bindValue(':temporario_quantidade', $quantidade);
 		$inserir->bindValue(':temporario_preco', $preco);
