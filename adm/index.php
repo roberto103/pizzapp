@@ -95,7 +95,13 @@
 												<button class="btn btn-outline-primary btn-mostrar_pedido" data-toggle="modal" data-target="#modal-mostrar_pedido" data-id="<?php echo $pedido->id; ?>" data-id_pedido="<?php echo $pedido->sessao; ?>" data-valor="<?php echo decimalTela($pedido->valor_total); ?>" data-desc="<?php echo $pedido->descricao; ?>" data-hora="<?php echo $pedido->hora; ?>" data-endereco="<?php echo $pedido->endereco; ?>" data-referencia="<?php echo $pedido->ponto_referencia; ?>" data-cliente="<?php echo $pedido->cliente_nome; ?>" data-status="<?php echo $pedido->status; ?>">Ver pedido</button>
 											</center>
 										</td>
-										<td>
+										<td><!-- 
+											<?php if ($pedido->status == 'Aguardando atendimento'): ?>
+												
+											<?php elseif($pedido->status == 'Pedido atendido'): ?>
+												
+											<?php endif ?>
+											<label class="text-success"><?php echo $pedido->status; ?></label> -->
 											<select class="custom-select" id="status_pedido" style="width: 85% !important;">
 												<option selected disabled><?php echo $pedido->status; ?></option>
 												<option value="Pedido atendido">Atender</option>
