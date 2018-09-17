@@ -95,20 +95,24 @@
 												<button class="btn btn-outline-primary btn-mostrar_pedido" data-toggle="modal" data-target="#modal-mostrar_pedido" data-id="<?php echo $pedido->id; ?>" data-id_pedido="<?php echo $pedido->sessao; ?>" data-valor="<?php echo decimalTela($pedido->valor_total); ?>" data-desc="<?php echo $pedido->descricao; ?>" data-hora="<?php echo $pedido->hora; ?>" data-endereco="<?php echo $pedido->endereco; ?>" data-referencia="<?php echo $pedido->ponto_referencia; ?>" data-cliente="<?php echo $pedido->cliente_nome; ?>" data-status="<?php echo $pedido->status; ?>">Ver pedido</button>
 											</center>
 										</td>
-										<td><!-- 
+										<td>
 											<?php if ($pedido->status == 'Aguardando atendimento'): ?>
-												
+
+												<label class="text-danger"><?php echo $pedido->status; ?></label>
+
 											<?php elseif($pedido->status == 'Pedido atendido'): ?>
-												
+
+												<label class="text-warning"><?php echo $pedido->status; ?></label>
+
+											<?php elseif($pedido->status == 'Pedido pronto'): ?>
+
+												<label class="text-success"><?php echo $pedido->status; ?></label>
+
+											<?php elseif($pedido->status == 'Pedido saiu para entrega'): ?>
+
+												<label class="text-success"><?php echo $pedido->status; ?></label>
+
 											<?php endif ?>
-											<label class="text-success"><?php echo $pedido->status; ?></label> -->
-											<select class="custom-select" id="status_pedido" style="width: 85% !important;">
-												<option selected disabled><?php echo $pedido->status; ?></option>
-												<option value="Pedido atendido">Atender</option>
-												<option value="Pedido pronto">Pedido Pronto</option>
-												<option value="Pedido saiu para entrega">Pedido Retirado</option>
-											</select>
-											<button class="btn btn-outline-primary btn-status" data-sessao_pedido="<?php echo $pedido->sessao; ?>">OK</button>
 										</td>
 									</tr>
 							<?php } ?>
@@ -378,9 +382,9 @@
 
 					      </div>
 					      <div class="modal-footer">
-					      	<button type="button" class="btn btn-outline-success">Atender pedido</button>
-					      	<button type="button" class="btn btn-outline-success" disabled>Pedido pronto</button>
-					      	<button type="button" class="btn btn-outline-success" disabled>Pedido saiu para entrega</button>
+					      	<button type="button" id="atender" class="btn btn-outline-success" disabled>Atender pedido</button>
+					      	<button type="button" id="pronto" class="btn btn-outline-success" disabled>Pedido pronto</button>
+					      	<button type="button" id="entrega" class="btn btn-outline-success" disabled>Pedido saiu para entrega</button>
 					      </div>
 					    </div>
 					  </div>
@@ -569,7 +573,20 @@
 				modal.find('#endereco').html('Rua ' + recipient_endereco)
 				modal.find('#referencia').html(recipient_referencia)
 				modal.find('#nomeCliente').html(recipient_cliente_nome)
-				modal.find('#status').html(recipient_status)
+
+				if (recipient_status == 'Aguardando atendimento') {
+
+					modal.find('#atender').removeClass('disabled')
+
+				} if (recipient_status == 'Pedido atendido') {
+
+					modal.find('#pronto').removeClass('disabled')
+
+				} if (recipient_status == 'Pedido pronto') {
+
+					modal.find('#entrega').removeClass('disabled')
+
+				}
 			})
 
 
