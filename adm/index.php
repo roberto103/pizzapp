@@ -110,7 +110,7 @@
 
 											<?php elseif($pedido->status == 'Pedido saiu para entrega'): ?>
 
-												<label class="text-success"><?php echo $pedido->status; ?></label>
+												<label class="text-primary"><?php echo $pedido->status; ?></label>
 
 											<?php endif ?>
 										</td>
@@ -576,15 +576,15 @@
 
 				if (recipient_status == 'Aguardando atendimento') {
 
-					modal.find('#atender').removeClass('disabled')
+					$('#atender').removeAttr('disabled')
 
-				} if (recipient_status == 'Pedido atendido') {
+				} else if (recipient_status == 'Pedido atendido') {
 
-					modal.find('#pronto').removeClass('disabled')
+					$('#pronto').removeAttr('disabled')
 
-				} if (recipient_status == 'Pedido pronto') {
-
-					modal.find('#entrega').removeClass('disabled')
+				} else if (recipient_status == 'Pedido pronto') {
+					
+					$('#entrega').removeAttr('disabled')
 
 				}
 			})
