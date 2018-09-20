@@ -26,7 +26,8 @@
 		$produto_quantidade = $mostra['temporario_quantidade'];
 		$produto_preco = $mostra['temporario_preco'];
 
-		$valor_total = ($produto_quantidade * $produto_preco);
+		@$valor_total += ($produto_quantidade * $produto_preco);
+
 		$hora = date('H:i:s');
 
 		@$descricao = $descricao . $produto_nome.' - '.$produto_quantidade.' Unidades </br>';
