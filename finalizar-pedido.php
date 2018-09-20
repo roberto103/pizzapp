@@ -5,16 +5,13 @@
 	
 	$sessao = $_POST['ref'];
 
-	// $consulta = $pdo->prepare("SELECT * FROM carrinho_temporario WHERE temporario_sessao = :ses");
-	// $consulta->bindValue(':ses', $sessao);
-
 	$consulta = $pdo->prepare('SELECT c.*, u.* FROM carrinho_temporario c INNER JOIN usuarios u ON u.ID = c.ID_usuarios WHERE c.temporario_sessao = :ses');
 	$consulta->bindValue(':ses', $sessao);
 
 	$consulta->execute();
 	$linhas = $consulta->rowCount();
 
-	
+
 	foreach ($consulta as $mostra) {
 
 		$cliente_nome = $mostra['nome'].' '.$mostra['sobrenome'];
