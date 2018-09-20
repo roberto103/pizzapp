@@ -40,7 +40,7 @@
   <body>
     <div class="container-fluid"> <!-- div container-fluid -->
       <div class="row" >
-        <nav class="navbar navbar-expand-lg navbar-light bg-danger sidebarNavigation" data-sidebarClass="navbar-light bg-danger" style=" width: 100%; position: absolute; z-index: 9999; background-color: #bd2130 !important;">
+        <nav class="navbar navbar-expand-lg navbar-light bg-danger sidebarNavigation" data-sidebarClass="navbar-light bg-danger" style=" width: 100%; position: absolute; z-index: 999; background-color: #bd2130 !important;">
               <button class="navbar-toggler leftNavbarToggler" type="button" data-toggle="collapse" data-target="#navbarMenu" aria-controls="navbarMenu" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
               </button>
@@ -106,7 +106,7 @@
               <h6 class="card-title mb-4">Pedido nº <?php echo $cart->id; ?> as <?php echo dataTela($cart->hora); ?>h</h6>
               Status: <p class="card-text text-success d-inline"><?php echo $cart->status; ?></p>
               <hr class="mb-3">
-              <a style="color: white;" id="vizualizar" data-toggle="modal" data-target="#modal-mostrar_pedido" class="btn btn-primary btn-mostrar_pedido" data-id="<?php echo $cart->id; ?>" data-id_pedido="<?php echo $cart->produto_id; ?>" data-pedido="<?php echo $cart->sessao; ?>" data-qtd="<?php echo $cart->quantidade; ?>" data-valor="<?php echo decimalTela($cart->preco); ?>" data-desc="<?php echo $cart->descricao; ?>" data-hora="<?php echo $cart->hora; ?>" data-status="<?php echo $cart->status; ?>">Visualizar pedido <i class="fas fa-arrow-right"></i></a>
+              <a style="color: white;" id="vizualizar" data-toggle="modal" data-target="#modal-mostrar_pedido" class="btn btn-primary btn-mostrar_pedido" data-id="<?php echo $cart->id; ?>" data-id_pedido="<?php echo $cart->produto_id; ?>" data-pedido="<?php echo $cart->sessao; ?>" data-qtd="<?php echo $cart->quantidade; ?>" data-valor="<?php echo decimalTela($cart->valor_total); ?>" data-desc="<?php echo $cart->descricao; ?>" data-hora="<?php echo $cart->hora; ?>" data-status="<?php echo $cart->status; ?>">Visualizar pedido <i class="fas fa-arrow-right"></i></a>
               <a href="pedido-realizado.php?ref=<?php echo $sessao; ?>" class="btn btn-primary">Acompanhar</a>
               
             </div>
@@ -133,7 +133,7 @@
                   </button>
                 </div>
                 <div class="modal-body">
-                  <h5>Produtos:</h5><br>
+                  <h5>Produtos:</h5>
                   <span id="descricao" style="color: black;"></span>
                   <hr>
 
