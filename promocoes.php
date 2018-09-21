@@ -72,7 +72,7 @@
             <div class="card-body">
               <h5 class="card-title" style="text-transform: capitalize;"><?php echo $promocao->titulo; ?></h5>
               <p class="card-text"><?php echo $promocao->desc_promo; ?>
-              <strong class="d-block">R$ <?php echo decimalTelaPromo($promocao->preco_promo); ?></strong>
+              <strong class="d-block">R$ <?php echo decimalTela($promocao->preco_promo); ?></strong>
               </p>
             </div>
             <div class="card-footer text-center">
