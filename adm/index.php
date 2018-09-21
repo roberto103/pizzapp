@@ -292,57 +292,6 @@
 
 					</div>
 
-					<!-- EDITAR PRODUTO -->
-					<div id="modal-produtos" class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true" style="z-index: 9999 !important;">
-						<div class="modal-dialog modal-lg">
-							<div class="modal-content" style="padding: 15px;">
-
-								<form method="post" enctype="multipart/form-data">
-									<div class="form-group">
-										<label for="txtNomeProduto">Nome do Produto</label>
-										<input type="txt" class="form-control" id="txtNomeProduto">
-									</div>
-
-									<div class="form-group">
-										<label for="txtDescricaoProduto">Descrição do Produto</label>
-										<textarea class="form-control" id="txtDescricaoProduto"></textarea>
-									</div>
-
-									<div class="form-row">
-										<div class="form-group col-md-6">
-											<label for="txtPrecoProduto">Preço do Produto</label>
-											<input type="txt" class="form-control money" id="txtPrecoProduto" maxlength="6">
-										</div>
-
-										<div class="form-group col-md-6">
-											<label>Tipo de Produto</label>
-											<div class="input-group mb-3">
-												<div class="input-group-prepend">
-													<label class="input-group-text" for="tiposProduto">Tipos</label>
-												</div>
-												<select class="custom-select" id="tiposProduto">
-													<option selected>Selecione um tipo</option>
-													<option value="Bebidas">Bebidas</option>
-													<option value="Porcoes">Porções</option>
-												</select>
-											</div>
-										</div>
-									</div>
-
-									<div class="form-group">
-										<label for="upload">Imagem do produto</label>
-										<input type="file" class="form-control" name="img" id="upload">
-										<img id="img" style="width: 15%">
-									</div>
-
-									<button type="submit" id="btn-salvar" class="btn btn-success">Salvar</button>
-								</form>
-
-							</div>
-						</div>
-					</div>
-					<!-- /EDITAR PRODUTO -->
-
 					<!-- MOSTRAR TODO O PEDIDO -->
 					<div class="modal fade bd-example-modal-lg" id="modal-mostrar_pedido" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" style="z-index: 9999 !important;">
 					  <div class="modal-dialog modal-lg" role="document">
