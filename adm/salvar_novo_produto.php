@@ -15,7 +15,7 @@
 
 		$sql->bindValue(':prod_nome', $_POST['txtNome']);
 		$sql->bindValue(':prod_descricao', $_POST['txtDescricao']);
-		$sql->bindValue(':prod_preco', $_POST['txtPreco']);
+		$sql->bindValue(':prod_preco', decimalBanco($_POST['txtPreco']));
 		$sql->bindValue(':prod_img', $novo_nome);
 		$sql->bindValue(':prod_tipo', $_POST['tipo_prod']);
 		$sql->execute();

@@ -14,7 +14,7 @@
 		$sql = $pdo->prepare("INSERT INTO pizzas (sabor, preco, img_pizza, descricao) VALUES (:sabor, :preco, :img_pizza, :descricao)");
 
 		$sql->bindValue(':sabor', $_POST['txtSabor']);
-		$sql->bindValue(':preco', $_POST['txtPreco']);
+		$sql->bindValue(':preco', decimalBanco($_POST['txtPreco']));
 		$sql->bindValue(':img_pizza', $novo_nome);
 		$sql->bindValue(':descricao', $_POST['txtDescricao']);
 		$sql->execute();

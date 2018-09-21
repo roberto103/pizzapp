@@ -56,6 +56,8 @@
       
       <!-- nova promocao -->
       <form method="post" enctype="multipart/form-data" action="salvar_editar_produto.php">
+
+        <input type="hidden" name="prodID" value="<?php echo $produto->prod_ID; ?>">
 		<div class="form-group">
 			<label for="txtNomeProduto">Nome do Produto</label>
 			<input name="txtNomeProduto" type="txt" class="form-control" id="txtNomeProduto" value="<?php echo $produto->prod_nome; ?>" >
