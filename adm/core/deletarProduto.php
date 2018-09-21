@@ -3,7 +3,7 @@
 	session_start();
 	require_once 'conexao.php';
 
-	if (!empty($_GET['id'])) {
+	if (!empty($_GET['prod_ID'])) {
 
 		$sql = $pdo->prepare("DELETE FROM produtos WHERE prod_ID = :id");
 		$sql->bindValue(':id', $_GET['id']);
