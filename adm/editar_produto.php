@@ -8,16 +8,16 @@
     header('Location: login.php');
   }
 
-  // Listar todas as promoção
-  $promocao = $pdo->prepare('SELECT * FROM promocoes WHERE id = :id ORDER BY id ASC');
-  $promocao->bindvalue(':id',$_GET['id']);
-  $promocao->execute();
+  // Listar todas os produtos
+  $produto = $pdo->prepare('SELECT * FROM produtos WHERE prod_ID = :prod_ID ORDER BY prod_ID ASC');
+  $produto->bindvalue(':prod_ID',$_GET['prod_ID']);
+  $produto->execute();
 
-  $promocao = $promocao->fetch(PDO::FETCH_OBJ);
+  $produto = $produto->fetch(PDO::FETCH_OBJ);
 
  ?>
 
-<title>Editar Promoção</title>
+<title>Editar Produto</title>
 <link rel="shortcut icon" href="../img/favicon.ico" />
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/fontawesome.css" integrity="sha384-GVa9GOgVQgOk+TNYXu7S/InPTfSDTtBalSgkgqQ7sCik56N9ztlkoTr2f/T44oKV" crossorigin="anonymous">
@@ -48,48 +48,53 @@
     <div class="col"></div>
     <div class="col-sm-10" id="novo-produto" style="padding: 0;">
 
-      <h4 class="display-4" style="font-size: 2.5rem; display: inline;">Promoções</h4>
+      <h4 class="display-4" style="font-size: 2.5rem; display: inline;">Produtos</h4>
       <a href="index.php">
-        <button class="btn btn-outline-primary" style="margin-top: -20px; margin-left: 10px;">Todas as promoções</button>
+        <button class="btn btn-outline-primary" style="margin-top: -20px; margin-left: 10px;">Todos os produtos</button>
       </a>
       <hr class="mb-4">
       
       <!-- nova promocao -->
-      <form method="POST" action="salvar_editar_promocao.php" enctype="multipart/form-data" style="padding-bottom: 20px;">
+      <form method="post" enctype="multipart/form-data" action="salvar_editar_produto.php">
+		<div class="form-group">
+			<label for="txtNomeProduto">Nome do Produto</label>
+			<input name="txtNomeProduto" type="txt" class="form-control" id="txtNomeProduto" value="<?php echo $produto->prod_nome; ?>" >
+		</div>
 
-        <input type="hidden" name="id" value="<?php echo $promocao->id; ?>">
+		<div class="form-group">
+			<label for="txtDescricaoProduto">Descrição do Produto</label>
+			<textarea name="txtDescricaoProduto" class="form-control" id="txtDescricaoProduto"><?php echo $produto->prod_descricao; ?></textarea>
+		</div>
 
-        <div class="form-group">
-          <label for="txtTitulo">Título</label>
-          <input type="text" class="form-control" id="txtTitulo" name="txtTitulo" placeholder="Nome da promoção" value="<?php echo $produto->titulo; ?>">
-        </div>
+		<div class="form-row">
+			<div class="form-group col-md-6">
+				<label for="txtPrecoProduto">Preço do Produto</label>
+				<input name="txtPrecoProduto" type="txt" class="form-control money" id="txtPrecoProduto" maxlength="6" value="<?php echo decimalTela($produto->prod_preco); ?>">
+			</div>
 
-        <div class="row mb-3">
-          <div class="col">
-            <label for="txtPreco">Preço</label>
-            <input value="<?php echo decimalTela($produto->preco_promo); ?>" type="text" class="form-control money2" id="txtPreco" name="txtPreco" placeholder="Preço da promoção">
-          </div>
+			<div class="form-group col-md-6">
+				<label>Tipo de Produto</label>
+				<div class="input-group mb-3">
+					<div class="input-group-prepend">
+						<label class="input-group-text" for="tiposProduto">Tipos</label>
+					</div>
+					<select class="custom-select" id="txt_tipo" name="txt_tipo" id="tiposProduto">
+						<option selected>Selecione um tipo</option>
+						<option value="Bebidas">Bebidas</option>
+						<option value="Porcoes">Porções</option>
+					</select>
+				</div>
+			</div>
+		</div>
 
-          <div class="col">
-            <label for="txtDuracao">Duração</label>
-            <small class="form-text text-muted d-inline-block"> em dias</small>
-            <input value="<?php echo $promocao->duracao_promo; ?>" type="text" class="form-control" id="txtDuracao" name="txtDuracao" placeholder="Quantos dias a promoção vai estar valendo?">
-          </div>
-        </div>
+		<div class="form-group">
+			<label for="upload">Imagem do produto</label>
+			<input type="file" class="form-control" name="prod_img" id="upload" value="<?php echo $produto->prod_img; ?>">
+			<img id="img" style="width: 15%">
+		</div>
 
-        <div class="form-group">
-          <label for="txtDescricao">Descrição</label>
-          <textarea class="form-control" id="txtDescricao" name="txtDescricao" placeholder="Descrição da promoção"><?php echo $promocao->desc_promo; ?></textarea>
-        </div>
-
-        <div class="form-group">
-          <label for="upload" style="display: block;">Imagem da promoção</label>
-          <img id="img_promo" style="width: 15%">
-          <input type="file" class="form-control" name="img_promo" id="upload_pizza">
-        </div>
-
-        <button type="submit" class="btn btn-outline-success" style="width: 100%;">Salvar</button>
-      </form>
+		<button type="submit" id="btn-salvar" class="btn btn-success">Salvar</button>
+	</form>
 
     </div>
     <div class="col"></div>

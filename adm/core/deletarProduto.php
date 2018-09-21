@@ -17,7 +17,8 @@
 			header("Location: ../index.php");
 		}
 
-	}else{
+	}
+	else{
 		$_SESSION['msg'] = '<div class="alert alert-danger" role="alert">Selecione um produto para ser deletado!</div>';
 		header("Location: ../index.php");
 	}

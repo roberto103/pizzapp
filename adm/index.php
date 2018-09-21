@@ -145,10 +145,10 @@
 										<div class="card-body">
 											<h5 class="card-title" id="atualizaTitle_<?php echo $produto->prod_ID; ?>"><?php echo $produto->prod_nome; ?></h5>
 											<p class="card-text" id="atualizaDesc_<?php echo $produto->prod_ID; ?>"><?php echo $produto->prod_descricao; ?></p>
-											<p class="card-text" id="atualiza_<?php echo $produto->prod_ID; ?>">R$ <?php echo $produto->prod_preco; ?></p>
+											<p class="card-text" id="atualiza_<?php echo $produto->prod_ID; ?>">R$ <?php echo decimalTela($produto->prod_preco); ?></p>
 											<div class="btn-group" role="group">
 
-												<button class="btn-editar btn btn-outline-primary" data-toggle="modal" data-target="#modal-produtos" data-id="<?php echo $produto->prod_ID; ?>" data-nome="<?php echo $produto->prod_nome; ?>" data-descricao="<?php echo $produto->prod_descricao; ?>" data-preco="<?php echo $produto->prod_preco; ?>" data-upload="<?php echo $produto->prod_img; ?>" data-tipo="<?php echo $produto->prod_tipo; ?>">Editar</button>
+												<a href="editar_produto.php?<?php echo "prod_ID=$produto->prod_ID"; ?>" class="btn btn-outline-primary" data-id="<?php echo $promo->prod_ID; ?>">Editar</a>
 
 												<a href="core/deletarProduto.php?prod_ID=<?php echo $produto->prod_ID; ?>" class="btn-deletar btn btn-outline-danger" data-confirm="deletar" data-id="<?php echo $produto->prod_ID; ?>" >Excluir</a>
 
