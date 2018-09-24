@@ -21,7 +21,7 @@
 	$id = $mostra['prod_ID'];
 	$nome = $mostra['prod_nome'];
 	$quantidade = 1;
-	$preco = decimalBanco($mostra['prod_preco']);
+	$preco = $mostra['prod_preco'];
 	$img = $mostra['prod_img'];
 	$data = date('Y-m-d H:i:s');
 	$rand = rand(1000, 100000);
@@ -52,7 +52,7 @@
 	if ($linhas >= 1) {
 		$valor = ($qtd+1);
 		$altera = $pdo->prepare('UPDATE carrinho_temporario SET temporario_quantidade = :val WHERE temporario_sessao = :ses AND temporario_produto = :tp');
-		$altera->bindValue(':val', $valor);
+		$altera->bindValue(':val', decimalBanco($valor));
 		$altera->bindValue(':ses', $sessao);
 		$altera->bindValue(':tp', $produto);
 		$altera->execute();
