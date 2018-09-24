@@ -164,8 +164,8 @@
               <div class="card w-75" style="margin-bottom: 10px;">
                 <a href="#" class="escolha-sabor">
                 <div class="card-body">
-                  <img id="img-prod" src="img/produtos/uploads/<?php echo $pizza->img_pizza; ?>" class="img-fluid" data-imagem="<?php echo $pizza->img_pizza; ?>" data-preco="<?php echo $pizza->preco; ?>">
-                  <h5 class="card-title"><?php echo $pizza->sabor; ?> - R$ <?php echo decimalTela($pizza->preco); ?></h5>
+                  <img id="img-prod" src="img/produtos/uploads/<?php echo $pizza->img_pizza; ?>" class="img-fluid" data-imagem="<?php echo $pizza->img_pizza; ?>" data-preco="<?php echo $pizza->precog; ?>">
+                  <h5 class="card-title"><?php echo $pizza->sabor; ?> - R$ <?php echo decimalTela($pizza->precog); ?></h5>
                   <p class="card-text"><?php echo $pizza->descricao; ?></p>
                 </div>
                 </a>

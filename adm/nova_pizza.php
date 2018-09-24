@@ -18,8 +18,23 @@
         </div>
 
         <div class="form-group">
-          <label for="txtPreco">Preço</label>
-          <input type="text" class="form-control" id="txtPreco" name="txtPreco" placeholder="Preço da pizza">
+          <label for="txtPrecop">Preço pizza P</label>
+          <input type="text" class="form-control" id="txtPrecop" name="txtPrecop" placeholder="Preço da pizza">
+        </div>
+
+        <div class="form-group">
+          <label for="txtPrecom">Preço pizza M</label>
+          <input type="text" class="form-control" id="txtPrecom" name="txtPrecom" placeholder="Preço da pizza">
+        </div>
+
+        <div class="form-group">
+          <label for="txtPrecog">Preço pizza G</label>
+          <input type="text" class="form-control" id="txtPrecog" name="txtPrecog" placeholder="Preço da pizza">
+        </div>
+
+        <div class="form-group">
+          <label for="txtPrecogg">Preço pizza GG</label>
+          <input type="text" class="form-control" id="txtPrecogg" name="txtPrecogg" placeholder="Preço da pizza">
         </div>
 
         <div class="form-group">

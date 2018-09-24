@@ -184,7 +184,10 @@
 										<div class="card-body">
 											<h5 class="card-title" id="atualizaTitle_<?php echo $pizza->id; ?>"><?php echo $pizza->sabor; ?></h5>
 											<p class="card-text" id="atualizaDesc_<?php echo $pizza->id; ?>"><?php echo $pizza->descricao; ?></p>
-											<p class="card-text" id="atualiza_<?php echo $pizza->id; ?>">R$ <?php echo decimalTela($pizza->preco); ?></p>
+											<p class="card-text" id="atualiza_<?php echo $pizza->id; ?>">Pizza p R$ <?php echo decimalTela($pizza->precop); ?></p>
+											<p class="card-text" id="atualiza_<?php echo $pizza->id; ?>">Pizza m R$ <?php echo decimalTela($pizza->precom); ?></p>
+											<p class="card-text" id="atualiza_<?php echo $pizza->id; ?>">Pizza g R$ <?php echo decimalTela($pizza->precog); ?></p>
+											<p class="card-text" id="atualiza_<?php echo $pizza->id; ?>">Pizza gg R$ <?php echo decimalTela($pizza->precogg); ?></p>
 											<div class="btn-group" role="group">
 
 												<a href="editar_pizza.php?<?php echo"id=$pizza->id";?>" class="btn btn-outline-primary" data-target="" data-id="<?php echo $pizza->id; ?>" data-sabor="<?php echo $pizza->sabor; ?>" data-descricao="<?php echo $pizza->descricao; ?>" data-preco="<?php echo $pizza->preco; ?>" data-upload="<?php echo $pizza->img_pizza; ?>">Editar</a>
