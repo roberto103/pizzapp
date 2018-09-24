@@ -6,7 +6,7 @@
 	if (!empty($_GET['prod_ID'])) {
 
 		$sql = $pdo->prepare("DELETE FROM produtos WHERE prod_ID = :id");
-		$sql->bindValue(':id', $_GET['id']);
+		$sql->bindValue(':id', $_GET['prod_ID']);
 		$sql->execute();
 
 		if ($sql) {
