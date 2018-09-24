@@ -2,6 +2,7 @@
 
   require_once 'core/Sessao.php';
   require_once 'core/conexao.php';
+  require_once 'core/util.php';
 
   if (!Sessao::estaLogado()) {
       header('Location: login.php');
@@ -71,7 +72,7 @@
                 <hr class="mb-3">
 
                 <div id="precoBebidas">
-                  <span>R$ <?php echo $porcoes->prod_preco; ?></span>
+                  <span>R$ <?php echo decimalTela($porcoes->prod_preco); ?></span>
                   <a class="comprarProduto" data-id_porcao="<?php echo $porcoes->prod_ID ?>">
                     <button class="btn btn-danger">
                       <i class="fas fa-shopping-cart"></i>

@@ -1,6 +1,7 @@
 <?php
 
 	require_once 'core/conexao.php';
+	require_once 'core/util.php';
 
  	if (isset($_FILES['img'])) {
 
