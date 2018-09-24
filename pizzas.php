@@ -124,7 +124,7 @@
 
                 </div>
 
-                <span class="text-center mt-3 d-block"  id="preco">Preço da pizza: R$ 0,00</span>
+                <span class="text-center mt-3 d-block">Preço da pizza: R$<span id="preco"> 0,00</span></span>
               </div>
 
             <a href="" id="finalizar">
