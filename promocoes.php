@@ -4,13 +4,8 @@
     require_once 'core/conexao.php';
     require_once 'core/util.php';
 
-    function decimalTelaPromo($pDecimal) {
-    $pDecimal = $pDecimal/1;
-    return number_format($pDecimal,2,',','.');
-  }
-
     if (!Sessao::estaLogado()) {
-    header('Location: login.php');
+      header('Location: login.php');
     }
 
     $sql = $pdo->prepare('SELECT * FROM promocoes ORDER BY data DESC');
