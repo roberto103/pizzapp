@@ -68,7 +68,7 @@
 
         <div class="col-md-6">
 
-          <form>
+          <form id="formPizza" action="" method="post">
             <!-- ESCOLHER TAMANHO DA PIZZA -->
             <div class="input-group mb-3">
               <div class="input-group-prepend">
@@ -117,7 +117,7 @@
                 <span class="text-center mt-3 d-block">Preço da pizza: R$<span id="preco"> 0,00</span></span>
               </div>
 
-            <a href="" id="finalizar">
+            <a id="finalizar" class="comprarPizza" href>
               <i class="fas fa-shopping-cart"></i>
                 Adicionar ao Pedido
             </a>
@@ -310,20 +310,43 @@
             $('.img-fluid').css('display','');
           }else{
             if ($('#saboresPizza').val() == '1' || $('#saboresPizza').val() == '0') {
+              $('#img_forma2').css('display','');
+              $('#forma1').css('display','none');
               $('.img-fluid').css('display', 'none'); // Esconde a forma de 2 sabores
-              $('#pizzaInfo map').css('display', 'inline'); // Mostra a forma de 2 sabores
-              $('#pizzaInfo #img_forma2').css('display', 'inline'); // Mostra a forma de 2 sabores
-              $('.img-fluid').css('display','');
             }else{
-              $('.img-fluid').css('display', 'inline'); // Esconde a forma de 2 sabores
-              $('#pizzaInfo map').css('display', 'none'); // Mostra a forma de 2 sabores
-              $('#pizzaInfo #img_forma2').css('display', 'none'); // Mostra a forma de 2 sabores
+              $('#forma1').css('display','');
+              $('#img_forma2').css('display','none');
 
             }
           }
         });
 
+        $('#formPizza').click(function(){
+
+            var id_pizza = $(this).attr('data-id_pizza');
+            
+            $.ajax({
+              url : "comprarPizza.php",
+              type : 'post',
+              data : {
+                   combo : id_pizza
+              },
+              success : function(data){
+                 if (data == 1) {
+                    M.toast({html: 'O Produto foi adicionado ao carrinho.'});
+                 } else if(data == 2){
+                    M.toast({html: 'Foi adicionado mais uma unidade desse produto!'});
+                 } else {
+                    M.toast({html: 'O Produto não pôde ser adicionado ao carrinho.'});
+                 } 
+              }//success
+            });//ajax
+            return false;
+        });//#comprarProduto
+
       });
+
+      
     </script>
 
   </body>
