@@ -151,7 +151,7 @@
 
               <!-- LISTA DE SABORES -->
               <?php foreach ($pizza as $pizza) { ?>
-              <div  id="pizzap" class="card w-75" style="margin-bottom: 10px; display: none;">
+              <div  id="pizzap" class="card w-75 pizza." style="margin-bottom: 10px; display: none;">
                 <a href="#" class="escolha-sabor">
                 <div class="card-body">
                   <img id="img-prod" src="img/produtos/uploads/<?php echo $pizza->img_pizza; ?>" class="img-fluid" data-imagem="<?php echo $pizza->img_pizza; ?>" data-preco="<?php echo $pizza->precop; ?>">
@@ -161,7 +161,7 @@
                 </a>
               </div>
 
-              <div  id="pizzam" class="card w-75" style="margin-bottom: 10px; display: none;">
+              <div  id="pizzam" class="card w-75 pizzam" style="margin-bottom: 10px; display: none;">
                 <a href="#" class="escolha-sabor">
                 <div class="card-body">
                   <img id="img-prod" src="img/produtos/uploads/<?php echo $pizza->img_pizza; ?>" class="img-fluid" data-imagem="<?php echo $pizza->img_pizza; ?>" data-preco="<?php echo $pizza->precom; ?>">
@@ -171,7 +171,7 @@
                 </a>
               </div>
 
-              <div  id="pizzag" class="card w-75" style="margin-bottom: 10px; display: none;">
+              <div  id="pizzag" class="card w-75 pizzag" style="margin-bottom: 10px; display: none;">
                 <a href="#" class="escolha-sabor">
                 <div class="card-body">
                   <img id="img-prod" src="img/produtos/uploads/<?php echo $pizza->img_pizza; ?>" class="img-fluid" data-imagem="<?php echo $pizza->img_pizza; ?>" data-preco="<?php echo $pizza->precog; ?>">
@@ -181,7 +181,7 @@
                 </a>
               </div>
 
-              <div  id="pizzagg" class="card w-75" style="margin-bottom: 10px; display: none;">
+              <div  id="pizzagg" class="card w-75 pizzagg" style="margin-bottom: 10px; display: none;">
                 <a href="#" class="escolha-sabor">
                 <div class="card-body">
                   <img id="img-prod" src="img/produtos/uploads/<?php echo $pizza->img_pizza; ?>" class="img-fluid" data-imagem="<?php echo $pizza->img_pizza; ?>" data-preco="<?php echo $pizza->precogg; ?>">
@@ -270,32 +270,32 @@
             $('#pizzaInfo map').css('display', 'none'); // Esconde a forma de 2 sabores
             $('#pizzaInfo #img_forma2').css('display', 'none'); // Esconde a forma de 2 sabores
 
-            $('#pizzap').css('display','');
-            $('#pizzam').css('display','none');
-            $('#pizzag').css('display','none');
-            $('#pizzagg').css('display','none');
+            $('.pizzap').css('display','');
+            $('.pizzam').css('display','none');
+            $('.pizzag').css('display','none');
+            $('.pizzagg').css('display','none');
             
           }else{
             $('#saborPizza').css('visibility', 'hidden'); // Deixa o select de sabor invisivel caso seja uma pizza pequena 
           }
 
           if ($('#tamanhoPizza').val() == '1' && $('#tamanhoPizza').val() != '0') {
-            $('#pizzap').css('display','none');
-            $('#pizzam').css('display','none');
-            $('#pizzag').css('display','none');
-            $('#pizzagg').css('display','');
+            $('.pizzap').css('display','none');
+            $('.pizzam').css('display','none');
+            $('.pizzag').css('display','none');
+            $('.pizzagg').css('display','');
           }else{
             if ($('#tamanhoPizza').val() == '2' && $('#tamanhoPizza').val() != '0') {
-            $('#pizzap').css('display','none');
-            $('#pizzam').css('display','none');
-            $('#pizzag').css('display','');
-            $('#pizzagg').css('display','none');
+            $('.pizzap').css('display','none');
+            $('.pizzam').css('display','none');
+            $('.pizzag').css('display','');
+            $('.pizzagg').css('display','none');
             }else{
               if ($('#tamanhoPizza').val() == '3' && $('#tamanhoPizza').val() != '0') {
-            $('#pizzap').css('display','none');
-            $('#pizzam').css('display','');
-            $('#pizzag').css('display','none');
-            $('#pizzagg').css('display','none');
+            $('.pizzap').css('display','none');
+            $('.pizzam').css('display','');
+            $('.pizzag').css('display','none');
+            $('.pizzagg').css('display','none');
             preco = $(this).attr('data-preco');
             $('#preco').html(preco/100);
               }
