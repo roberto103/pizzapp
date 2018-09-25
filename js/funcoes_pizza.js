@@ -56,11 +56,6 @@ $('#tamanhoPizza').click(function(){
 		$('.img-fluid').css('display', 'inline'); // Mostra a forma de 1 sabor
 		$('#pizzaInfo map').css('display', 'none'); // Esconde a forma de 2 sabores
 		$('#pizzaInfo #img_forma2').css('display', 'none'); // Esconde a forma de 2 sabores
-
-		$('.pizzap').css('display','');
-		$('.pizzam').css('display','none');
-		$('.pizzag').css('display','none');
-		$('.pizzagg').css('display','none');
 		
 	}else{
 		$('#saborPizza').css('visibility', 'hidden'); // Deixa o select de sabor invisivel caso seja uma pizza pequena 
@@ -84,7 +79,14 @@ $('#tamanhoPizza').click(function(){
 				$('.pizzag').css('display','none');
 				$('.pizzagg').css('display','none');
 				preco = $(this).attr('data-preco');
-				$('#preco').html(preco/100);
+				$('#preco').html(preco);
+			}else{
+				if ($('#tamanhoPizza').val() == '4' && $('#tamanhoPizza').val() != '0') {
+					$('.pizzap').css('display','');
+					$('.pizzam').css('display','none');
+					$('.pizzag').css('display','none');
+					$('.pizzagg').css('display','none');
+				}
 			}
 		}
 	}
@@ -108,9 +110,10 @@ $('#saboresPizza').click(function(){
 	}
 });
 
-$('#formPizza').click(function(){
+$('#finalizar').click(function(){
 
-		var id_pizza = $(this).attr('data-id_pizza');
+		var id_pizza1 = $(this).attr('data-id_pizza');
+		var id_pizza2 = $(this).attr('data-id_pizza');
 		
 		$.ajax({
 			url : "comprarPizza.php",
