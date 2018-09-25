@@ -58,12 +58,10 @@
 		$altera->execute();
 
 		if ($altera) {
-			/*echo "<script>alert('Foi adicionado mais uma unidade desse produto!');</script>";
-			echo "<script>window.history.go(-1);</script>";*/
+			// Foi adicionado mais uma unidade desse produto!
 			echo 2;
 		}else{
-			/*echo "<script>alert('O Produto não pôde ser adicionado ao carrinho.');</script>";
-			echo "<script>window.history.go(-1);</script>";*/
+			// O Produto não pôde ser adicionado ao carrinho.
 			echo 0;
 		}
 
@@ -81,11 +79,10 @@
 		$inserir->execute();
 
 		if ($inserir) {
-			/*echo "<script>alert('Produto foi adicionado ao carrinho.');</script>";
-			echo "<script>window.history.go(-1);</script>";*/
+			// Produto foi adicionado ao carrinho.
 			echo 1;
 		}else{
-			// echo "<script>alert('O Produto não pôde ser adicionado ao carrinho.');</script>";
+			// O Produto não pôde ser adicionado ao carrinho.
 			echo 0;
 		}
   }
