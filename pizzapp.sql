@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: 21-Set-2018 às 18:31
+-- Generation Time: 25-Set-2018 às 17:10
 -- Versão do servidor: 5.5.27
 -- PHP Version: 7.1.7
 
@@ -128,10 +128,20 @@ INSERT INTO `pedidos` (`id`, `produto_id`, `cliente_nome`, `endereco`, `ponto_re
 CREATE TABLE `pizzas` (
   `id` int(11) NOT NULL,
   `sabor` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
-  `preco` double(50,2) NOT NULL,
+  `precop` double(50,2) NOT NULL,
   `descricao` varchar(150) COLLATE utf8_unicode_ci NOT NULL,
-  `img_pizza` varchar(250) COLLATE utf8_unicode_ci NOT NULL
+  `img_pizza` varchar(250) COLLATE utf8_unicode_ci NOT NULL,
+  `precom` double(50,2) NOT NULL,
+  `precog` double(50,2) NOT NULL,
+  `precogg` double(50,2) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Extraindo dados da tabela `pizzas`
+--
+
+INSERT INTO `pizzas` (`id`, `sabor`, `precop`, `descricao`, `img_pizza`, `precom`, `precog`, `precogg`) VALUES
+(6, 'Calabresa', 800.00, 'Calabresa, queijo e cebola', '160b6feb063d83a5f8b565a6f735f267.png', 1200.00, 1800.00, 2500.00);
 
 -- --------------------------------------------------------
 
@@ -153,13 +163,12 @@ CREATE TABLE `produtos` (
 --
 
 INSERT INTO `produtos` (`prod_ID`, `prod_nome`, `prod_descricao`, `prod_preco`, `prod_img`, `prod_tipo`) VALUES
-(1, 'Coca-Cola 2L', 'Refrigerante de Cola', '800.00', 'coca-cola-2l.jpg', 'Bebidas'),
+(1, 'Coca-Cola 2L', 'Refrigerante de Cola', '800.00', '519a18a5223548fc35405132720feb32.jpg', 'Bebidas'),
 (2, 'Coca-Cola 350ml', 'Refrigerante de Cola', '500.00', 'coca-cola-350ml.jpg', 'Bebidas'),
 (3, 'Fanta Laranja 2L', 'Refrigerante de Laranja', '500.00', 'fanta-laranja-2l.jpg', 'Bebidas'),
 (4, 'Fanta Laranja 350ml', 'Refrigerante de Laranja', '300.00', 'fanta-laranja-350ml.jpg', 'Bebidas'),
 (5, 'Guarana Antartica 2L', 'Refrigerante de Guarana', '700.00', 'guarana-antartica-2l.jpg', 'Porcoes'),
-(6, 'Porção Teste', 'Porção Teste', '500.00', 'guarana-antartica-2l.jpg', 'Porcoes'),
-(8, 'Coca-Cola 2L', 'Refrigerante de Cola', '12', '855dea952566eb197b50db4ff5d876bc.jpg', 'Bebidas');
+(7, 'Guaraná-Lata', 'Refrigerante de guaraná', '350', '8ff02591b08448a5248498508f5f8a40.jpg', 'Bebidas');
 
 -- --------------------------------------------------------
 
@@ -295,7 +304,7 @@ ALTER TABLE `pizzas`
 -- AUTO_INCREMENT for table `produtos`
 --
 ALTER TABLE `produtos`
-  MODIFY `prod_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `prod_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 --
 -- AUTO_INCREMENT for table `promocoes`
 --
