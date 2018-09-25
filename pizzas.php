@@ -98,7 +98,7 @@
               <div id="pizzaInfo" class="text-center mt-4">
 
                 <div>
-                  <img style="cursor: pointer;" class="img-fluid" id="forma1" img data-toggle="modal" data-target="#modalSabores" src="img/forma.png" class="img-fluid" id="forma1">
+                  <img style="cursor: pointer; display: none;" class="img-fluid" id="forma1" img data-toggle="modal" data-target="#modalSabores" src="img/forma.png" class="img-fluid" id="forma1">
                 </div>
 
                 <div style="display: none; width: 100%" id="img_forma2" >
@@ -306,16 +306,20 @@
         });
 
         $('#saboresPizza').click(function(){
-          if ($('#saboresPizza').val() == '1' || $('#saboresPizza').val() == '0') {
-            $('.img-fluid').css('display', 'none'); // Esconde a forma de 2 sabores
-            $('#pizzaInfo map').css('display', 'inline'); // Mostra a forma de 2 sabores
-            $('#pizzaInfo #img_forma2').css('display', 'inline'); // Mostra a forma de 2 sabores
-            $('#forma1').css('display', 'none');
+          if ($('#saboresPizza').val() == '0') {
+            $('.img-fluid').css('display','');
           }else{
-            $('.img-fluid').css('display', 'inline'); // Esconde a forma de 2 sabores
-            $('#pizzaInfo map').css('display', 'none'); // Mostra a forma de 2 sabores
-            $('#pizzaInfo #img_forma2').css('display', 'none'); // Mostra a forma de 2 sabores
+            if ($('#saboresPizza').val() == '1' || $('#saboresPizza').val() == '0') {
+              $('.img-fluid').css('display', 'none'); // Esconde a forma de 2 sabores
+              $('#pizzaInfo map').css('display', 'inline'); // Mostra a forma de 2 sabores
+              $('#pizzaInfo #img_forma2').css('display', 'inline'); // Mostra a forma de 2 sabores
+              $('.img-fluid').css('display','');
+            }else{
+              $('.img-fluid').css('display', 'inline'); // Esconde a forma de 2 sabores
+              $('#pizzaInfo map').css('display', 'none'); // Mostra a forma de 2 sabores
+              $('#pizzaInfo #img_forma2').css('display', 'none'); // Mostra a forma de 2 sabores
 
+            }
           }
         });
 
