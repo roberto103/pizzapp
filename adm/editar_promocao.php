@@ -61,13 +61,13 @@
 
         <div class="form-group">
           <label for="txtTitulo">Título</label>
-          <input type="text" class="form-control" id="txtTitulo" name="txtTitulo" placeholder="Nome da promoção" value="<?php echo $produto->titulo; ?>">
+          <input type="text" class="form-control" id="txtTitulo" name="txtTitulo" placeholder="Nome da promoção" value="<?php echo $promocao->titulo; ?>">
         </div>
 
         <div class="row mb-3">
           <div class="col">
             <label for="txtPreco">Preço</label>
-            <input value="<?php echo decimalTela($produto->preco_promo); ?>" type="text" class="form-control money2" id="txtPreco" name="txtPreco" placeholder="Preço da promoção">
+            <input value="<?php echo $promocao->preco_promo; ?>" type="text" class="form-control money2" id="txtPreco" name="txtPreco" placeholder="Preço da promoção">
           </div>
 
           <div class="col">
@@ -87,6 +87,8 @@
           <img id="img_promo" style="width: 15%">
           <input type="file" class="form-control" name="img_promo" id="upload_pizza">
         </div>
+
+        <input type="hidden" name="img_promo-salva" value="<?php echo $promocao->img_promo; ?>">
 
         <button type="submit" class="btn btn-outline-success" style="width: 100%;">Salvar</button>
       </form>
