@@ -95,6 +95,8 @@
 			<img id="img" style="width: 15%">
 		</div>
 
+    <input type="hidden" name="img_prod-salvo" value="<?php echo $produto->prod_img; ?>">
+
 		<button type="submit" id="btn-salvar" class="btn btn-success">Salvar</button>
 	</form>
 
