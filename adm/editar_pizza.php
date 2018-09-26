@@ -67,7 +67,22 @@
 
         <div class="form-group">
           <label for="txtPrecoPizza">Preço</label>
-          <input value="<?php echo decimalTela($p->preco); ?>" type="text" class="form-control money2" id="txtPrecoPizza" name="txtPrecoPizza" placeholder="Preço da pizza">
+          <input value="<?php echo decimalTela($p->precop); ?>" type="text" class="form-control money2" id="txtPrecoPizza" name="txtPrecoPizzap" placeholder="Preço da pizza">
+        </div>
+
+        <div class="form-group">
+          <label for="txtPrecoPizza">Preço</label>
+          <input value="<?php echo decimalTela($p->precom); ?>" type="text" class="form-control money2" id="txtPrecoPizza" name="txtPrecoPizzam" placeholder="Preço da pizza">
+        </div>
+
+        <div class="form-group">
+          <label for="txtPrecoPizza">Preço</label>
+          <input value="<?php echo decimalTela($p->precog); ?>" type="text" class="form-control money2" id="txtPrecoPizza" name="txtPrecoPizzag" placeholder="Preço da pizza">
+        </div>
+
+        <div class="form-group">
+          <label for="txtPrecoPizza">Preço</label>
+          <input value="<?php echo decimalTela($p->precogg); ?>" type="text" class="form-control money2" id="txtPrecoPizza" name="txtPrecoPizzagg" placeholder="Preço da pizza">
         </div>
 
         <div class="form-group">
@@ -80,6 +95,8 @@
           <img id="img_pizza" style="width: 15%">
           <input type="file" class="form-control" name="img_pizza" id="upload_pizza">
         </div>
+
+        <input type="hidden" name="img_pizza-salva" value="<?php echo $p->img_pizza; ?>">
 
         <button type="submit" class="btn btn-outline-success" style="width: 100%;">Salvar</button>
       </form>
