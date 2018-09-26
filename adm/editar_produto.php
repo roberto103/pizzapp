@@ -81,7 +81,7 @@
 								<label class="input-group-text" for="tiposProduto">Tipos</label>
 							</div>
 							<select class="custom-select" id="txt_tipo" name="txt_tipo" id="tiposProduto">
-								<option selected>Selecione um tipo</option>
+								<option value="<?php echo $produto->prod_tipo; ?>" selected><?php echo $produto->prod_tipo; ?></option>
 								<option value="Bebidas">Bebidas</option>
 								<option value="Porcoes">Porções</option>
 							</select>
