@@ -17,24 +17,32 @@
           <input type="text" class="form-control" id="txtSabor" name="txtSabor" placeholder="Nome da pizza">
         </div>
 
-        <div class="form-group">
-          <label for="txtPrecop">Preço pizza P</label>
-          <input type="text" class="form-control" id="txtPrecop" name="txtPrecop" placeholder="Preço da pizza">
-        </div>
+        <div class="row mb-3">
+          <div class="col">
+            <label for="txtPrecop">Preço</label>
+            <small class="form-text text-muted d-inline-block"> da pizza P</small>
+            <input type="text" class="form-control" id="txtPrecop" name="txtPrecop">
+          </div>
 
-        <div class="form-group">
-          <label for="txtPrecom">Preço pizza M</label>
-          <input type="text" class="form-control" id="txtPrecom" name="txtPrecom" placeholder="Preço da pizza">
-        </div>
+          <div class="col">
+            <label for="txtPrecom">Preço</label>
+            <small class="form-text text-muted d-inline-block"> da pizza M</small>
+            <input type="text" class="form-control" id="txtPrecom" name="txtPrecom">
+          </div>
+        </div>          
 
-        <div class="form-group">
-          <label for="txtPrecog">Preço pizza G</label>
-          <input type="text" class="form-control" id="txtPrecog" name="txtPrecog" placeholder="Preço da pizza">
-        </div>
+        <div class="row mb-3">
+          <div class="col">
+            <label for="txtPrecog">Preço</label>
+            <small class="form-text text-muted d-inline-block"> da pizza G</small>
+            <input type="text" class="form-control" id="txtPrecog" name="txtPrecog">
+          </div>
 
-        <div class="form-group">
-          <label for="txtPrecogg">Preço pizza GG</label>
-          <input type="text" class="form-control" id="txtPrecogg" name="txtPrecogg" placeholder="Preço da pizza">
+          <div class="col">
+            <label for="txtPrecogg">Preço</label>
+            <small class="form-text text-muted d-inline-block"> da pizza GG</small>
+            <input type="text" class="form-control" id="txtPrecogg" name="txtPrecogg">
+          </div>
         </div>
 
         <div class="form-group">
