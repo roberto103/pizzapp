@@ -25,18 +25,18 @@ $(document).ready(function () {
 			preco1 = $(this).attr('data-preco');
 
 			if (preco1>preco2) {
-			 $('#preco').html(preco1/100);
+			 $('#preco').html(preco1/100+",00");
 			}else{
-				$('#preco').html(preco2/100);
+				$('#preco').html(preco2/100+",00");
 			}
 		} else {
 			$('#parte2').attr('src','img/produtos/uploads/'+$(this).attr('data-imagem'));
 			preco2 = $(this).attr('data-preco');
 
 			if (preco1>preco2) {
-			 $('#preco').html(preco1/100);
+			 $('#preco').html(preco1/100+",00");
 			}else{
-				$('#preco').html(preco2/100);
+				$('#preco').html(preco2/100+",00");
 			}
 		}
 
