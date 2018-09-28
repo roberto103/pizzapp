@@ -115,6 +115,8 @@
 								</div>
 
 								<span class="text-center mt-3 d-block">Preço da pizza: R$ <span id="preco"> 0,00</span></span>
+
+								<input type="hidden" name="valorfinal" id="valorfinal" value="">
 							</div>
 
 						<a id="finalizar" class="comprarPizza" href>
@@ -184,7 +186,7 @@
 							<div  id="pizzagg" class="card w-75 pizzagg" style="margin-bottom: 10px; display: none;">
 								<a data-id_pizza1="" data-id_pizza2="" href="#" class="escolha-sabor">
 								<div class="card-body">
-									<img id="img-prod" src="img/produtos/uploads/<?php echo $pizza->img_pizza; ?>" class="img-fluid" data-imagem="<?php echo $pizza->img_pizza; ?>" data-preco="<?php echo $pizza->precogg; ?>">
+									<img id="img-prod" src="img/produtos/uploads/<?php echo $pizza->img_pizza; ?>" class="img-fluid" data-imagem="<?php echo $pizza->img_pizza; ?>" data-preco="<?php echo decimalTela($pizza->precogg); ?>">
 									<h5 class="card-title"><?php echo $pizza->sabor; ?> - R$ <?php echo decimalTela($pizza->precogg); ?></h5>
 									<p class="card-text"><?php echo $pizza->descricao; ?></p>
 								</div>

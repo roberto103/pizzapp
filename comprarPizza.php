@@ -1,14 +1,13 @@
 <?php 
-
-	session_start();
+session_start();
 	require_once 'core/conexao.php';
   	require_once 'core/util.php';
 
 	//Carrega todos os itens da tabela produtos
-	$combo = $_POST['combo'];
+	$pizza = $_POST['pizza'];
 
 	$consulta = $pdo->prepare('SELECT * FROM pizzas WHERE id = :id');
-	$consulta->bindValue(':id', $combo);
+	$consulta->bindValue(':id', $pizza);
 	$consulta->execute();
 
 	$linhas = $consulta->rowCount();
@@ -19,9 +18,9 @@
 
 	//Atribui valores as variaveis
 	$id = $mostra['id'];
-	$nome = $mostra['sabor'];
+	$sabor = $mostra['sabor'];
 	$quantidade = 1;
-	$preco = decimalBanco($mostra['#preco']);
+	$preco = $mostra['preco_promo'];
 	$img = $mostra['img_pizza'];
 	$data = date('Y-m-d H:i:s');
 	$rand = rand(1000, 100000);
@@ -58,12 +57,10 @@
 		$altera->execute();
 
 		if ($altera) {
-			/*echo "<script>alert('Foi adicionado mais uma unidade desse produto!');</script>";
-			echo "<script>window.history.go(-1);</script>";*/
+			// Foi adicionado mais uma unidade desse produto!
 			echo 2;
 		}else{
-			/*echo "<script>alert('O Produto não pôde ser adicionado ao carrinho.');</script>";
-			echo "<script>window.history.go(-1);</script>";*/
+			// O Produto não pôde ser adicionado ao carrinho.
 			echo 0;
 		}
 
@@ -73,20 +70,18 @@
 		$inserir->bindValue(':ID_usuarios', $id_usuario);
 		$inserir->bindValue(':temporario_nome', $nome);
 		$inserir->bindValue(':temporario_quantidade', $quantidade);
-		$inserir->bindValue(':temporario_preco', decimalBanco($preco));
+		$inserir->bindValue(':temporario_preco', $preco);
 		$inserir->bindValue(':temporario_img', $img);
 		$inserir->bindValue(':temporario_data', $data);
 		$inserir->bindValue(':temporario_sessao', $sessao);
 		$inserir->execute();
 
 		if ($inserir) {
-			// echo "<script>alert('Produto foi adicionado ao carrinho.');</script>";
-			// echo "<script>window.history.go(-1);</script>";
+			// Produto foi adicionado ao carrinho.
 			echo 1;
 		}else{
-			// echo "<script>alert('O Produto não pôde ser adicionado ao carrinho.');</script>";
+			// O Produto não pôde ser adicionado ao carrinho.
 			echo 0;
 		}
   }
-
  ?>

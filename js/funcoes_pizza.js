@@ -25,18 +25,23 @@ $(document).ready(function () {
 			preco1 = $(this).attr('data-preco');
 
 			if (preco1>preco2) {
-			 $('#preco').html(preco1/100+",00");
+			 $('#preco').html(preco1);
+			 $('#valorfinal').val(preco1);
 			}else{
-				$('#preco').html(preco2/100+",00");
+				$('#preco').html(preco2);
+				$('#valorfinal').val(preco2);
 			}
 		} else {
+
 			$('#parte2').attr('src','img/produtos/uploads/'+$(this).attr('data-imagem'));
 			preco2 = $(this).attr('data-preco');
 
 			if (preco1>preco2) {
-			 $('#preco').html(preco1/100+",00");
+			 $('#preco').html(preco1);
+			 $('#valorfinal').val(preco1);
 			}else{
-				$('#preco').html(preco2/100+",00");
+				$('#preco').html(preco2);
+				$('#valorfinal').val(preco2);
 			}
 		}
 
@@ -109,29 +114,5 @@ $('#saboresPizza').click(function(){
 		}
 	}
 });
-
-$('#finalizar').click(function(){
-
-		var id_pizza1 = $(this).attr('data-id_pizza');
-		var id_pizza2 = $(this).attr('data-id_pizza');
-		
-		$.ajax({
-			url : "comprarPizza.php",
-			type : 'post',
-			data : {
-					 combo : id_pizza
-			},
-			success : function(data){
-				 if (data == 1) {
-						M.toast({html: 'O Produto foi adicionado ao carrinho.'});
-				 } else if(data == 2){
-						M.toast({html: 'Foi adicionado mais uma unidade desse produto!'});
-				 } else {
-						M.toast({html: 'O Produto não pôde ser adicionado ao carrinho.'});
-				 } 
-			}//success
-		});//ajax
-		return false;
-});//#comprarProduto
 
 });
