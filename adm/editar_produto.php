@@ -91,7 +91,7 @@
 
 				<div class="form-group">
 					<label for="upload">Imagem do produto</label>
-					<input type="file" class="form-control" name="prod_img" id="upload" value="<?php echo $produto->prod_img; ?>">
+					<input type="file" class="form-control" name="prod_img" id="upload" value="">
 					<img id="img" style="width: 15%">
 				</div>
 
@@ -116,7 +116,7 @@
 		const file = $(this)[0].files[0];
 		const fileReader = new FileReader();
 		fileReader.onloadend = function() {
-			$('#img_promo').attr('src', fileReader.result);
+			$('#img').attr('src', fileReader.result);
 		}
 		fileReader.readAsDataURL(file);
 	});
