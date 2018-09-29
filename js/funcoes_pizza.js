@@ -3,7 +3,7 @@ $(document).ready(function () {
 	var preco1;
 	var preco2;
 
-	var preco;
+	var sabor;
 
 	$('.escolha-sabor img').click(function() {
 		$('#forma1').attr('src','img/produtos/uploads/'+$(this).attr('data-imagem'));
@@ -23,25 +23,35 @@ $(document).ready(function () {
 		if ($('#modalSabores').attr('data-parteClicada') == 'parte1') {
 			$('#parte1').attr('src','img/produtos/uploads/'+$(this).attr('data-imagem'));
 			preco1 = $(this).attr('data-preco');
+			sabor = $(this).attr('data-sabor');
 
 			if (preco1>preco2) {
 			 $('#preco').html(preco1);
 			 $('#valorfinal').val(preco1);
+			 $('#saborpizza').val(sabor);
+			 $('#finalizar').attr("data-precototal",preco1);
 			}else{
 				$('#preco').html(preco2);
 				$('#valorfinal').val(preco2);
+				$('#saborpizza').val(sabor);
+				$('#finalizar').attr("data-precototal",preco2);
 			}
 		} else {
 
 			$('#parte2').attr('src','img/produtos/uploads/'+$(this).attr('data-imagem'));
 			preco2 = $(this).attr('data-preco');
+			sabor = $(this).attr('data-sabor');
 
 			if (preco1>preco2) {
 			 $('#preco').html(preco1);
 			 $('#valorfinal').val(preco1);
+			 $('#saborpizza').val(sabor);
+			 $('#finalizar').attr("data-precototal",preco1);
 			}else{
 				$('#preco').html(preco2);
 				$('#valorfinal').val(preco2);
+				$('#saborpizza').val(sabor);
+				$('#finalizar').attr("data-precototal",preco2);
 			}
 		}
 
@@ -114,5 +124,33 @@ $('#saboresPizza').click(function(){
 		}
 	}
 });
+
+	$('.comprarPizza').click(function(){
+
+	    var id_pizza = $(this).attr('data-id_pizza');
+	    var precototal = $(this).attr('data-precototal');
+	    
+	    $.ajax({
+	      url : "../comprarPizza.php",
+	      type : 'post',
+	      data : {
+	           pizzas : id_pizza,
+	           precofinal : precototal
+	      },
+	      success : function(data){
+	         if (data == 1) {
+	         	alert('aaaaa');
+	            M.toast({html: 'O Produto foi adicionado ao carrinho.'});
+	         } else if(data == 2){
+	         	alert('bbbbb');
+	            M.toast({html: 'Foi adicionado mais uma unidade desse produto!'});
+	         } else {
+	         	alert('ccccc');
+	            M.toast({html: 'O Produto não pôde ser adicionado ao carrinho.'});
+	         } 
+	      }//success
+	    });//ajax
+	    return false;
+	});//#comprarProduto
 
 });

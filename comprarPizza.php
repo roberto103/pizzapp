@@ -1,13 +1,16 @@
 <?php 
-session_start();
+
+	session_start();
+	
 	require_once 'core/conexao.php';
   	require_once 'core/util.php';
 
 	//Carrega todos os itens da tabela produtos
-	$pizza = $_POST['pizza'];
+	$pizzas = $_POST['pizzas'];
+	$precofinal = $_POST['precofinal'];
 
 	$consulta = $pdo->prepare('SELECT * FROM pizzas WHERE id = :id');
-	$consulta->bindValue(':id', $pizza);
+	$consulta->bindValue(':id', $pizzas);
 	$consulta->execute();
 
 	$linhas = $consulta->rowCount();
@@ -18,9 +21,9 @@ session_start();
 
 	//Atribui valores as variaveis
 	$id = $mostra['id'];
-	$sabor = $mostra['sabor'];
+	$nome = $mostra['sabor'];
 	$quantidade = 1;
-	$preco = $mostra['preco_promo'];
+	$preco = $precofinal;
 	$img = $mostra['img_pizza'];
 	$data = date('Y-m-d H:i:s');
 	$rand = rand(1000, 100000);
@@ -38,7 +41,7 @@ session_start();
 
   	//Verifica se o produto já existe no carrinho_temporario
 	$consulta = $pdo->prepare('SELECT * FROM carrinho_temporario WHERE temporario_produto = :product AND temporario_sessao = :sessao');
-	$consulta->bindValue(':product', $combo);
+	$consulta->bindValue(':product', $pizzas);
   	$consulta->bindValue(':sessao', $sessao);
 	$consulta->execute();
 
@@ -53,7 +56,7 @@ session_start();
 		$altera = $pdo->prepare('UPDATE carrinho_temporario SET temporario_quantidade = :val WHERE temporario_sessao = :ses AND temporario_produto = :tp');
 		$altera->bindValue(':val', $valor);
 		$altera->bindValue(':ses', $sessao);
-		$altera->bindValue(':tp', $combo);
+		$altera->bindValue(':tp', $pizzas);
 		$altera->execute();
 
 		if ($altera) {
@@ -84,4 +87,5 @@ session_start();
 			echo 0;
 		}
   }
+
  ?>
