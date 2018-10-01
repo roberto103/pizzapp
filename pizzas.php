@@ -114,11 +114,9 @@
 
 								</div>
 
-								<div style="text-align: center;">
-
-									<span class="text-center mt-3 d-block" value="" id="saborpizza1"><p></span><strong >/</strong></p><span class="text-center mt-3 d-block" value="" id="saborpizza2"></span>
-										
-								</div>
+								<div style="width: 49.5%; float: left; text-align: right;"><span id="saborpizza1"></span></div>
+								<div style="width: 1%; float: left;"><span>/</span></div>
+								<div style="width: 49.5%; float: right; text-align: left;"><span id="saborpizza2"></span></div>
 
 								<span class="text-center mt-3 d-block">Preço da pizza: R$ <span id="preco"> 0,00</span></span>
 
@@ -203,8 +201,6 @@
 								</a>
 							</div>
 
-
-							<input type="hidden" name="idpizza" id="idpizza" value="<?php echo $pizza->id; ?>">
 						<?php } ?>
 
 						</div>

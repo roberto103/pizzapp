@@ -26,7 +26,6 @@ $(document).ready(function () {
 			sabor = $(this).attr('data-sabor');
 
 			$('#saborpizza1').html(sabor);
-			$('#saborpizza2').html(sabor);
 
 			if (preco1>preco2) {
 			 $('#preco').html(preco1);
@@ -46,7 +45,6 @@ $(document).ready(function () {
 			sabor = $(this).attr('data-sabor');
 
 			$('#saborpizza2').html(sabor);
-			$('#saborpizza1').html(sabor);
 
 			if (preco1>preco2) {
 			 $('#preco').html(preco1);
