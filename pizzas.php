@@ -68,7 +68,7 @@
 
 				<div class="col-md-6">
 
-					<form id="formPizza" method="post">
+					<form id="formPizza" method="post" action="">
 						<!-- ESCOLHER TAMANHO DA PIZZA -->
 						<div class="input-group mb-3">
 							<div class="input-group-prepend">
@@ -120,7 +120,7 @@
 								<input type="hidden" name="saborpizza" id="saborpizza" value="">
 							</div>
 
-						<a type="submit" id="finalizar" class="comprarPizza" href data-precototal="">
+						<a type="submit" id="finalizar" class="comprarPizza">
 							<i class="fas fa-shopping-cart"></i>
 								Adicionar ao Pedido
 						</a>
@@ -194,6 +194,8 @@
 								</a>
 							</div>
 
+
+							<input type="hidden" name="idpizza" id="idpizza" value="<?php echo $pizza->id; ?>">
 						<?php } ?>
 
 						</div>
@@ -208,11 +210,41 @@
 		<!-- Bootstrap core JavaScript
 		================================================== -->
 		<!-- Placed at the end of the document so the pages load faster -->
-		<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
 		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
 		<script src="sidebar_includes/js/b4_sidebar.js"></script>
 		<script src="js/funcoes_pizza.js"></script>
 
+		<script type="text/javascript">
+			$('#finalizar').click(function(){
+			    var id_pizza = $(this).attr('data-id_pizza');
+			    var valorFinal = $('#valorfinal').val();
+			    var saborPizza = $('#saborpizza').val();
+			    
+			    $.ajax({
+			      url: 'comprarPizza.php',
+			      type: 'POST',
+			      data: {
+			           id: id_pizza,
+			           valor: valorFinal,
+			           sabor: saborPizza
+			      },
+			      success : function(data){
+			         if (data == 1) {
+			         	alert('Foi');
+			            // M.toast({html: 'O Produto foi adicionado ao carrinho.'});
+			         } else if(data == 2){
+			         	alert('Foi nova qtd');
+			            // M.toast({html: 'Foi adicionado mais uma unidade desse produto!'});
+			         } else {
+			         	alert('Erro');
+			            // M.toast({html: 'O Produto não pôde ser adicionado ao carrinho.'});
+			         } 
+			      }//success
+			    });//ajax
+			    return true;
+			});//#comprarProduto
+		</script>
 	</body>
 </html>
