@@ -1,0 +1,27 @@
+.enviarImagem button{
+	width: 100% !important;
+	height: 80px !important;
+	background-color: #e6e6e6;
+	color: #333;
+}
+
+.enviarImagem button:hover{
+	background-color: #dadada;
+}
+
+.imagens{
+	width: 100%;
+	height: auto;
+	background-color: #a2a1a1;
+	padding: 10px;
+}
+
+.img-fluid{
+	width: 141px !important;
+	margin: 2px 2px 5px 2px;
+	transition: transform .3s;
+}
+
+.img-fluid:hover{
+	transform: scale(1.1); /* Zoom de 110% */
+}

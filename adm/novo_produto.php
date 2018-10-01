@@ -20,7 +20,6 @@
             </div>
             <select class="custom-select" name="tipo_prod" id="tiposProduto">
               <option selected>Selecione um tipo</option>
-              <option value="Pizza">Pizza</option>
               <option value="Bebidas">Bebidas</option>
               <option value="Porcoes">Porções</option>
             </select>
@@ -44,6 +43,8 @@
 
         <div class="form-group">
           <label for="upload" style="display: block;">Imagem do produto</label>
+          <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalImagens">Selecionar imagem</button>
+
           <img id="img" style="width: 15%">
           <input type="file" class="form-control" name="img" id="upload">
         </div>
