@@ -62,9 +62,8 @@
 		$altera->bindValue(':val', $valor);
 		$altera->bindValue(':ses', $sessao);
 		$altera->bindValue(':tp', $id);
-		$altera->execute();
-
-		if ($altera) {
+		
+		if ($altera->execute()) {
 			// Foi adicionado mais uma unidade desse produto!
 			echo 2;
 		}else{
@@ -78,13 +77,13 @@
 		$inserir->bindValue(':ID_usuarios', $id_usuario);
 		$inserir->bindValue(':temporario_nome', $sabor);
 		$inserir->bindValue(':temporario_quantidade', $quantidade);
-		$inserir->bindValue(':temporario_preco', $preco);
+		$inserir->bindValue(':temporario_preco', decimalBanco($preco));
 		$inserir->bindValue(':temporario_img', $img);
 		$inserir->bindValue(':temporario_data', $data);
 		$inserir->bindValue(':temporario_sessao', $sessao);
-		$inserir->execute();
+		
 
-		if ($inserir) {
+		if ($inserir->execute()) {
 			// Produto foi adicionado ao carrinho.
 			echo 1;
 		}else{
