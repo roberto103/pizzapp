@@ -125,32 +125,4 @@ $('#saboresPizza').click(function(){
 	}
 });
 
-	$('.comprarPizza').click(function(){
-
-	    var id_pizza = $(this).attr('data-id_pizza');
-	    var precototal = $(this).attr('data-precototal');
-	    
-	    $.ajax({
-	      url : "../comprarPizza.php",
-	      type : 'post',
-	      data : {
-	           pizzas : id_pizza,
-	           precofinal : precototal
-	      },
-	      success : function(data){
-	         if (data == 1) {
-	         	alert('aaaaa');
-	            M.toast({html: 'O Produto foi adicionado ao carrinho.'});
-	         } else if(data == 2){
-	         	alert('bbbbb');
-	            M.toast({html: 'Foi adicionado mais uma unidade desse produto!'});
-	         } else {
-	         	alert('ccccc');
-	            M.toast({html: 'O Produto não pôde ser adicionado ao carrinho.'});
-	         } 
-	      }//success
-	    });//ajax
-	    return false;
-	});//#comprarProduto
-
 });
