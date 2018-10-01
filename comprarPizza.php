@@ -5,31 +5,12 @@
   	require_once 'core/util.php';
 
 	//Carrega todos os itens da tabela produtos
-	$id = $_POST['id'];
+	$id = $_POST['id']; // Id pizza de 1 parte
+	// $id_2 = $_POST['id']; // Id pizza de 2 partes
 	$preco = $_POST['valor'];
-	$sabor = $_POST['sabor'];
+	$sabor = $_POST['sabor']; // Sabor pizza de 1 parte
+	// $sabor_2 = $_POST['sabor'].' / '.$_POST['sabor2']; // Sabores da pizza de 2 partes
 
-	$consulta = $pdo->prepare('SELECT * FROM pizzas WHERE id = :id');
-	$consulta->bindValue(':id', $id);
-	$consulta->execute();
-
-	$linhas = $consulta->rowCount();
-
-	foreach ($consulta as $mostra) {
-
-	}
-
-	//Atribui valores as variaveis
-	$id = $mostra['id'];
-	$sabor = $mostra['sabor'];
-	$quantidade = 1;
-
-	$precoP = $mostra['precop'];
-	$precoM = $mostra['precom'];
-	$precoG = $mostra['precog'];
-	$precoGG = $mostra['precogg'];
-
-	$img = $mostra['img_pizza'];
 	$data = date('Y-m-d H:i:s');
 	$rand = rand(1000, 100000);
 	

@@ -21,6 +21,7 @@
 		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/solid.css" integrity="sha384-wnAC7ln+XN0UKdcPvJvtqIH3jOjs9pnKnq9qX68ImXvOGz2JuFoEiCjT8jyZQX2z" crossorigin="anonymous">
 		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/fontawesome.css" integrity="sha384-HbmWTHay9psM8qyzEKPc8odH4DsOuzdejtnr+OFtDmOcIVnhgReQ4GZBH7uwcjf6" crossorigin="anonymous">
 		<link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
+		<link rel="stylesheet" type="text/css" href="css/style.css">
 		<style type="text/css">
 			#img-prod{
 				width: 35%;
@@ -298,50 +299,83 @@
 					<!-- MOSTRAR TODO O PEDIDO -->
 					<div class="modal fade bd-example-modal-lg" id="modal-mostrar_pedido" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" style="z-index: 9999 !important;">
 					  <div class="modal-dialog modal-lg" role="document">
-					    <div class="modal-content">
-					      <div class="modal-header">
-					        <h5 class="modal-title" id="exampleModalLabel"></h5>
-					        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-					          <span aria-hidden="true">&times;</span>
-					        </button>
-					      </div>
-					      <div class="modal-body">
-					      	<h5>Produtos:</h5>
-					        <span id="descricao"></span>
-					        <hr>
+						<div class="modal-content">
+						  <div class="modal-header">
+							<h5 class="modal-title" id="exampleModalLabel"></h5>
+							<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+							  <span aria-hidden="true">&times;</span>
+							</button>
+						  </div>
+						  <div class="modal-body">
+							<h5>Produtos:</h5>
+							<span id="descricao"></span>
+							<hr>
 
-					        <div>
-					        	<h5 class="d-inline">Endereço:</h5>
-						        <span id="endereco"></span>
+							<div>
+								<h5 class="d-inline">Endereço:</h5>
+								<span id="endereco"></span>
 
-						        <h5 class="ml-3 d-inline">Referência:</h5>
-						        <span id="referencia"></span><br>
-					        </div>
+								<h5 class="ml-3 d-inline">Referência:</h5>
+								<span id="referencia"></span><br>
+							</div>
 
-					        <div class="mt-1">
-					        	<h5 class="mt-4 d-inline">Cliente:</h5>
-						        <span id="nomeCliente"></span>
+							<div class="mt-1">
+								<h5 class="mt-4 d-inline">Cliente:</h5>
+								<span id="nomeCliente"></span>
 								<br>
-					        </div>
+							</div>
 
-					        <div class="mt-4">
-						        <h5 class="d-inline">Valor total:</h5>
-						        <span id="valor"></span>
+							<div class="mt-4">
+								<h5 class="d-inline">Valor total:</h5>
+								<span id="valor"></span>
 
-						        <h5 class="d-inline ml-3">Hora:</h5>
-						        <span id="hora"></span>
-					        </div>
+								<h5 class="d-inline ml-3">Hora:</h5>
+								<span id="hora"></span>
+							</div>
 
-					      </div>
-					      <div class="modal-footer">
-					      	<button type="button" id="bt-salvar atender" class="btn btn-outline-success" disabled>Atender pedido</button>
-					      	<button type="button" id="bt-salvar pronto" class="btn btn-outline-success" disabled>Pedido pronto</button>
-					      	<button type="button" id="bt-salvar entrega" class="btn btn-outline-success" disabled>Pedido saiu para entrega</button>
-					      </div>
-					    </div>
+						  </div>
+						  <div class="modal-footer">
+							<button type="button" id="bt-salvar atender" class="btn btn-outline-success" disabled>Atender pedido</button>
+							<button type="button" id="bt-salvar pronto" class="btn btn-outline-success" disabled>Pedido pronto</button>
+							<button type="button" id="bt-salvar entrega" class="btn btn-outline-success" disabled>Pedido saiu para entrega</button>
+						  </div>
+						</div>
 					  </div>
 					</div>
 					<!-- /MOSTRAR TODO O PEDIDO -->
+
+					<!-- MODAL DAS IMAGENS -->
+					<div class="modal fade bd-example-modal-lg" id="modalImagens" tabindex="-1" role="dialog" aria-labelledby="modallabelEx" aria-hidden="true">
+					  <div class="modal-dialog modal-lg" role="document">
+						<div class="modal-content">
+						  <div class="modal-header">
+							<h5 class="modal-title" id="modallabelEx">Banco de imagens</h5>
+						  </div>
+
+						  <div class="modal-body">
+						  	<div class="enviarImagem">
+						  		<button type="file" class="btn">Enviar uma imagem</button>
+						  	</div>
+
+						  	<hr>
+
+						  	<div class="imagens">
+						  		<img src="../img/produtos/coca-cola-2l.jpg" class="img-fluid">
+						  		<img src="../img/produtos/coca-cola-350ml.jpg" class="img-fluid">
+						  		<img src="../img/produtos/sprite-2l.jpg" class="img-fluid">
+						  		<img src="../img/produtos/sprite-2l.jpg" class="img-fluid">
+						  		<img src="../img/produtos/guarana-antartica-2l.jpg" class="img-fluid">
+						  		<img src="../img/produtos/guarana-antartica-2l.jpg" class="img-fluid">
+						  	</div>
+						  </div>
+
+						  <div class="modal-footer">
+							<button type="button" class="btn btn-outline-success">Selecionar imagem</button>
+						  </div>
+						</div>
+					  </div>
+					</div>
+					<!-- /MODAL DAS IMAGENS -->
 
 				</div>
 			</div>
