@@ -3,7 +3,7 @@ $(document).ready(function () {
 	var preco1;
 	var preco2;
 
-	var sabor;
+	var sabor = $(this).attr('data-sabor');
 
 	$('.escolha-sabor img').click(function() {
 		$('#forma1').attr('src','img/produtos/uploads/'+$(this).attr('data-imagem'));
@@ -12,18 +12,20 @@ $(document).ready(function () {
 	$('#parte1').click(function(){
 		$('#modalSabores').attr('data-parteClicada','parte1');
 	});
-
-	$('#parte2').click(function(){
-		$('#modalSabores').attr('data-parteClicada','parte2');
+	$('#parte2').click(function(){	
+		$('#modalSabores').attr('data-parteClicada','parte2');	
 	});
 
 	$('.escolha-sabor img').click(function(){
 		//alert($(this).attr('data-preco'));
 
 		if ($('#modalSabores').attr('data-parteClicada') == 'parte1') {
+			var sabor = $(this).attr('data-sabor')
 			$('#parte1').attr('src','img/produtos/uploads/'+$(this).attr('data-imagem'));
 			preco1 = $(this).attr('data-preco');
 			sabor = $(this).attr('data-sabor');
+
+			$('#saborpizza1').html(sabor);
 
 			if (preco1>preco2) {
 			 $('#preco').html(preco1);
@@ -42,6 +44,8 @@ $(document).ready(function () {
 			preco2 = $(this).attr('data-preco');
 			sabor = $(this).attr('data-sabor');
 
+			$('#saborpizza2').html(sabor);
+
 			if (preco1>preco2) {
 			 $('#preco').html(preco1);
 			 $('#valorfinal').val(preco1);
@@ -52,6 +56,7 @@ $(document).ready(function () {
 				$('#valorfinal').val(preco2);
 				$('#saborpizza').val(sabor);
 				$('#finalizar').attr("data-precototal",preco2);
+
 			}
 		}
 

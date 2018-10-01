@@ -44,7 +44,7 @@
 
 		<div class="container-fluid">
 			<div class="row" >
-				<nav class="navbar navbar-expand-lg navbar-light bg-danger sidebarNavigation" data-sidebarClass="navbar-light bg-danger" style=" width: 100%; position: absolute; z-index: 998; background-color: #bd2130 !important;">
+				<nav class="navbar navbar-expand-lg navbar-light bg-danger sidebarNavigation" data-sidebarClass="navbar-light bg-danger" style=" width: 100%; position: absolute; z-index: 9999; background-color: #bd2130 !important;">
 							<button class="navbar-toggler leftNavbarToggler" type="button" data-toggle="collapse" data-target="#navbarMenu" aria-controls="navbarMenu" aria-expanded="false" aria-label="Toggle navigation">
 								<span class="navbar-toggler-icon"></span>
 							</button>
@@ -98,7 +98,7 @@
 							<div id="pizzaInfo" class="text-center mt-4">
 
 								<div>
-									<img style="cursor: pointer; display: none;" class="img-fluid" id="forma1" img data-toggle="modal" data-target="#modalSabores" src="img/forma.png" id="forma1" name="img_pizza">
+									<img style="cursor: pointer; display: none;" class="img-fluid parte1" id="forma1" img data-toggle="modal" data-target="#modalSabores" src="img/forma.png" name="img_pizza">
 								</div>
 
 								<div style="display: none; width: 100%" id="img_forma2" >
@@ -113,6 +113,10 @@
 									</div>
 
 								</div>
+
+								<div style="width: 49.5%; float: left; text-align: right;"><span id="saborpizza1"></span></div>
+								<div style="width: 1%; float: left;"><span>/</span></div>
+								<div style="width: 49.5%; float: right; text-align: left;"><span id="saborpizza2"></span></div>
 
 								<span class="text-center mt-3 d-block">Preço da pizza: R$ <span id="preco"> 0,00</span></span>
 
@@ -132,7 +136,7 @@
 			</div>
 
 			<!-- SABORES -->
-			<div class="modal fade" id="modalSabores" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" data-parteClicada="" style="z-index: 9999 !important;">
+			<div class="modal fade" id="modalSabores" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" data-parteClicada="">
 				<div class="modal-dialog modal-dialog-centered" role="document">
 					<div class="modal-content">
 						<div class="modal-header bg-danger text-white">
@@ -156,8 +160,13 @@
 							<?php foreach ($pizza as $pizza) { ?>
 							<div id="pizzap" class="card w-75 pizzap" style="margin-bottom: 10px; display: none;">
 								<a data-id_pizza1="" data-id_pizza2="" href="#" class="escolha-sabor"
+<<<<<<< HEAD
 								data-id="<?php echo $pizza->id; ?>" style="color: black;">
 								<div class="card-body" data-dismiss="modal">
+=======
+								data-id="<?php echo $pizza->id; ?>">
+								<div class="card-body">
+>>>>>>> a44cf20885d796e2ab12dd3bc9b6c6dfad494865
 									<img id="img-prod" src="img/produtos/uploads/<?php echo $pizza->img_pizza; ?>" class="img-fluid" data-imagem="<?php echo $pizza->img_pizza; ?>" data-preco="<?php echo decimalTela($pizza->precop); ?>" data-sabor="<?php echo $pizza->sabor; ?>">
 									<h5 class="card-title"><?php echo $pizza->sabor; ?> - R$ <?php echo decimalTela($pizza->precop); ?></h5>
 									<p class="card-text"><?php echo $pizza->descricao; ?></p>
@@ -167,8 +176,13 @@
 
 							<div id="pizzam" class="card w-75 pizzam" style="margin-bottom: 10px; display: none;">
 								<a data-id_pizza1="" data-id_pizza2="" href="#" class="escolha-sabor"
+<<<<<<< HEAD
 								data-id="<?php echo $pizza->id; ?>" style="color: black;">
 								<div class="card-body" data-dismiss="modal">
+=======
+								data-id="<?php echo $pizza->id; ?>">
+								<div class="card-body">
+>>>>>>> a44cf20885d796e2ab12dd3bc9b6c6dfad494865
 									<img id="img-prod" src="img/produtos/uploads/<?php echo $pizza->img_pizza; ?>" class="img-fluid" data-imagem="<?php echo $pizza->img_pizza; ?>" data-preco="<?php echo decimalTela($pizza->precom); ?>" data-sabor="<?php echo $pizza->sabor; ?>">
 									<h5 class="card-title"><?php echo $pizza->sabor; ?> - R$ <?php echo decimalTela($pizza->precom); ?></h5>
 									<p class="card-text"><?php echo $pizza->descricao; ?></p>
@@ -178,8 +192,13 @@
 
 							<div id="pizzag" class="card w-75 pizzag" style="margin-bottom: 10px; display: none;">
 								<a data-id_pizza1="" data-id_pizza2="" href="#" class="escolha-sabor"
+<<<<<<< HEAD
 								data-id="<?php echo $pizza->id; ?>" style="color: black;">
 								<div class="card-body" data-dismiss="modal">
+=======
+								data-id="<?php echo $pizza->id; ?>">
+								<div class="card-body">
+>>>>>>> a44cf20885d796e2ab12dd3bc9b6c6dfad494865
 									<img id="img-prod" src="img/produtos/uploads/<?php echo $pizza->img_pizza; ?>" class="img-fluid" data-imagem="<?php echo $pizza->img_pizza; ?>" data-preco="<?php echo decimalTela($pizza->precog); ?>" data-sabor="<?php echo $pizza->sabor; ?>">
 									<h5 class="card-title"><?php echo $pizza->sabor; ?> - R$ <?php echo decimalTela($pizza->precog); ?></h5>
 									<p class="card-text"><?php echo $pizza->descricao; ?></p>
@@ -187,17 +206,31 @@
 								</a>
 							</div>
 
+<<<<<<< HEAD
 							<div id="pizzagg" class="card w-75 pizzagg" style="margin-bottom: 10px; display: none;">
 								<a data-id_pizza1="" data-id_pizza2="" href="#" class="escolha-sabor" data-id="<?php echo $pizza->id; ?>" style="color: black;">
 								<div class="card-body" data-dismiss="modal">
+=======
+							<div  id="pizzagg" class="card w-75 pizzagg" style="margin-bottom: 10px; display: none;">
+								<a data-id_pizza1="" data-id_pizza2="" href="#" class="escolha-sabor" data-id="<?php echo $pizza->id; ?>">
+								<div class="card-body">
+>>>>>>> a44cf20885d796e2ab12dd3bc9b6c6dfad494865
 									<img id="img-prod" src="img/produtos/uploads/<?php echo $pizza->img_pizza; ?>" class="img-fluid" data-imagem="<?php echo $pizza->img_pizza; ?>" data-preco="<?php echo decimalTela($pizza->precogg); ?>" data-sabor="<?php echo $pizza->sabor; ?>">
 									<h5 class="card-title"><?php echo $pizza->sabor; ?> - R$ <?php echo decimalTela($pizza->precogg); ?></h5>
 									<p class="card-text"><?php echo $pizza->descricao; ?></p>
 								</div>
 								</a>
 							</div>
+<<<<<<< HEAD
 							<?php } ?>
+=======
 
+						<?php } ?>
+>>>>>>> a44cf20885d796e2ab12dd3bc9b6c6dfad494865
+
+						</div>
+						<div class="modal-footer">
+							<button type="button" class="btn btn-success" data-dismiss="modal">OK</button>
 						</div>
 					</div>
 				</div>
@@ -219,12 +252,12 @@
 			$('.escolha-sabor').click(function(){
 
 				id_pizza = $(this).attr('data-id');
-				alert(id_pizza);
+				
 			});
 
 			$('#finalizar').click(function(){
 
-			    alert(id_pizza);
+			    
 			    var valorFinal = $('#valorfinal').val();
 			    var saborPizza = $('#saborpizza').val();
 			    
