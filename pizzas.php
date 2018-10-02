@@ -94,9 +94,6 @@
 								<option value="1">2 Sabores</option>
 							</select>
 						</div>
-						<div style="width: 49.5%; float: left; text-align: right; height: 50px; background-color: transparent;"><span id="saborpizza1"></span></div>
-						<div style="width: 1%; float: left; height: 50px; background-color: transparent;"><span id="barrasabor"></span></div>
-						<div style="width: 49.5%; float: right; text-align: left; height: 50px; background-color: transparent;"><span id="saborpizza2"></span></div>
 
 							<!-- PIZZA -->
 							<div id="pizzaInfo" class="text-center mt-4">
@@ -106,7 +103,6 @@
 								</div>
 
 								<div style="display: none; width: 100%" id="img_forma2" >
-
 									<div style="width: 50%; float: left; text-align: right;" >
 										<img id="parte1" data-toggle="modal" data-target="#modalSabores" alt="Clique para adicionar o primeiro sabor" title="Clique para adicionar o primeiro sabor" href="" src="img/metadeesquerda.png" style="cursor: pointer;
 										">
@@ -115,18 +111,25 @@
 									<div style="width: 50%; float: right; text-align: left;">
 										<img id="parte2" data-toggle="modal" data-target="#modalSabores" alt="Clique para adicionar o segundo sabor" title="Clique para adicionar o segundo sabor" href="" src="img/metadedireita.png" style=" cursor: pointer;">
 									</div>
-
 								</div>
 
 								<input type="hidden" name="valorfinal" id="valorfinal" value="">
 								<input type="hidden" name="saborpizza" id="saborpizza" value="">
 							</div>
 
-							<div style="width:100%; height: 50px; background-color: transparent; clear: both;">
-								<span class="text-center mt-3 d-block">Preço da pizza: R$ <span id="preco"> 0,00</span></span>
+							<!-- Sabores e preço da pizza -->
+							<div style="width: 100%; height: 50px; background-color: transparent; clear: both; text-align: center; position: fixed; left: 0; bottom: 100px;">
+								<!-- Sabores da pizza -->
+								<span class="d-inline-block">Sabores: </span>
+								<span id="sabor1"></span>
+								<span id="barra_sabor"></span>
+								<span id="sabor2"></span>
+
+								<!-- Preço da pizza -->
+								<span class="d-block">Preço da pizza: R$ <span id="preco"> 0,00</span></span>
 							</div>
 
-						<a type="submit" id="finalizar" class="comprarPizza">
+						<a id="finalizar" class="btn comprarPizza">
 							<i class="fas fa-shopping-cart"></i>
 								Adicionar ao Pedido
 						</a>

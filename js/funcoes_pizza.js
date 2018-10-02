@@ -25,8 +25,8 @@ $(document).ready(function () {
 			preco1 = $(this).attr('data-preco');
 			sabor = $(this).attr('data-sabor');
 
-			$('#saborpizza1').html(sabor);
-			$('#barrasabor').html("/");
+			$('#sabor1').html(sabor);
+
 			if (preco1>preco2) {
 			 $('#preco').html(preco1);
 			 $('#valorfinal').val(preco1);
@@ -44,8 +44,8 @@ $(document).ready(function () {
 			preco2 = $(this).attr('data-preco');
 			sabor = $(this).attr('data-sabor');
 
-			$('#saborpizza2').html(sabor);
-			// $('#barrasabor').html("/");
+			$('#barra_sabor').html("/");
+			$('#sabor2').html(sabor);
 
 			if (preco1>preco2) {
 			 $('#preco').html(preco1);
