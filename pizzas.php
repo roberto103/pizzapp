@@ -94,6 +94,10 @@
 								<option value="1">2 Sabores</option>
 							</select>
 						</div>
+						<div style="width: 49.5%; float: left; text-align: right; height: 50px; background-color: transparent;"><span id="saborpizza1"></span></div>
+						<div style="width: 1%; float: left; height: 50px; background-color: transparent;"><span id="barrasabor"></span></div>
+						<div style="width: 49.5%; float: right; text-align: left; height: 50px; background-color: transparent;"><span id="saborpizza2"></span></div>
+
 							<!-- PIZZA -->
 							<div id="pizzaInfo" class="text-center mt-4">
 
@@ -114,14 +118,12 @@
 
 								</div>
 
-								<div style="width: 49.5%; float: left; text-align: right;"><span id="saborpizza1"></span></div>
-								<div style="width: 1%; float: left;"><span>/</span></div>
-								<div style="width: 49.5%; float: right; text-align: left;"><span id="saborpizza2"></span></div>
-
-								<span class="text-center mt-3 d-block">Preço da pizza: R$ <span id="preco"> 0,00</span></span>
-
 								<input type="hidden" name="valorfinal" id="valorfinal" value="">
 								<input type="hidden" name="saborpizza" id="saborpizza" value="">
+							</div>
+
+							<div style="width:100%; height: 50px; background-color: transparent; clear: both;">
+								<span class="text-center mt-3 d-block">Preço da pizza: R$ <span id="preco"> 0,00</span></span>
 							</div>
 
 						<a type="submit" id="finalizar" class="comprarPizza">
