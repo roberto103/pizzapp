@@ -10,6 +10,7 @@
 	$preco = $_POST['valor'];
 	$sabor = $_POST['sabor']; // Sabor pizza de 1 parte
 	// $sabor_2 = $_POST['sabor'].' / '.$_POST['sabor2']; // Sabores da pizza de 2 partes
+	$quantidade = 1;
 
 	$data = date('Y-m-d H:i:s');
 	$rand = rand(1000, 100000);
@@ -43,8 +44,9 @@
 		$altera->bindValue(':val', $valor);
 		$altera->bindValue(':ses', $sessao);
 		$altera->bindValue(':tp', $id);
+		$altera->execute();
 		
-		if ($altera->execute()) {
+		if ($altera) {
 			// Foi adicionado mais uma unidade desse produto!
 			echo 2;
 		}else{
@@ -53,18 +55,19 @@
 		}
 
 	}else{
-		$inserir = $pdo->prepare("INSERT INTO carrinho_temporario (ID_usuarios, temporario_produto, temporario_nome, temporario_quantidade, temporario_preco, temporario_img, temporario_data, temporario_sessao) VALUES (:ID_usuarios, :temporario_produto, :temporario_nome, :temporario_quantidade, :temporario_preco, :temporario_img, :temporario_data, :temporario_sessao)");
+		$inserir = $pdo->prepare("INSERT INTO carrinho_temporario (ID_usuarios, temporario_produto, temporario_nome, temporario_quantidade, temporario_preco, temporario_data, temporario_sessao) VALUES (:ID_usuarios, :temporario_produto, :temporario_nome, :temporario_quantidade, :temporario_preco, :temporario_data, :temporario_sessao)");
 		$inserir->bindValue(':temporario_produto', $id);
 		$inserir->bindValue(':ID_usuarios', $id_usuario);
 		$inserir->bindValue(':temporario_nome', $sabor);
 		$inserir->bindValue(':temporario_quantidade', $quantidade);
 		$inserir->bindValue(':temporario_preco', decimalBanco($preco));
-		$inserir->bindValue(':temporario_img', $img);
+		// $inserir->bindValue(':temporario_img', $img);
 		$inserir->bindValue(':temporario_data', $data);
 		$inserir->bindValue(':temporario_sessao', $sessao);
+		$inserir->execute();
 		
 
-		if ($inserir->execute()) {
+		if ($inserir) {
 			// Produto foi adicionado ao carrinho.
 			echo 1;
 		}else{
