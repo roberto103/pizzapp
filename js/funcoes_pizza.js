@@ -28,10 +28,10 @@ $(document).ready(function () {
 			$('#sabor1').html(sabor);
 
 			if (preco1>preco2) {
-			 $('#preco').html(preco1);
-			 $('#valorfinal').val(preco1);
-			 $('#saborpizza').val(sabor);
-			 $('#finalizar').attr("data-precototal",preco1);
+				$('#preco').html(preco1);
+				$('#valorfinal').val(preco1);
+				$('#saborpizza').val(sabor);
+				$('#finalizar').attr("data-precototal",preco1);
 			}else{
 				$('#preco').html(preco2);
 				$('#valorfinal').val(preco2);
@@ -48,10 +48,10 @@ $(document).ready(function () {
 			$('#sabor2').html(sabor);
 
 			if (preco1>preco2) {
-			 $('#preco').html(preco1);
-			 $('#valorfinal').val(preco1);
-			 $('#saborpizza').val(sabor);
-			 $('#finalizar').attr("data-precototal",preco1);
+				$('#preco').html(preco1);
+				$('#valorfinal').val(preco1);
+				$('#saborpizza').val(sabor);
+				$('#finalizar').attr("data-precototal",preco1);
 			}else{
 				$('#preco').html(preco2);
 				$('#valorfinal').val(preco2);

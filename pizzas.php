@@ -95,39 +95,39 @@
 							</select>
 						</div>
 
-							<!-- PIZZA -->
-							<div id="pizzaInfo" class="text-center mt-4">
+						<!-- PIZZA -->
+						<div id="pizzaInfo" class="text-center mt-4">
 
-								<div>
-									<img style="cursor: pointer; display: none;" class="img-fluid parte1" id="forma1" img data-toggle="modal" data-target="#modalSabores" src="img/forma.png" name="img_pizza">
-								</div>
-
-								<div style="display: none; width: 100%" id="img_forma2" >
-									<div style="width: 50%; float: left; text-align: right;" >
-										<img id="parte1" data-toggle="modal" data-target="#modalSabores" alt="Clique para adicionar o primeiro sabor" title="Clique para adicionar o primeiro sabor" href="" src="img/metadeesquerda.png" style="cursor: pointer;
-										">
-									</div>
-
-									<div style="width: 50%; float: right; text-align: left;">
-										<img id="parte2" data-toggle="modal" data-target="#modalSabores" alt="Clique para adicionar o segundo sabor" title="Clique para adicionar o segundo sabor" href="" src="img/metadedireita.png" style=" cursor: pointer;">
-									</div>
-								</div>
-
-								<input type="hidden" name="valorfinal" id="valorfinal" value="">
-								<input type="hidden" name="saborpizza" id="saborpizza" value="">
+							<div>
+								<img style="cursor: pointer; display: none;" class="img-fluid parte1" id="forma1" img data-toggle="modal" data-target="#modalSabores" src="img/forma.png" name="img_pizza">
 							</div>
 
-							<!-- Sabores e preço da pizza -->
-							<div style="width: 100%; height: 50px; background-color: transparent; clear: both; text-align: center; position: fixed; left: 0; bottom: 100px;">
-								<!-- Sabores da pizza -->
-								<span class="d-inline-block">Sabores: </span>
-								<span id="sabor1"></span>
-								<span id="barra_sabor"></span>
-								<span id="sabor2"></span>
+							<div style="display: none; width: 100%" id="img_forma2" >
+								<div style="width: 50%; float: left; text-align: right;" >
+									<img id="parte1" data-toggle="modal" data-target="#modalSabores" alt="Clique para adicionar o primeiro sabor" title="Clique para adicionar o primeiro sabor" href="" src="img/metadeesquerda.png" style="cursor: pointer;
+									">
+								</div>
 
-								<!-- Preço da pizza -->
-								<span class="d-block">Preço da pizza: R$ <span id="preco"> 0,00</span></span>
+								<div style="width: 50%; float: right; text-align: left;">
+									<img id="parte2" data-toggle="modal" data-target="#modalSabores" alt="Clique para adicionar o segundo sabor" title="Clique para adicionar o segundo sabor" href="" src="img/metadedireita.png" style=" cursor: pointer;">
+								</div>
 							</div>
+
+							<input type="hidden" name="valorfinal" id="valorfinal" value="">
+							<input type="hidden" name="saborpizza" id="saborpizza" value="">
+						</div>
+
+						<!-- Sabores e preço da pizza -->
+						<div style="width: 100%; height: 50px; background-color: transparent; clear: both; text-align: center; position: fixed; left: 0; bottom: 100px;">
+							<!-- Sabores da pizza -->
+							<span class="d-inline-block">Sabores: </span>
+							<span id="sabor1"></span>
+							<span id="barra_sabor"></span>
+							<span id="sabor2"></span>
+
+							<!-- Preço da pizza -->
+							<span class="d-block">Preço da pizza: R$ <span id="preco"> 0,00</span></span>
+						</div>
 
 						<a id="finalizar" class="btn comprarPizza">
 							<i class="fas fa-shopping-cart"></i>
@@ -175,7 +175,8 @@
 
 							<div id="pizzam" class="card w-75 pizzam" style="margin-bottom: 10px; display: none;">
 								<a data-id_pizza1="" data-id_pizza2="" href="#" class="escolha-sabor" data-id="<?php echo $pizza->id; ?>" style="color: black;">
-								<div class="card-body" data-dismiss="modal">									<img id="img-prod" src="img/produtos/uploads/<?php echo $pizza->img_pizza; ?>" class="img-fluid" data-imagem="<?php echo $pizza->img_pizza; ?>" data-preco="<?php echo decimalTela($pizza->precom); ?>" data-sabor="<?php echo $pizza->sabor; ?>">
+								<div class="card-body" data-dismiss="modal">
+									<img id="img-prod" src="img/produtos/uploads/<?php echo $pizza->img_pizza; ?>" class="img-fluid" data-imagem="<?php echo $pizza->img_pizza; ?>" data-preco="<?php echo decimalTela($pizza->precom); ?>" data-sabor="<?php echo $pizza->sabor; ?>">
 									<h5 class="card-title"><?php echo $pizza->sabor; ?> - R$ <?php echo decimalTela($pizza->precom); ?></h5>
 									<p class="card-text"><?php echo $pizza->descricao; ?></p>
 								</div>
