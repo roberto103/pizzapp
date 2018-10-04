@@ -27,7 +27,7 @@ $(document).ready(function () {
 
 			$('#sabor1').html(sabor);
 
-			if (preco1>preco2) {
+			if (preco1 > preco2) {
 				$('#preco').html(preco1);
 				$('#valorfinal').val(preco1);
 				$('#saborpizza').val(sabor);
@@ -60,9 +60,6 @@ $(document).ready(function () {
 
 			}
 		}
-
-		
-
 	});
 
 $('#tamanhoPizza').click(function(){

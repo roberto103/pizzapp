@@ -232,6 +232,7 @@
 
 			$('#finalizar').click(function(){
 
+			    var partes = $('#partes').val();
 			    var valorFinal = $('#valorfinal').val();
 			    var tamanhoPizza = $('#tamanhoPizza').val();
 			    var saborPizza = $('#saborpizza').val();

@@ -78,7 +78,7 @@
 		}
 
 	}else{
-		$inserir = $pdo->prepare("INSERT INTO carrinho_temporario (ID_usuarios, temporario_produto, temporario_nome, temporario_quantidade, temporario_preco, temporario_data, temporario_sessao) VALUES (:ID_usuarios, :temporario_produto, :temporario_nome, :temporario_quantidade, :temporario_preco, :temporario_data, :temporario_sessao)");
+		$inserir = $pdo->prepare('INSERT INTO carrinho_temporario (ID_usuarios, temporario_produto, temporario_nome, temporario_quantidade, temporario_preco, temporario_data, temporario_sessao) VALUES (:ID_usuarios, :temporario_produto, :temporario_nome, :temporario_quantidade, :temporario_preco, :temporario_data, :temporario_sessao)');
 		$inserir->bindValue(':temporario_produto', $id);
 		$inserir->bindValue(':ID_usuarios', $id_usuario);
 		$inserir->bindValue(':temporario_nome', $descricao_sabor);
