@@ -105,12 +105,12 @@
 
 							<div style="display: none; width: 100%" id="img_forma2" >
 								<div style="width: 50%; float: left; text-align: right;" >
-									<img id="parte1" data-toggle="modal" data-target="#modalSabores" alt="Clique para adicionar o primeiro sabor" title="Clique para adicionar o primeiro sabor" href="" src="img/metadeesquerda.png" style="cursor: pointer;
+									<img id="parte1" data-toggle="modal" data-target="#modalSabores" alt="Clique para adicionar o primeiro sabor" title="Clique para adicionar o primeiro sabor" src="img/metadeesquerda.png" style="cursor: pointer;
 									">
 								</div>
 
 								<div style="width: 50%; float: right; text-align: left;">
-									<img id="parte2" data-toggle="modal" data-target="#modalSabores" alt="Clique para adicionar o segundo sabor" title="Clique para adicionar o segundo sabor" href="" src="img/metadedireita.png" style=" cursor: pointer;">
+									<img id="parte2" data-toggle="modal" data-target="#modalSabores" alt="Clique para adicionar o segundo sabor" title="Clique para adicionar o segundo sabor" src="img/metadedireita.png" style="cursor: pointer;">
 								</div>
 							</div>
 
