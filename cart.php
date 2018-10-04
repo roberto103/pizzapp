@@ -82,7 +82,7 @@
                   <div id="img">
                     <img class="img-fluid" src="img/produtos/uploads/<?php echo $mostra['temporario_img']; ?>">
                   </div>
-                  <h6 class="my-0" style="margin-right: 10px;"><?php echo $mostra['temporario_nome']; ?></h6>
+                  <h6 class="my-0" id="nome_produto"><?php echo $mostra['temporario_nome']; ?></h6>
                   <a class="removerProduto" data-id_produto="<?php echo $mostra['ID']; ?>" href>
                     <i class="fas fa-trash-alt" style="color: black;"></i>
                   </a>

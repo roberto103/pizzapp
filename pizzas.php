@@ -116,6 +116,7 @@
 
 							<input type="hidden" name="valorfinal" id="valorfinal" value="">
 							<input type="hidden" name="saborpizza" id="saborpizza" value="">
+							<input type="hidden" name="saborpizza2" id="saborpizza2" value="Frango">
 						</div>
 
 						<!-- Sabores e preço da pizza -->
@@ -232,35 +233,50 @@
 
 			$('#finalizar').click(function(){
 
-			    var partes = $('#partes').val();
-			    var valorFinal = $('#valorfinal').val();
-			    var tamanhoPizza = $('#tamanhoPizza').val();
-			    var saborPizza = $('#saborpizza').val();
-			    
-			    $.ajax({
-			      url: 'comprarPizza.php',
-			      type: 'POST',
-			      data: {
-			           id: id_pizza,
-			           valor: valorFinal,
-			           tamanho: tamanhoPizza,
-			           sabor: saborPizza
-			      },
-			      success: function(data){
-			         if (data == 1) {
-			         	alert('Foi');
-			            // M.toast({html: 'O Produto foi adicionado ao carrinho.'});
-			         } else if(data == 2){
-			         	alert('Foi nova qtd');
-			            // M.toast({html: 'Foi adicionado mais uma unidade desse produto!'});
-			         } else {
-			         	alert('Erro');
-			            // M.toast({html: 'O Produto não pôde ser adicionado ao carrinho.'});
-			         } 
-			      }//success
-			    });//ajax
-			    return true;
+				// Partes da pizza
+				var partes = $('#modalSabores').attr('data-parteClicada','parte1');
+				var partes2 = $('#modalSabores').attr('data-parteClicada','parte2');
+
+				if (partes != '' && partes2 == '') {
+					var partes_pizza = 1;
+				}if (partes != '' && partes2 != '') {
+					var partes_pizza = 2;
+				} else {
+
+				}
+
+				var valorFinal = $('#valorfinal').val();
+				var tamanhoPizza = $('#tamanhoPizza').val();
+				var saborPizza = $('#saborpizza').val();
+				var saborPizza2 = $('#saborpizza2').val();
+				
+				$.ajax({
+				  url: 'comprarPizza.php',
+				  type: 'POST',
+				  data: {
+					   id: id_pizza,
+					   qtd_sabores: partes_pizza,
+					   valor: valorFinal,
+					   tamanho: tamanhoPizza,
+					   sabor: saborPizza,
+					   sabor2: saborPizza2
+				  },
+				  success: function(data){
+					 if (data == 1) {
+						alert('Foi');
+						// M.toast({html: 'O Produto foi adicionado ao carrinho.'});
+					 } else if(data == 2){
+						alert('Foi nova qtd');
+						// M.toast({html: 'Foi adicionado mais uma unidade desse produto!'});
+					 } else {
+						alert('Erro');
+						// M.toast({html: 'O Produto não pôde ser adicionado ao carrinho.'});
+					 } 
+				  }//success
+				});//ajax
+				return true;
 			});//#comprarProduto
 		</script>
+
 	</body>
 </html>

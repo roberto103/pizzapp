@@ -192,3 +192,19 @@ h1{
 	background-color: #28a745 !important;
 	color: white;
 }
+
+@media screen and (max-width: 425px) {
+	#nome_produto{
+		width: 100px;
+	}
+}
+@media screen and (min-width: 431px) {
+	#nome_produto{
+		width: 200px;
+	}
+}
+@media screen and (min-width: 445px) {
+	#nome_produto{
+		width: 100%;
+	}
+}
