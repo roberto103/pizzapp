@@ -36,21 +36,21 @@
           <textarea class="form-control" id="txtDescricao" name="txtDescricao" placeholder="Descrição do produto"></textarea>
         </div>
 
-        <div class="form-group" style="display: none;">
+        <div class="form-group">
           <label for="txtPreco">Preço</label>
           <input type="text" class="form-control money" id="txtPreco" name="txtPreco" placeholder="Preço do produto">
         </div>
 
         <div class="form-group">
-          <label for="upload" style="display: block;">Imagem do produto</label>
-          <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalImagensBebidas">Selecionar imagem</button>
+          <label for="upload" style="display: block;">Imagem da bebida</label>
+          <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalImagensBedidas">Selecionar imagem</button>
 
           <img id="img" style="width: 15%">
 <!--           <input type="file" class="form-control" name="img" id="upload"> -->
         </div>
 
         <div class="form-group">
-          <label for="upload" style="display: block;">Imagem do produto</label>
+          <label for="upload" style="display: block;">Imagem da porção</label>
           <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalImagensPorcoes">Selecionar imagem</button>
 
           <img id="img" style="width: 15%">

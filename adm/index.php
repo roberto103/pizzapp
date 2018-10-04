@@ -373,7 +373,7 @@
 					<!-- /MODAL DAS BEBIDAS -->
 
 					<!-- MODAL DAS IMAGENS PORCOES -->
-					<div class="modal fade bd-example-modal-lg" id="modalImagens" tabindex="-1" role="dialog" aria-labelledby="modallabelEx" aria-hidden="true">
+					<div class="modal fade bd-example-modal-lg" id="modalImagensPorcoes" tabindex="-1" role="dialog" aria-labelledby="modallabelEx" aria-hidden="true">
 					  <div class="modal-dialog modal-lg" role="document">
 						<div class="modal-content">
 						  <div class="modal-header">
@@ -411,6 +411,7 @@
 		<script src="../js/jquery.mask.js"></script>
 		<script type="text/javascript" src="//cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
 		<script src="js/funcoes.js"></script>
+		<script type="text/javascript" src="js/funcoesadm.js"></script>
 
 	</body>
 </html>
