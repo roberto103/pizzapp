@@ -36,17 +36,25 @@
           <textarea class="form-control" id="txtDescricao" name="txtDescricao" placeholder="Descrição do produto"></textarea>
         </div>
 
-        <div class="form-group">
+        <div class="form-group" style="display: none;">
           <label for="txtPreco">Preço</label>
           <input type="text" class="form-control money" id="txtPreco" name="txtPreco" placeholder="Preço do produto">
         </div>
 
         <div class="form-group">
           <label for="upload" style="display: block;">Imagem do produto</label>
-          <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalImagens">Selecionar imagem</button>
+          <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalImagensBebidas">Selecionar imagem</button>
 
           <img id="img" style="width: 15%">
-          <input type="file" class="form-control" name="img" id="upload">
+<!--           <input type="file" class="form-control" name="img" id="upload"> -->
+        </div>
+
+        <div class="form-group">
+          <label for="upload" style="display: block;">Imagem do produto</label>
+          <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalImagensPorcoes">Selecionar imagem</button>
+
+          <img id="img" style="width: 15%">
+<!--           <input type="file" class="form-control" name="img" id="upload"> -->
         </div>
 
         <button type="submit" class="btn btn-outline-success" style="width: 100%;">Adicionar</button>

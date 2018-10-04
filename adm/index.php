@@ -344,7 +344,35 @@
 					</div>
 					<!-- /MOSTRAR TODO O PEDIDO -->
 
-					<!-- MODAL DAS IMAGENS -->
+					<!-- MODAL DAS BEBIDAS -->
+					<div class="modal fade bd-example-modal-lg" id="modalImagensBedidas" tabindex="-1" role="dialog" aria-labelledby="modallabelEx" aria-hidden="true">
+					  <div class="modal-dialog modal-lg" role="document">
+						<div class="modal-content">
+						  <div class="modal-header">
+							<h5 class="modal-title" id="modallabelEx">Banco de bebidas</h5>
+						  </div>
+
+						  <div class="modal-body">
+
+						  	<div class="imagens">
+						  		<?php 
+						  			$pasta = '../img/produtos/bebidas/';
+						  			$arquivos = scandir($pasta);
+
+						  			foreach ($arquivos as $arquivo) {
+						  				if (($arquivo != '.') && ($arquivo != '..')) {
+						  		 ?>
+						  			<img src="<?php echo $pasta.$arquivo; ?>" class="img-fluid" data-nome="<?php echo $arquivo;?>">
+						  		<?php }} ?>
+
+						  	</div>
+						  </div>
+						</div>
+					  </div>
+					</div>
+					<!-- /MODAL DAS BEBIDAS -->
+
+					<!-- MODAL DAS IMAGENS PORCOES -->
 					<div class="modal fade bd-example-modal-lg" id="modalImagens" tabindex="-1" role="dialog" aria-labelledby="modallabelEx" aria-hidden="true">
 					  <div class="modal-dialog modal-lg" role="document">
 						<div class="modal-content">
@@ -353,29 +381,24 @@
 						  </div>
 
 						  <div class="modal-body">
-						  	<div class="enviarImagem">
-						  		<button type="file" class="btn">Enviar uma imagem</button>
-						  	</div>
-
-						  	<hr>
 
 						  	<div class="imagens">
-						  		<img src="../img/produtos/coca-cola-2l.jpg" class="img-fluid">
-						  		<img src="../img/produtos/coca-cola-350ml.jpg" class="img-fluid">
-						  		<img src="../img/produtos/sprite-2l.jpg" class="img-fluid">
-						  		<img src="../img/produtos/sprite-2l.jpg" class="img-fluid">
-						  		<img src="../img/produtos/guarana-antartica-2l.jpg" class="img-fluid">
-						  		<img src="../img/produtos/guarana-antartica-2l.jpg" class="img-fluid">
-						  	</div>
-						  </div>
+						  		<?php 
+						  			$pasta = '../img/produtos/porcoes/';
+						  			$arquivos = scandir($pasta);
 
-						  <div class="modal-footer">
-							<button type="button" class="btn btn-outline-success">Selecionar imagem</button>
+						  			foreach ($arquivos as $arquivo) {
+						  				if (($arquivo != '.') && ($arquivo != '..')) {
+						  		 ?>
+						  			<img src="<?php echo $pasta.$arquivo; ?>" class="img-fluid" data-nome="<?php echo $arquivo;?>">
+						  		<?php }} ?>
+
+						  	</div>
 						  </div>
 						</div>
 					  </div>
 					</div>
-					<!-- /MODAL DAS IMAGENS -->
+					<!-- /MODAL DAS IMAGENS PORCOES-->
 
 				</div>
 			</div>
