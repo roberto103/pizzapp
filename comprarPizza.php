@@ -4,14 +4,37 @@
 	require_once 'core/conexao.php';
   	require_once 'core/util.php';
 
-	//Carrega todos os itens da tabela produtos
-	$id = $_POST['id']; // Id pizza de 1 parte
-	// $id_2 = $_POST['id']; // Id pizza de 2 partes
-	$preco = $_POST['valor'];
-	$sabor = $_POST['sabor']; // Sabor pizza de 1 parte
-	// $sabor_2 = $_POST['sabor'].' / '.$_POST['sabor2']; // Sabores da pizza de 2 partes
-	$quantidade = 1;
+	$tamanho = $_POST['tamanho'];
 
+	if ($tamanho == 1) {
+		$tamanho = 'GG';
+	}elseif ($tamanho == 2) {
+		$tamanho = 'G';
+	}elseif ($tamanho == 3) {
+		$tamanho = 'M';
+	}elseif ($tamanho == 4) {
+		$tamanho = 'P';
+	}else{
+		echo 'Tamanho não encontrado';
+	}
+
+	if ($partes == 2) {
+		$id = $_POST['id']; // Id pizza de 1 parte
+		$id_2 = $_POST['id']; // Id pizza de 2 partes
+		$preco = $_POST['valor']; // Preço da pizza mais cara
+		$sabor = $_POST['sabor']; // Sabor pizza de 1 parte
+		$sabor_2 = $_POST['sabor2']; // Sabores da pizza de 2 partes
+
+		$descricao_sabor = 'Pizza '.$tamanho.' meia '.$sabor.' e meia '.$sabor_2;
+	}else{
+		$id = $_POST['id']; // Id pizza de 1 parte
+		$preco = $_POST['valor'];
+		$sabor = $_POST['sabor']; // Sabor pizza de 1 parte
+
+		$descricao_sabor = 'Pizza '.$tamanho.' de '.$sabor;
+	}
+
+	$quantidade = 1;
 	$data = date('Y-m-d H:i:s');
 	$rand = rand(1000, 100000);
 	
@@ -58,7 +81,7 @@
 		$inserir = $pdo->prepare("INSERT INTO carrinho_temporario (ID_usuarios, temporario_produto, temporario_nome, temporario_quantidade, temporario_preco, temporario_data, temporario_sessao) VALUES (:ID_usuarios, :temporario_produto, :temporario_nome, :temporario_quantidade, :temporario_preco, :temporario_data, :temporario_sessao)");
 		$inserir->bindValue(':temporario_produto', $id);
 		$inserir->bindValue(':ID_usuarios', $id_usuario);
-		$inserir->bindValue(':temporario_nome', $sabor);
+		$inserir->bindValue(':temporario_nome', $descricao_sabor);
 		$inserir->bindValue(':temporario_quantidade', $quantidade);
 		$inserir->bindValue(':temporario_preco', decimalBanco($preco));
 		// $inserir->bindValue(':temporario_img', $img);
