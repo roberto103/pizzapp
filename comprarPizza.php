@@ -18,9 +18,11 @@
 		echo 'Tamanho não encontrado';
 	}
 
-	if ($partes == 2) {
+	$qtd_sabores = $_POST['qtd_sabores'];
+
+	if ($qtd_sabores == 2) {
 		$id = $_POST['id']; // Id pizza de 1 parte
-		$id_2 = $_POST['id']; // Id pizza de 2 partes
+		// $id_2 = $_POST['id']; // Id pizza de 2 partes
 		$preco = $_POST['valor']; // Preço da pizza mais cara
 		$sabor = $_POST['sabor']; // Sabor pizza de 1 parte
 		$sabor_2 = $_POST['sabor2']; // Sabores da pizza de 2 partes
