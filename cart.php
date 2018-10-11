@@ -80,7 +80,7 @@
 
                 <div id="info_pedido">
                   <div id="img">
-                    <img class="img-fluid" src="img/produtos/uploads/<?php echo $mostra['temporario_img']; ?>">
+                    <img class="img-fluid" src="img/produtos/produtos/<?php echo $mostra['temporario_img']; ?>">
                   </div>
                   <h6 class="my-0" id="nome_produto"><?php echo $mostra['temporario_nome']; ?></h6>
                   <a class="removerProduto" data-id_produto="<?php echo $mostra['ID']; ?>" href>

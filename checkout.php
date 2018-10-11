@@ -8,22 +8,7 @@
 
 	$valorPedido = $_POST['valor'];
 
-
-	// PagSeguro
-	require_once 'pagseguro/config.php';
-	require_once 'pagseguro/utils.php';
-
-	$params = array(
-	    'email' => $PAGSEGURO_EMAIL,
-	    'token' => $PAGSEGURO_TOKEN
-	);
-	$header = array();
-
-	$response = curlExec($PAGSEGURO_API_URL."/sessions", $params, $header);
-	$json = json_decode(json_encode(simplexml_load_string($response)));
-	$sessionCode = $json->id;
-
- ?>
+?>
 <!doctype html>
 <html lang="pt-br">
 	<head>
@@ -73,13 +58,7 @@
 				<div class="col-md-8">
 
 					<h4 class="mb-3">Pagamento</h4>
-					<form class="needs-validation" action="pagseguro/pay.php" novalidate>
-
-						<input type="hidden" name="brand">
-						<input type="hidden" name="token">
-						<input type="hidden" name="senderHash">
-						<input type="hidden" name="amount" value="<?php echo $valorPedido; ?>">
-						<input type="hidden" name="shippingCoast" value="0">
+					<form class="needs-validation" novalidate>
 
 						<div class="d-block my-3">
 							<div class="custom-control custom-radio">
