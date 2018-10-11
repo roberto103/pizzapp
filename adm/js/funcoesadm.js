@@ -1,8 +1,8 @@
 $(document).ready(function () {
+
 	
 	$('#tiposProduto').click(function(){
-
-		if ($('#tiposProduto').val() == 'Bebidas') {
+	 if ($('#tiposProduto').val() == 'Bebidas') {
 		$('#form-group_bebidas').css('display','');
 		$('#form-group_porcoes').css('display','none');
 	}else{
@@ -12,10 +12,16 @@ $(document).ready(function () {
 
 	});
 
-	//modal da imagem
-
 	$('.img-bebidas').click(function(){
-		alert('produto selecionado');
-		$('#modalImagensBedidas').modal('hide');
+		var img_nome = $(this).attr('data-nome');
+		$('.img').attr('src', '../img/produtos/bebidas/'+img_nome);
+		$('#upload').val('bebidas/'+img_nome)
 	});
+
+	$('.img-porcoes').click(function(){
+		var img_nome = $(this).attr('data-nome');
+		$('.img').attr('src', '../img/produtos/porcoes/'+img_nome);
+		$('#upload').val('porcoes/'+img_nome)
+	});
+
 });

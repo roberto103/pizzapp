@@ -43,19 +43,25 @@
 
         <div class="form-group" id="form-group_bebidas" style="display: none;">
           <label for="upload" style="display: block;">Imagem da bebida</label>
+
+          <img id="img" style="width: 15%" class="d-block img">
+          <br>
+
           <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalImagensBedidas">Selecionar imagem</button>
 
-          <img id="img" style="width: 15%">
-          <input type="hidden" class="form-control" name="img" id="upload">
         </div>
 
         <div class="form-group" id="form-group_porcoes" style="display: none;">
           <label for="upload" style="display: block;">Imagem da porção</label>
+
+          <img class="d-block img" id="img" style="width: 15%">
+          <br>
+
           <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalImagensPorcoes">Selecionar imagem</button>
 
-          <img id="img" style="width: 15%">
-<!--           <input type="file" class="form-control" name="img" id="upload"> -->
         </div>
+
+        <input type="hidden" class="form-control" name="img" id="upload">
 
         <button type="submit" class="btn btn-outline-success" style="width: 100%;">Adicionar</button>
       </form>
@@ -67,16 +73,3 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script type="text/javascript" src="js/jquery.mask.js"></script>
 <script type="text/javascript" src="js/funcoesadm.js"></script>
-
-<script type="text/javascript">
-  $('#upload').change(function(){
-    const file = $(this)[0].files[0];
-    const fileReader = new FileReader();
-    fileReader.onloadend = function() {
-      $('#img').attr('src', fileReader.result);
-    }
-    fileReader.readAsDataURL(file);
-  });
-
-
-</script>
