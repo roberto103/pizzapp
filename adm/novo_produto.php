@@ -41,7 +41,7 @@
           <input type="text" class="form-control money" id="txtPreco" name="txtPreco" placeholder="Preço do produto">
         </div>
 
-        <div class="form-group">
+        <div class="form-group" id="form-group_bebidas" style="display: none;">
           <label for="upload" style="display: block;">Imagem da bebida</label>
           <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalImagensBedidas">Selecionar imagem</button>
 
@@ -49,7 +49,7 @@
 <!--           <input type="file" class="form-control" name="img" id="upload"> -->
         </div>
 
-        <div class="form-group">
+        <div class="form-group" id="form-group_porcoes" style="display: none;">
           <label for="upload" style="display: block;">Imagem da porção</label>
           <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalImagensPorcoes">Selecionar imagem</button>
 
@@ -65,7 +65,7 @@
 </div>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script type="text/javascript" src="../js/jquery.mask.js"></script>
+<script type="text/javascript" src="js/jquery.mask.js"></script>
 
 <script type="text/javascript">
   $('#upload').change(function(){
