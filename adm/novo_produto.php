@@ -46,7 +46,7 @@
           <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalImagensBedidas">Selecionar imagem</button>
 
           <img id="img" style="width: 15%">
-<!--           <input type="file" class="form-control" name="img" id="upload"> -->
+          <input type="hidden" class="form-control" name="img" id="upload">
         </div>
 
         <div class="form-group" id="form-group_porcoes" style="display: none;">
@@ -66,6 +66,7 @@
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script type="text/javascript" src="js/jquery.mask.js"></script>
+<script type="text/javascript" src="js/funcoesadm.js"></script>
 
 <script type="text/javascript">
   $('#upload').change(function(){
@@ -76,4 +77,6 @@
     }
     fileReader.readAsDataURL(file);
   });
+
+
 </script>

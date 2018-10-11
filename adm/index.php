@@ -141,7 +141,7 @@
 									<?php foreach ($listarProdutos as $produto) { ?>
 									<div class="card" style="width: 17rem; display: inline-block; margin-bottom: 10px; margin-right: 10px;">
 										<center>
-											<img class="card-img-top" src="../img/produtos/uploads/<?php echo $produto->prod_img; ?>" id="img-prod">
+											<img class="card-img-top" src="../img/produtos/bebidas/<?php echo $produto->prod_img; ?>" id="img-prod">
 										</center>
 										<div class="card-body">
 											<h5 class="card-title" id="atualizaTitle_<?php echo $produto->prod_ID; ?>"><?php echo $produto->prod_nome; ?></h5>
@@ -362,7 +362,7 @@
 						  			foreach ($arquivos as $arquivo) {
 						  				if (($arquivo != '.') && ($arquivo != '..')) {
 						  		 ?>
-						  			<img src="<?php echo $pasta.$arquivo; ?>" class="img-fluid" data-nome="<?php echo $arquivo;?>">
+						  			<img src="<?php echo $pasta.$arquivo; ?>" class="img-fluid img-bebidas" data-nome="<?php echo $arquivo;?>">
 						  		<?php }} ?>
 
 						  	</div>
@@ -390,7 +390,7 @@
 						  			foreach ($arquivos as $arquivo) {
 						  				if (($arquivo != '.') && ($arquivo != '..')) {
 						  		 ?>
-						  			<img src="<?php echo $pasta.$arquivo; ?>" class="img-fluid" data-nome="<?php echo $arquivo;?>">
+						  			<img src="<?php echo $pasta.$arquivo; ?>" class="img-fluid" data-nome="<?php echo $arquivo;?>" id="img-porcoes">
 						  		<?php }} ?>
 
 						  	</div>
