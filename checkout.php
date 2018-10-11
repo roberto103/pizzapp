@@ -6,8 +6,25 @@
 		header('Location: login.php');
 	}
 
+	$valorPedido = $_POST['valor'];
+
+
+	// PagSeguro
+	require_once 'pagseguro/config.php';
+	require_once 'pagseguro/utils.php';
+
+	$params = array(
+	    'email' => $PAGSEGURO_EMAIL,
+	    'token' => $PAGSEGURO_TOKEN
+	);
+	$header = array();
+
+	$response = curlExec($PAGSEGURO_API_URL."/sessions", $params, $header);
+	$json = json_decode(json_encode(simplexml_load_string($response)));
+	$sessionCode = $json->id;
+
  ?>
- <!doctype html>
+<!doctype html>
 <html lang="pt-br">
 	<head>
 		<meta charset="utf-8">
@@ -61,8 +78,8 @@
 						<input type="hidden" name="brand">
 						<input type="hidden" name="token">
 						<input type="hidden" name="senderHash">
-						<input type="hidden" name="amount" value="100.00">
-						<input type="hidden" name="shippingCoast" value="1.00">
+						<input type="hidden" name="amount" value="<?php echo $valorPedido; ?>">
+						<input type="hidden" name="shippingCoast" value="0">
 
 						<div class="d-block my-3">
 							<div class="custom-control custom-radio">
@@ -138,7 +155,6 @@
 		<script src="pagseguro/pagseguro.js"></script>
 
 		<script>
-
 			$(document).ready(function(){
 				$('.date').mask('00/00/0000');
 				$('.cc-credit').mask('0000 0000 0000 0000');
