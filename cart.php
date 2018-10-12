@@ -78,6 +78,7 @@
 
               <li class="list-group-item d-flex justify-content-between lh-condensed">
 
+                <!-- Imagem e nome dos itens -->
                 <div id="info_pedido">
                   <div id="img">
                     <img class="img-fluid" src="img/produtos/produtos/<?php echo $mostra['temporario_img']; ?>">
@@ -88,7 +89,8 @@
                   </a>
                 </div>
 
-                <div class="qtd_item mb-3" style="margin-right: -10px;">
+                <!-- Quantidade e preço dos itens -->
+                <div class="qtd_item mb-3">
                   <a href="" id="qtd_menos">-</a>
                   <input type="hidden" id="tipo_produto" value="<?php echo $mostra['temporario_produto']; ?>">
                   <input class="mb-2" id="quantidade" type="text" value="<?php echo $mostra['temporario_quantidade']; ?>" readonly>
@@ -102,17 +104,19 @@
               </li>
               <?php } ?>
 
+              <!-- Valor final do pedido -->
               <li class="list-group-item d-flex justify-content-between">
 
                 <?php if (isset($_SESSION['frete'])): ?>
-                  <span style="color: #212529;">Total <span class="text-muted">com frete incluso</span></span>
-                  <strong>R$ <?php echo decimalTela($valor+400); ?></strong>
+                  <span style="color: #212529; font-family: lato;">Total <span class="text-muted">com frete incluso</span></span>
+                  <strong style="font-family: lato;">R$ <?php echo decimalTela($valor+400); ?></strong>
                 <?php else: ?>
-                  <span style="color: #212529;">Total</span>
-                  <strong>R$ <?php echo decimalTela($valor); ?></strong>
+                  <span style="color: #212529; font-family: lato;">Total</span>
+                  <strong style="font-family: lato;">R$ <?php echo decimalTela($valor); ?></strong>
                 <?php endif ?>
 
               </li>
+
             </ul>
 
             <button class="btn btn-success btn-lg btn-block btn-finalizar rounded-0" type="submit" data-pedido="<?php echo $mostra['temporario_sessao']; ?>">Finalizar pedido</button>
