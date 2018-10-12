@@ -208,3 +208,41 @@ h1{
 		width: 100%;
 	}
 }
+
+.qtd_item a{
+    width: 20px;
+    background-color: #0062ab;
+    color: #fff;
+    font-size: 16px;
+    font-weight: bold;
+    text-decoration: none;
+    display: block;
+    float: left;
+    height: 30px;
+    vertical-align: middle;
+    padding: 4px 4px 3px 4px;
+}
+
+.qtd_item input{
+    font-size: 14px;
+    font-weight: bold;
+    border: none;
+    color: #333;
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    float: left;
+    border-top: 1px solid #d4d4d4;
+    border-bottom: 1px solid #d4d4d4;
+}
+
+span.preco_item{
+    padding: 9px 4px 0 4px;
+    width: 80%;
+    text-align: center;
+    color: #3b3b3b;
+    border-radius: 4px;
+    font-family: lato;
+    font-weight: bold;
+    margin: 0;
+}

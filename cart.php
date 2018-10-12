@@ -88,13 +88,13 @@
                   </a>
                 </div>
 
-                <div class="mb-3" style="margin-right: -10px;">
+                <div class="qtd_item mb-3" style="margin-right: -10px;">
                   <a href="" id="qtd_menos">-</a>
                   <input type="hidden" id="tipo_produto" value="<?php echo $mostra['temporario_produto']; ?>">
-                  <input class="mb-2" style="width: 30px; text-align: center;" id="quantidade" type="text" value="<?php echo $mostra['temporario_quantidade']; ?>">
+                  <input class="mb-2" id="quantidade" type="text" value="<?php echo $mostra['temporario_quantidade']; ?>" readonly>
                   <a href="" id="qtd_mais">+</a>
                   <br>
-                  <span class="text-muted">
+                  <span class="preco_item">
                     R$ <?php echo decimalTela($mostra['temporario_preco']*$mostra['temporario_quantidade']); ?>
                   </span>
                 </div>
