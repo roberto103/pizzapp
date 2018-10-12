@@ -91,12 +91,12 @@
 
 								<!-- Quantidade e preço dos itens -->
 								<div class="qtd_item mb-3">
-									<a id="qtd_menos" onclick="qtd_menos()">-</a>
+									<a class="qtd_menos" href data-id="<?php echo $mostra['temporario_produto']; ?>">-</a>
 
-									<input type="hidden" id="tipo_produto" value="<?php echo $mostra['temporario_produto']; ?>">
-									<input class="mb-2" id="quantidade" type="text" value="<?php echo $mostra['temporario_quantidade']; ?>">
+									<input type="hidden" id="tipo_produto_<?php echo $mostra['temporario_produto']; ?>" value="<?php echo $mostra['temporario_produto']; ?>">
+									<input class="mb-2" id="quantidade_<?php echo $mostra['temporario_produto']; ?>" type="text" value="<?php echo $mostra['temporario_quantidade']; ?>">
 
-									<a id="qtd_mais" onclick="qtd_mais()">+</a>
+									<a class="qtd_mais" href data-id="<?php echo $mostra['temporario_produto']; ?>">+</a>
 									<br>
 									<span class="preco_item">
 										R$ <?php echo decimalTela($mostra['temporario_preco']*$mostra['temporario_quantidade']); ?>
@@ -177,6 +177,56 @@
 						}//success
 					});//ajax
 			});//.btn-finalizar
+
+			// Aumentar quantidade
+			$('.qtd_mais').click(function(){
+
+					var id = $(this).attr('data-id');
+					var quantidade = $('#quantidade_'+id).val();
+					quantidade++;
+
+					var tipo_produto = $('#tipo_produto_'+id).val();
+					
+					$.ajax({
+						url: 'core/qtd.php',
+						type: 'POST',
+						data: {
+								 quantidade: quantidade,
+								 tipo_produto: tipo_produto
+						},
+						success: function(data){
+							 if (data == 1) {
+								$('#quantidade_'+id).html(quantidade);
+							 }
+						}
+					});
+					return true;
+			});
+
+			// Diminuir quantidade
+			$('.qtd_menos').click(function(){
+
+					var id = $(this).attr('data-id');
+					var quantidade = $('#quantidade_'+id).val();
+					quantidade--;
+
+					var tipo_produto = $('#tipo_produto_'+id).val();
+					
+					$.ajax({
+						url: 'core/qtd.php',
+						type: 'POST',
+						data: {
+								 quantidade: quantidade,
+								 tipo_produto: tipo_produto
+						},
+						success: function(data){
+							if (data == 1) {
+								$('#quantidade_'+id).html(quantidade);
+							}
+						}
+					});
+					return true;
+			});
 
 
 			// REMOVER PRODUTO DO CARRINHO
