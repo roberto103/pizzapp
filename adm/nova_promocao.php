@@ -34,12 +34,12 @@
 					</div>
 				</div>
 
-				<div class="form-group" id="form-group_porcoes">
+				<div class="form-group" id="form-group_promocao">
 					<label for="upload" style="display: block;">Imagem da promoção</label>
 
 					<img class="d-block img mb-4" id="img" style="width: 15%">
 
-					<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalImagensPromocao">Selecionar imagem</button>
+					<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalImagensPromocoes">Selecionar imagem</button>
 				</div>
 
 				<button type="submit" class="btn btn-outline-success" style="width: 100%;">Adicionar</button>
@@ -54,7 +54,7 @@
 
 <script type="text/javascript">
 
-	$('.img-promocao').click(function(){
+	$('.img-promocoes').click(function(){
 		var img_nome = $(this).attr('data-nome');
 		$('.img').attr('src', '../img/produtos/promocoes/'+img_nome);
 		$('#upload').val('promocoes/'+img_nome)
