@@ -49,6 +49,34 @@
 	</div>
 </div>
 
+<!-- MODAL DAS IMAGENS PROMOÇÕES -->
+<div class="modal fade bd-example-modal-lg" id="modalImagensPromocoes" tabindex="-1" role="dialog" aria-labelledby="modallabelEx" aria-hidden="true">
+  <div class="modal-dialog modal-lg" role="document">
+	<div class="modal-content">
+	  <div class="modal-header">
+		<h5 class="modal-title" id="modallabelEx">Banco de imagens</h5>
+	  </div>
+
+	  <div class="modal-body">
+
+	  	<div class="imagens">
+	  		<?php 
+	  			$pasta = '../img/produtos/promocoes/';
+	  			$arquivos = scandir($pasta);
+
+	  			foreach ($arquivos as $arquivo) {
+	  				if (($arquivo != '.') && ($arquivo != '..')) {
+	  		 ?>
+	  			<img data-dismiss="modal" src="<?php echo $pasta.$arquivo; ?>" class="img-fluid img-promocoes" data-nome="<?php echo $arquivo;?>">
+	  		<?php }} ?>
+
+	  	</div>
+	  </div>
+	</div>
+  </div>
+</div>
+<!-- /MODAL DAS IMAGENS PROMOÇÕES-->
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script type="text/javascript" src="../js/jquery.mask.js"></script>
 
