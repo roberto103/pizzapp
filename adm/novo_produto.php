@@ -70,6 +70,62 @@
 	</div>
 </div>
 
+<!-- MODAL DAS IMAGENS BEBIDAS -->
+<div class="modal fade bd-example-modal-lg" id="modalImagensBedidas" tabindex="-1" role="dialog" aria-labelledby="modallabelEx" aria-hidden="true">
+  <div class="modal-dialog modal-lg" role="document">
+	<div class="modal-content">
+	  <div class="modal-header">
+		<h5 class="modal-title" id="modallabelEx">Banco de bebidas</h5>
+	  </div>
+
+	  <div class="modal-body">
+
+	  	<div class="imagens">
+	  		<?php 
+	  			$pasta = '../img/produtos/bebidas/';
+	  			$arquivos = scandir($pasta);
+
+	  			foreach ($arquivos as $arquivo) {
+	  				if (($arquivo != '.') && ($arquivo != '..')) {
+	  		 ?>
+	  			<img data-dismiss="modal" src="<?php echo $pasta.$arquivo; ?>" class="img-fluid img-bebidas" data-nome="<?php echo $arquivo;?>">
+	  		<?php }} ?>
+
+	  	</div>
+	  </div>
+	</div>
+  </div>
+</div>
+<!-- /MODAL DAS IMAGENS BEBIDAS -->
+
+<!-- MODAL DAS IMAGENS PORCOES -->
+<div class="modal fade bd-example-modal-lg" id="modalImagensPorcoes" tabindex="-1" role="dialog" aria-labelledby="modallabelEx" aria-hidden="true">
+  <div class="modal-dialog modal-lg" role="document">
+	<div class="modal-content">
+	  <div class="modal-header">
+		<h5 class="modal-title" id="modallabelEx">Banco de imagens</h5>
+	  </div>
+
+	  <div class="modal-body">
+
+	  	<div class="imagens">
+	  		<?php 
+	  			$pasta = '../img/produtos/porcoes/';
+	  			$arquivos = scandir($pasta);
+
+	  			foreach ($arquivos as $arquivo) {
+	  				if (($arquivo != '.') && ($arquivo != '..')) {
+	  		 ?>
+	  			<img data-dismiss="modal" src="<?php echo $pasta.$arquivo; ?>" class="img-fluid img-porcoes" data-nome="<?php echo $arquivo;?>">
+	  		<?php }} ?>
+
+	  	</div>
+	  </div>
+	</div>
+  </div>
+</div>
+<!-- /MODAL DAS IMAGENS PORCOES-->
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script type="text/javascript" src="js/jquery.mask.js"></script>
 <script type="text/javascript" src="js/funcoesadm.js"></script>
