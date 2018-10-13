@@ -344,7 +344,7 @@
 					</div>
 					<!-- /MOSTRAR TODO O PEDIDO -->
 
-					<!-- MODAL DAS BEBIDAS -->
+					<!-- MODAL DAS IMAGENS BEBIDAS -->
 					<div class="modal fade bd-example-modal-lg" id="modalImagensBedidas" tabindex="-1" role="dialog" aria-labelledby="modallabelEx" aria-hidden="true">
 					  <div class="modal-dialog modal-lg" role="document">
 						<div class="modal-content">
@@ -370,7 +370,7 @@
 						</div>
 					  </div>
 					</div>
-					<!-- /MODAL DAS BEBIDAS -->
+					<!-- /MODAL DAS IMAGENS BEBIDAS -->
 
 					<!-- MODAL DAS IMAGENS PORCOES -->
 					<div class="modal fade bd-example-modal-lg" id="modalImagensPorcoes" tabindex="-1" role="dialog" aria-labelledby="modallabelEx" aria-hidden="true">
@@ -399,6 +399,34 @@
 					  </div>
 					</div>
 					<!-- /MODAL DAS IMAGENS PORCOES-->
+
+					<!-- MODAL DAS IMAGENS PROMOÇÃO -->
+					<div class="modal fade bd-example-modal-lg" id="modalImagensPromocao" tabindex="-1" role="dialog" aria-labelledby="modallabelEx" aria-hidden="true">
+					  <div class="modal-dialog modal-lg" role="document">
+						<div class="modal-content">
+						  <div class="modal-header">
+							<h5 class="modal-title" id="modallabelEx">Banco de imagens</h5>
+						  </div>
+
+						  <div class="modal-body">
+
+						  	<div class="imagens">
+						  		<?php 
+						  			$pasta = '../img/produtos/promocoes/';
+						  			$arquivos = scandir($pasta);
+
+						  			foreach ($arquivos as $arquivo) {
+						  				if (($arquivo != '.') && ($arquivo != '..')) {
+						  		 ?>
+						  			<img data-dismiss="modal" src="<?php echo $pasta.$arquivo; ?>" class="img-fluid img-promocao" data-nome="<?php echo $arquivo;?>">
+						  		<?php }} ?>
+
+						  	</div>
+						  </div>
+						</div>
+					  </div>
+					</div>
+					<!-- /MODAL DAS IMAGENS PROMOÇÃO-->
 
 				</div>
 			</div>
