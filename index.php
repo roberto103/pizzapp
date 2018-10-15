@@ -31,7 +31,7 @@
 			<h5 style="color: white; text-shadow: 1px 1px 1px black; font-weight: 400;"><i class="fas fa-map-marker-alt"></i> Surubim - PE</h5>
 
 			<a href="cardapio.php">
-			  <button type="button" class="btn btn-primary" style="width: 100%; border-radius: 0; margin-top: 15px; margin-bottom: 15px;"><i class="fas fa-shopping-cart"></i> FAÇA SEU PEDIDO</button>
+			  <button type="button" class="btn btn-primary" style="width: 100%; border-radius: 1; margin-top: 15px; margin-bottom: 15px;"><i class="fas fa-shopping-cart"></i> FAÇA SEU PEDIDO</button>
 			</a>
 
 			<span><i class="fas fa-money-bill-alt"></i> R$ 4,00 - Valor da entrega.</span><br>
