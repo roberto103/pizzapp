@@ -252,3 +252,14 @@ span.preco_item{
     font-weight: bold;
     /*margin: 0;*/
 }
+
+.navbar{
+	width: 100%;
+	position: absolute !important;
+	z-index: 9999;
+	background-color: #bd2130 !important;
+}
+
+li a{
+	color: white !important;
+}
