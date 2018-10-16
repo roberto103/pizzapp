@@ -71,7 +71,7 @@
 				<div class="form-row">
 					<div class="form-group col-md-6">
 						<label for="txtPrecoProduto">Preço do Produto</label>
-						<input name="txtPrecoProduto" type="txt" class="form-control money" id="txtPrecoProduto" maxlength="6" value="<?php echo decimalTela($produto->prod_preco); ?>">
+						<input name="txtPrecoProduto" type="txt" class="form-control money2" id="txtPrecoProduto" maxlength="6" value="<?php echo decimalTela($produto->prod_preco); ?>">
 					</div>
 
 					<div class="form-group col-md-6">
