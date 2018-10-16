@@ -226,9 +226,9 @@
 						},
 						success: function(data){
 							 if (data == 1) {
-									alert('O Produto foi removido do carrinho.');
+							 	
 							 } else {
-									alert('O Produto não pôde ser removido do carrinho.');
+
 							 } 
 						}
 					});
