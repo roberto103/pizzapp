@@ -12,8 +12,8 @@
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/fontawesome.css" integrity="sha384-HbmWTHay9psM8qyzEKPc8odH4DsOuzdejtnr+OFtDmOcIVnhgReQ4GZBH7uwcjf6" crossorigin="anonymous">
 	<link rel="stylesheet" type="text/css" href="css/style.css">
 
-	<!-- <link rel="stylesheet" type="text/css" href="sidebar_includes/css/b4_sidebar.css"> -->
-
+	<!-- <script type="text/javascript" src="sidebar_includes/js/b4_sidebar.js"></script> -->
+	
   </head>
   <body>
 

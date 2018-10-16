@@ -28,7 +28,7 @@
     <style type="text/css">
       h4{color: white;}label{color: white;}
     </style>
-    <link rel="stylesheet" type="text/css" href="sidebar_includes/css/b4_sidebar.css">
+    <!-- <script type="text/javascript" src="sidebar_includes/js/b4_sidebar.js"></script> -->
 
   </head>
 
@@ -119,7 +119,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
     <script src="https://getbootstrap.com/docs/4.1/assets/js/vendor/holder.min.js"></script>
-    <script src="sidebar_includes/js/b4_sidebar.js"></script>
+    <!-- <script type="text/javascript" src="sidebar_includes/js/b4_sidebar.js"></script> -->
 
     <script>
       // Example starter JavaScript for disabling form submissions if there are invalid fields

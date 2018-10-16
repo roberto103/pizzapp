@@ -32,7 +32,7 @@
 		<style type="text/css">
 			h4{color: white;}label{color: white;}
 		</style>
-		<link rel="stylesheet" type="text/css" href="sidebar_includes/css/b4_sidebar.css">
+		<!-- <script type="text/javascript" src="sidebar_includes/js/b4_sidebar.js"></script> -->
 
 	</head>
 
@@ -152,7 +152,7 @@
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
 		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/js/materialize.min.js"></script>
-		<script src="sidebar_includes/js/b4_sidebar.js"></script>
+		<!-- <script type="text/javascript" src="sidebar_includes/js/b4_sidebar.js"></script> -->
 
 		<script type="text/javascript">
 		$(document).ready(function(){
