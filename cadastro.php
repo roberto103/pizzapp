@@ -132,14 +132,14 @@
               },
               success: function(data){
                  if (data == 1) {
-                    alert('Cadastrado com sucesso!');
+                    M.toast({html: 'Cadastrado com sucesso!'});
                     window.location = 'login.php';
                  }else if (data == 2) {
-                    alert('Esse email já está sendo usado!');
+                    M.toast({html: 'Esse email já está sendo usado!', classes: 'red'});
                  }else if (data == 3){
-                    alert('Preencha todos os campos!');
+                    M.toast({html: 'Preencha todos os campos!', classes: 'red'});
                  }else{
-                    alert('Senhas não conferem!');
+                    M.toast({html: 'Senhas não conferem!', classes: 'red'});
                  }
               }//success
             });//ajax
