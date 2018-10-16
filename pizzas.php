@@ -253,14 +253,11 @@
 				  },
 				  success: function(data){
 					 if (data == 1) {
-						alert('Foi');
-						// M.toast({html: 'O Produto foi adicionado ao carrinho.'});
+						M.toast({html: 'O Produto foi adicionado ao carrinho.'});
 					 } else if(data == 2){
-						alert('Foi nova qtd');
-						// M.toast({html: 'Foi adicionado mais uma unidade desse produto!'});
+						M.toast({html: 'Foi adicionado mais uma unidade desse produto!'});
 					 } else {
-						alert('Erro');
-						// M.toast({html: 'O Produto não pôde ser adicionado ao carrinho.'});
+						M.toast({html: 'O Produto não pôde ser adicionado ao carrinho.', classes: 'red'});
 					 } 
 				  }//success
 				});//ajax

@@ -101,7 +101,7 @@
                  } else if(data == 2){
                     M.toast({html: 'Foi adicionado mais uma unidade desse produto!'});
                  } else {
-                    M.toast({html: 'O Produto não pôde ser adicionado ao carrinho.'});
+                    M.toast({html: 'O Produto não pôde ser adicionado ao carrinho.', classes: 'red'});
                  }
               }//success
             });//ajax
