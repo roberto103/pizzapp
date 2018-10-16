@@ -30,7 +30,7 @@
     <div class="container-fluid">
       <div class="row">
         <?php include_once 'sidebar_includes/menu.php'; ?>
-      </div>]
+      </div>
 
       <div class="row" id="cart">
         <div class="col"></div>
