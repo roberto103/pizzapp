@@ -3,8 +3,8 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: 25-Set-2018 às 17:10
--- Versão do servidor: 5.5.27
+-- Generation Time: 18-Out-2018 às 17:09
+-- Versão do servidor: 10.1.25-MariaDB
 -- PHP Version: 7.1.7
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
@@ -66,9 +66,8 @@ CREATE TABLE `carrinho_temporario` (
 --
 
 INSERT INTO `carrinho_temporario` (`ID`, `ID_usuarios`, `temporario_produto`, `temporario_nome`, `temporario_quantidade`, `temporario_preco`, `temporario_img`, `temporario_data`, `temporario_sessao`) VALUES
-(1, 1, '1', 'Coca-Cola 2L', 1, 800, 'coca-cola-2l.jpg', '2018-09-13 15:50:53', '18046'),
-(2, 0, '2', 'Coca-Cola 350ml', 1, 500, 'coca-cola-350ml.jpg', '2018-09-13 15:50:54', '18046'),
-(5, 2, '3', 'Combo 1', 1, 250000, '2a71695b60ae1e9b8b48664e131065e9.png', '2018-09-21 12:02:56', '67159');
+(22, 1, '0', 'Pizza 0 meia  e meia Frango', 1, 0, '', '2018-10-11 16:09:43', '51155'),
+(23, 1, '6', 'Pizza GG meia Calabresa e meia Calabresa', 1, 2500, '', '2018-10-18 12:05:40', '39798');
 
 -- --------------------------------------------------------
 
@@ -117,7 +116,8 @@ CREATE TABLE `pedidos` (
 
 INSERT INTO `pedidos` (`id`, `produto_id`, `cliente_nome`, `endereco`, `ponto_referencia`, `descricao`, `valor_total`, `hora`, `sessao`, `status`) VALUES
 (9, 2, 'Roberto', 'sasasasasa', 'sasasasasa', 'Coca-Cola 350ml - 1 Unidades </br>', 500, '16:40:25', '98393', 'Aguardando atendimento'),
-(10, 2, 'Roberto', 'sasasasasa', 'sasasasasa', 'Coca-Cola 2L - 1 Unidades </br>Coca-Cola 350ml - 1 Unidades </br>', 500, '12:12:38', '40861', 'Aguardando atendimento');
+(10, 2, 'Roberto', 'sasasasasa', 'sasasasasa', 'Coca-Cola 2L - 1 Unidades </br>Coca-Cola 350ml - 1 Unidades </br>', 500, '12:12:38', '40861', 'Aguardando atendimento'),
+(11, 8, 'Roberto S.', 'sasasasasa', 'sasasasasa', 'Camarão - 1 Unidades </br>Batata Frita - 1 Unidades </br>', 3000, '14:13:24', '80984', 'Aguardando atendimento');
 
 -- --------------------------------------------------------
 
@@ -163,12 +163,15 @@ CREATE TABLE `produtos` (
 --
 
 INSERT INTO `produtos` (`prod_ID`, `prod_nome`, `prod_descricao`, `prod_preco`, `prod_img`, `prod_tipo`) VALUES
-(1, 'Coca-Cola 2L', 'Refrigerante de Cola', '800.00', '519a18a5223548fc35405132720feb32.jpg', 'Bebidas'),
-(2, 'Coca-Cola 350ml', 'Refrigerante de Cola', '500.00', 'coca-cola-350ml.jpg', 'Bebidas'),
-(3, 'Fanta Laranja 2L', 'Refrigerante de Laranja', '500.00', 'fanta-laranja-2l.jpg', 'Bebidas'),
-(4, 'Fanta Laranja 350ml', 'Refrigerante de Laranja', '300.00', 'fanta-laranja-350ml.jpg', 'Bebidas'),
-(5, 'Guarana Antartica 2L', 'Refrigerante de Guarana', '700.00', 'guarana-antartica-2l.jpg', 'Porcoes'),
-(7, 'Guaraná-Lata', 'Refrigerante de guaraná', '350', '8ff02591b08448a5248498508f5f8a40.jpg', 'Bebidas');
+(1, 'Coca-Cola 2L', 'Refrigerante de Cola', '800', 'coca-cola-2l.jpg', 'Bebidas'),
+(2, 'Coca-Cola 350ml', 'Refrigerante de Cola', '500', 'coca-cola-350ml.jpg', 'Bebidas'),
+(3, 'Fanta Laranja 2L', 'Refrigerante de Laranja', '500', 'fanta-laranja-2l.jpg', 'Bebidas'),
+(4, 'Fanta Laranja 350ml', 'Refrigerante de Laranja', '300', 'fanta-laranja-350ml.jpg', 'Bebidas'),
+(5, 'Calabresa', 'Porção de Calabresa', '700', 'calabresa.png', 'Porcoes'),
+(7, 'Guaraná-Lata', 'Refrigerante de guaraná', '350', 'guarana-antartica-350ml.jpg', 'Bebidas'),
+(8, 'Batata Frita', 'Porção de Batata Frita', '1000', 'batata.png', 'Porcoes'),
+(9, 'Camarão', 'Porção de Camarão', '2000', 'camarao.png', 'Porcoes'),
+(10, 'Carne de Sol', 'Porção de Carne de Sol', '1500', 'carne-sol.png', 'Porcoes');
 
 -- --------------------------------------------------------
 
@@ -180,7 +183,7 @@ CREATE TABLE `promocoes` (
   `id` int(11) NOT NULL,
   `titulo` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
   `desc_promo` varchar(150) COLLATE utf8_unicode_ci NOT NULL,
-  `preco_promo` double(50,2) NOT NULL,
+  `preco_promo` float NOT NULL,
   `duracao_promo` varchar(2) COLLATE utf8_unicode_ci NOT NULL,
   `img_promo` varchar(250) COLLATE utf8_unicode_ci NOT NULL,
   `data` datetime NOT NULL
@@ -191,8 +194,8 @@ CREATE TABLE `promocoes` (
 --
 
 INSERT INTO `promocoes` (`id`, `titulo`, `desc_promo`, `preco_promo`, `duracao_promo`, `img_promo`, `data`) VALUES
-(3, 'Combo 1', 'Pizza M + Porção de Bata frita', 2500.00, '12', '01289dbf6ecafe2dfa478da58271fccb.png', '2018-09-21 12:04:41'),
-(6, 'Combo 2', 'Pizza G + Refrigerante 2L', 600.00, '7', '655c8462151d579b524e66b853d00c53.png', '2018-08-17 12:29:41');
+(3, 'Combo 1', 'Pizza M + Porção de Bata frita', 2500, '12', 'promo1.png', '2018-09-21 12:04:41'),
+(6, 'Combo 2', 'Pizza G + Refrigerante 2L', 6000, '7', 'promo2.png', '2018-09-25 13:15:04');
 
 -- --------------------------------------------------------
 
@@ -284,7 +287,7 @@ ALTER TABLE `adm`
 -- AUTO_INCREMENT for table `carrinho_temporario`
 --
 ALTER TABLE `carrinho_temporario`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 --
 -- AUTO_INCREMENT for table `comentarios`
 --
@@ -294,7 +297,7 @@ ALTER TABLE `comentarios`
 -- AUTO_INCREMENT for table `pedidos`
 --
 ALTER TABLE `pedidos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 --
 -- AUTO_INCREMENT for table `pizzas`
 --
@@ -304,7 +307,7 @@ ALTER TABLE `pizzas`
 -- AUTO_INCREMENT for table `produtos`
 --
 ALTER TABLE `produtos`
-  MODIFY `prod_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `prod_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 --
 -- AUTO_INCREMENT for table `promocoes`
 --
