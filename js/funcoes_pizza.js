@@ -1,78 +1,16 @@
 $(document).ready(function () {
 	
-	var preco1;
-	var preco2;
-
+	var preco;
 	var sabor;
 	var sabor2;
 
-	$('.escolha-sabor img').click(function() {
-		$('#forma1').attr('src','img/produtos/produtos/'+$(this).attr('data-imagem'));
-	});
+	$('.escolha-sabor').click(function(){
 
-	$('#parte1').click(function(){
-		$('#modalSabores').attr('data-parteClicada','parte1');
-	});
-
-	$('#parte2').click(function(){	
-		$('#modalSabores').attr('data-parteClicada','parte2');	
-	});
-
-
-	// Pega preço e sabor das pizzas
-	$('.escolha-sabor img').click(function(){
-
-		if ($('#modalSabores').attr('data-parteClicada') == 'parte1') { // Pega dados da parte 1 da pizza
-
-			$('#parte1').attr('src','img/produtos/produtos/'+$(this).attr('data-imagem'));
-			preco1 = $(this).attr('data-preco');
-			sabor = $(this).attr('data-sabor');
-
-			$('#sabor1').html(sabor);
-
-			// Verifica o preço da pizza mais cara e usa como valor final da pizza
-			if (preco1 > preco2) {
-				$('#preco').html(preco1);
-				$('#valorfinal').val(preco1);
-				$('#saborpizza').val(sabor);
-				$('#saborpizza2').val(sabor2);
-				$('#finalizar').attr("data-precototal", preco1);
-			}else{
-				$('#preco').html(preco2);
-				$('#valorfinal').val(preco2);
-				$('#saborpizza').val(sabor);
-				$('#saborpizza2').val(sabor2);
-				$('#finalizar').attr("data-precototal", preco2);
-			}
-
+		if ($('#saborespizza').val() == '1') {
+			
 		}
-		else if ($('#modalSabores').attr('data-parteClicada') == 'parte2') { // Pega dados da parte 1 da pizza
 
-			$('#parte2').attr('src','img/produtos/produtos/'+$(this).attr('data-imagem'));
-			preco2 = $(this).attr('data-preco');
-			sabor2 = $(this).attr('data-sabor2');
-
-			$('#barra_sabor').html("/");
-			$('#sabor2').html(sabor2);
-
-			// Verifica o preço da pizza mais cara e usa como valor final da pizza
-			if (preco1 > preco2) {
-				$('#preco').html(preco1);
-				$('#valorfinal').val(preco1);
-				$('#saborpizza').val(sabor);
-				$('#saborpizza2').val(sabor2);
-				$('#finalizar').attr("data-precototal", preco1);
-			}else{
-				$('#preco').html(preco2);
-				$('#valorfinal').val(preco2);
-				$('#saborpizza').val(sabor);
-				$('#saborpizza2').val(sabor2);
-				$('#finalizar').attr("data-precototal", preco2);
-			}
-
-		}
 	});
-
 
 	// Tamanho da pizza
 	$('#tamanhoPizza').click(function(){
@@ -82,7 +20,7 @@ $(document).ready(function () {
 
 		}else if($('#tamanhoPizza').val() == '4'){
 			$('#saborPizza').css('visibility', 'hidden'); // Deixa o select de sabor invisivel caso seja uma pizza pequena
-
+			$('#saborespizza').val(1);
 
 			$('.img-fluid').css('display', 'inline'); // Mostra a forma de 1 sabor
 			$('#pizzaInfo map').css('display', 'none'); // Esconde a forma de 2 sabores

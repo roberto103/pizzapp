@@ -29,6 +29,7 @@
 
 		$descricao_sabor = 'Pizza '.$tamanho.' meia '.$sabor.' e meia '.$sabor_2;
 	}else{
+		$img = $_POST['imagem_pizza']
 		$id = $_POST['id']; // Id pizza de 1 parte
 		$preco = $_POST['valor'];
 		$sabor = $_POST['sabor']; // Sabor pizza de 1 parte
@@ -80,13 +81,13 @@
 		}
 
 	}else{
-		$inserir = $pdo->prepare('INSERT INTO carrinho_temporario (ID_usuarios, temporario_produto, temporario_nome, temporario_quantidade, temporario_preco, temporario_data, temporario_sessao) VALUES (:ID_usuarios, :temporario_produto, :temporario_nome, :temporario_quantidade, :temporario_preco, :temporario_data, :temporario_sessao)');
+		$inserir = $pdo->prepare('INSERT INTO carrinho_temporario (ID_usuarios, temporario_produto, temporario_nome, temporario_quantidade, temporario_preco, temporario_img, temporario_data, temporario_sessao) VALUES (:ID_usuarios, :temporario_produto, :temporario_nome, :temporario_quantidade, :temporario_img, :temporario_preco, :temporario_data, :temporario_sessao)');
 		$inserir->bindValue(':temporario_produto', $id);
 		$inserir->bindValue(':ID_usuarios', $id_usuario);
 		$inserir->bindValue(':temporario_nome', $descricao_sabor);
 		$inserir->bindValue(':temporario_quantidade', $quantidade);
 		$inserir->bindValue(':temporario_preco', decimalBanco($preco));
-		// $inserir->bindValue(':temporario_img', $img);
+		$inserir->bindValue(':temporario_img', $img);
 		$inserir->bindValue(':temporario_data', $data);
 		$inserir->bindValue(':temporario_sessao', $sessao);
 		$inserir->execute();
