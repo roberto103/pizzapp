@@ -3,11 +3,19 @@ $(document).ready(function () {
 	var preco;
 	var sabor;
 	var sabor2;
+	var preco2;
 
 	$('.escolha-sabor').click(function(){
 
+		 preco = $(this).attr('data-preco');
+		 sabor = $(this).attr('data-sabor');
+		 preco2 = $(this).attr('data-preco');
+		 sabor2 = $(this).attr('data-sabor');
+
 		if ($('#saborespizza').val() == '1') {
+
 			
+
 		}
 
 	});

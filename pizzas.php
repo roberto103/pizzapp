@@ -203,6 +203,82 @@
 			</div>
 			<!-- /SABORES -->
 
+			<!-- SABORES 2-->
+			<div class="modal fade" id="modalSabores" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" data-parteClicada="">
+				<div class="modal-dialog modal-dialog-centered" role="document">
+					<div class="modal-content">
+						<div class="modal-header bg-danger text-white">
+							<h5 class="modal-title" id="exampleModalLabel">Selecione um Sabor</h5>
+						</div>
+						<div class="modal-body">
+
+							<!-- BUSCAR SABORES -->
+							<div class="input-group mb-3">
+								<input type="text" class="form-control" placeholder="Pesquisar sabor..." aria-describedby="button-addon2">
+								<div class="input-group-append">
+									<button class="btn btn-outline-light" type="button" id="button-addon2">
+										<i class="fas fa-search" style="color: black;"></i>
+									</button>
+								</div>
+							</div>
+							<hr class="mb-3">
+							<!-- /BUSCAR SABORES -->
+
+							<!-- LISTA DE SABORES -->
+							<?php foreach ($pizza as $pizza) { ?>
+
+							<!-- PIZZA P -->
+							<div id="pizzap" class="card w-75 pizzap" style="margin-bottom: 10px; display: none;">
+								<a href="#" class="escolha-sabor" data-id="<?php echo $pizza->id; ?>" style="color: black;">
+								<div class="card-body" data-dismiss="modal">
+									<img id="img-prod" src="img/produtos/produtos/<?php echo $pizza->img_pizza; ?>" class="img-fluid" data-imagem="<?php echo $pizza->img_pizza; ?>" data-preco="<?php echo decimalTela($pizza->precop); ?>" data-sabor="<?php echo $pizza->sabor; ?>" data-sabor2="<?php echo $pizza->sabor; ?>">
+									<h5 class="card-title"><?php echo $pizza->sabor; ?> - R$ <?php echo decimalTela($pizza->precop); ?></h5>
+									<p class="card-text"><?php echo $pizza->descricao; ?></p>
+								</div>
+								</a>
+							</div>
+
+							<!-- PIZZA M -->
+							<div id="pizzam" class="card w-75 pizzam" style="margin-bottom: 10px; display: none;">
+								<a href="#" class="escolha-sabor" data-id="<?php echo $pizza->id; ?>" style="color: black;">
+								<div class="card-body" data-dismiss="modal">
+									<img id="img-prod" src="img/produtos/produtos/<?php echo $pizza->img_pizza; ?>" class="img-fluid" data-imagem="<?php echo $pizza->img_pizza; ?>" data-preco="<?php echo decimalTela($pizza->precom); ?>" data-sabor="<?php echo $pizza->sabor; ?>" data-sabor2="<?php echo $pizza->sabor; ?>">
+									<h5 class="card-title"><?php echo $pizza->sabor; ?> - R$ <?php echo decimalTela($pizza->precom); ?></h5>
+									<p class="card-text"><?php echo $pizza->descricao; ?></p>
+								</div>
+								</a>
+							</div>
+
+							<!-- PIZZA G -->
+							<div id="pizzag" class="card w-75 pizzag" style="margin-bottom: 10px; display: none;">
+								<a href="#" class="escolha-sabor" data-id="<?php echo $pizza->id; ?>" style="color: black;">
+								<div class="card-body" data-dismiss="modal">
+									<img id="img-prod" src="img/produtos/produtos/<?php echo $pizza->img_pizza; ?>" class="img-fluid" data-imagem="<?php echo $pizza->img_pizza; ?>" data-preco="<?php echo decimalTela($pizza->precog); ?>" data-sabor="<?php echo $pizza->sabor; ?>" data-sabor2="<?php echo $pizza->sabor; ?>">
+									<h5 class="card-title"><?php echo $pizza->sabor; ?> - R$ <?php echo decimalTela($pizza->precog); ?></h5>
+									<p class="card-text"><?php echo $pizza->descricao; ?></p>
+								</div>
+								</a>
+							</div>
+
+							<!-- PIZZA GG -->
+							<div id="pizzagg" class="card w-75 pizzagg" style="margin-bottom: 10px; display: none;">
+								<a href="#" class="escolha-sabor" data-id="<?php echo $pizza->id; ?>" style="color: black;">
+								<div class="card-body" data-dismiss="modal">
+									<img id="img-prod" src="img/produtos/produtos/<?php echo $pizza->img_pizza; ?>" class="img-fluid" data-imagem="<?php echo $pizza->img_pizza; ?>" data-preco="<?php echo decimalTela($pizza->precogg); ?>" data-sabor="<?php echo $pizza->sabor; ?>" data-sabor2="<?php echo $pizza->sabor; ?>">
+									<h5 class="card-title"><?php echo $pizza->sabor; ?> - R$ <?php echo decimalTela($pizza->precogg); ?></h5>
+									<p class="card-text"><?php echo $pizza->descricao; ?></p>
+								</div>
+								</a>
+							</div>
+
+							<?php } ?>
+
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- /SABORES 2-->
+
 		<!-- Bootstrap core JavaScript
 		================================================== -->
 		<!-- Placed at the end of the document so the pages load faster -->
