@@ -253,13 +253,19 @@ span.preco_item{
     /*margin: 0;*/
 }
 
-.navbar{
-	width: 100%;
-	position: absolute !important;
-	z-index: 9999;
-	background-color: #bd2130 !important;
+.navbar{z-index: 9999;
+	color: white;
+	position: absolute;
+    background-color: #bd2130;
+    width: 100%;
 }
 
 li a{
 	color: white !important;
+}
+
+.carrinho{
+	width: 100px;
+	padding: 0;
+	margin: 0;
 }
