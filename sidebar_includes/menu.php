@@ -31,5 +31,9 @@
 			</li>
 		</ul>
 	</div>
-	<a class="carrinho" href="cart.php" style="color: white; float: right;"><i class="fas fa-shopping-cart" style="font-size: 1.2rem;"></i></a>
+
+	<div class="carrinho">
+		<a href="cart.php" style="color: white; float: right;"><i class="fas fa-shopping-cart" style="font-size: 1.2rem;"></i></a>
+	</div>
+
 </nav>

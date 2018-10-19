@@ -263,3 +263,9 @@ span.preco_item{
 li a{
 	color: white !important;
 }
+
+.carrinho{
+	width: 100px;
+	padding: 0;
+	margin: 0;
+}
