@@ -4,21 +4,59 @@ $(document).ready(function () {
 	var sabor;
 	var sabor2;
 	var preco2;
+	var imagem;
+	var imagem2;
 
-	$('.escolha-sabor').click(function(){
+		$('.escolha-sabor').click(function(){
 
-		 preco = $(this).attr('data-preco');
-		 sabor = $(this).attr('data-sabor');
-		 preco2 = $(this).attr('data-preco');
-		 sabor2 = $(this).attr('data-sabor');
+   	    
+   	    	if ($('#saboresPizza').val() == '1') {
 
-		if ($('#saborespizza').val() == '1') {
+   	    	preco = $(this).attr('data-preco');
+	    	sabor = $(this).attr('data-sabor');
+	    	imagem = $(this).attr('data-imagem');
 
-			
+				$('#saborpizza').val(sabor);
+				$('#valorfinal').val(preco);
 
-		}
+				$('#preco').html(preco);
+				$('#sabor1').html(sabor);
+				$('#sabor2').remove();
+				$('#barra_sabor').remove();
 
-	});
+				$('#forma1').attr('src',imagem);
+
+			}else{
+
+				preco = $(this).attr('data-preco');
+				preco2 = $(this).attr('data-preco2');
+				sabor = $(this).attr('data-sabor');
+		    	sabor2 = $(this).attr('data-sabor2');
+		    	imagem = $(this).attr('data-imagem');
+		    	imagem2 = $(this).attr('data-imagem2');	
+
+				$('#saborpizza').val(sabor);
+				$('#saborpizza2').val(sabor2);
+				$('#parte1').attr('src',imagem);
+				$('#parte2').attr('src',imagem2);
+
+				$('#sabor1').html(sabor);
+				$('#sabor2').html(sabor2);
+				$('#barra_sabor').html('/');
+
+			}
+
+				if (preco>preco2) {
+					$('#valorfinal').val(preco);
+					$('#preco').html(preco);
+				}else{
+					$('#valorfinal').val(preco2);
+					$('#preco').html(preco2);
+				}
+
+		});
+
+
 
 	// Tamanho da pizza
 	$('#tamanhoPizza').click(function(){
@@ -28,7 +66,7 @@ $(document).ready(function () {
 
 		}else if($('#tamanhoPizza').val() == '4'){
 			$('#saborPizza').css('visibility', 'hidden'); // Deixa o select de sabor invisivel caso seja uma pizza pequena
-			$('#saborespizza').val(1);
+			$('#saboresPizza').val(1);
 
 			$('.img-fluid').css('display', 'inline'); // Mostra a forma de 1 sabor
 			$('#pizzaInfo map').css('display', 'none'); // Esconde a forma de 2 sabores
@@ -81,8 +119,8 @@ $(document).ready(function () {
 			$('.img-fluid').css('display', 'none'); // Esconde a forma de 2 sabores
 		}
 		else{
-			$('#forma1').css('display','');
-			$('#img_forma2').css('display','none');
+				$('#forma1').css('display','');
+				$('#img_forma2').css('display','none');
 		}
 	});
 
