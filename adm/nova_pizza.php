@@ -58,6 +58,8 @@
 					<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalImagensPizzas">Selecionar imagem</button>
 				</div>
 
+				<input class="form-control" type="hidden" name="img_pizza" id="upload">
+
 				<button type="submit" class="btn btn-outline-success" style="width: 100%;">Adicionar</button>
 			</form>
 
