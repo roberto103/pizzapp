@@ -1,16 +1,29 @@
 $(document).ready(function () {
+
+
+	function formatReal( int )
+{
+        var tmp = int+'';
+        tmp = tmp.replace(/([0-9]{2})$/g, ",$1");
+        if( tmp.length > 6 )
+                tmp = tmp.replace(/([0-9]{3}),([0-9]{2}$)/g, ".$1,$2");
+
+        return tmp;
+}
 	
-	var preco;
-	var sabor;
-	var sabor2;
-	var preco2;
-	var imagem;
-	var imagem2;
+
+			var preco = 0;
+			var sabor;
+			var sabor2;
+			var preco2 = 0;
+			var imagem;
+			var imagem2;
+			var qtdsabores;
+
+
 
 		$('.escolha-sabor').click(function(){
 
-   	    
-   	    	if ($('#saboresPizza').val() == '1') {
 
    	    	preco = $(this).attr('data-preco');
 	    	sabor = $(this).attr('data-sabor');
@@ -19,39 +32,54 @@ $(document).ready(function () {
 				$('#saborpizza').val(sabor);
 				$('#valorfinal').val(preco);
 
-				$('#preco').html(preco);
+				$('#preco').html(formatReal(parseInt(preco)));
 				$('#sabor1').html(sabor);
 				$('#sabor2').remove();
 				$('#barra_sabor').remove();
 
+				$('#parte1').attr('src',imagem);
 				$('#forma1').attr('src',imagem);
 
-			}else{
+				$('#pizzaInfo').attr('data-preco',preco);
+				$('#pizzaInfo').attr('data-imagem',imagem);
+				$('#pizzaInfo').attr('data-sabor',sabor);
 
-				preco = $(this).attr('data-preco');
-				preco2 = $(this).attr('data-preco2');
-				sabor = $(this).attr('data-sabor');
-		    	sabor2 = $(this).attr('data-sabor2');
-		    	imagem = $(this).attr('data-imagem');
-		    	imagem2 = $(this).attr('data-imagem2');	
+				if (qtdsabores == 2) {
+					if (preco>preco2) {
+						$('#valorfinal').val(preco);
+						$('#preco').html(formatReal(parseInt(preco)));
+					}else{
+						$('#valorfinal').val(preco2);
+						$('#preco').html(formatReal(parseInt(preco)));
+					}
+				}
 
-				$('#saborpizza').val(sabor);
+
+		});
+
+		$('.escolha-sabor2').click(function(){
+
+			preco2 = $(this).attr('data-preco2');
+	    	sabor2 = $(this).attr('data-sabor2');
+	    	imagem2 = $(this).attr('data-imagem2');
+
+				$('#preco').html(preco2);
+				$('#sabor1').html(sabor1);
+
 				$('#saborpizza2').val(sabor2);
-				$('#parte1').attr('src',imagem);
+
 				$('#parte2').attr('src',imagem2);
 
-				$('#sabor1').html(sabor);
-				$('#sabor2').html(sabor2);
-				$('#barra_sabor').html('/');
-
-			}
+				$('#pizzaInfo').attr('data-preco2',preco2);
+				$('#pizzaInfo').attr('data-imagem2',imagem2);
+				$('#pizzaInfo').attr('data-sabor2',sabor2);
 
 				if (preco>preco2) {
 					$('#valorfinal').val(preco);
-					$('#preco').html(preco);
+					$('#preco').html(formatReal(parseInt(preco)));
 				}else{
 					$('#valorfinal').val(preco2);
-					$('#preco').html(preco2);
+					$('#preco').html(formatReal(parseInt(preco)));
 				}
 
 		});
@@ -112,11 +140,14 @@ $(document).ready(function () {
 	$('#saboresPizza').click(function(){
 		if ($('#saboresPizza').val() == '0' || $('#saboresPizza').val() == '1') {
 			$('.img-fluid').css('display','');
+			$('#img_forma2').css('display','none');
+			qtdsabores = 1;
 		}
 		else if ($('#saboresPizza').val() == '2') {
+			qtdsabores = 2;
 			$('#img_forma2').css('display','');
 			$('#forma1').css('display','none');
-			$('.img-fluid').css('display', 'none'); // Esconde a forma de 2 sabores
+			$('.img-fluid').css('display','none'); // Esconde a forma de 2 sabores
 		}
 		else{
 				$('#forma1').css('display','');
