@@ -34,8 +34,6 @@ $(document).ready(function () {
 
 				$('#preco').html(formatReal(parseInt(preco)));
 				$('#sabor1').html(sabor);
-				$('#sabor2').remove();
-				$('#barra_sabor').remove();
 
 				$('#parte1').attr('src',imagem);
 				$('#forma1').attr('src',imagem);
@@ -64,7 +62,8 @@ $(document).ready(function () {
 	    	imagem2 = $(this).attr('data-imagem2');
 
 				$('#preco').html(preco2);
-				$('#sabor1').html(sabor1);
+				$('#sabor2').html(sabor2);
+
 
 				$('#saborpizza2').val(sabor2);
 
@@ -141,10 +140,13 @@ $(document).ready(function () {
 		if ($('#saboresPizza').val() == '0' || $('#saboresPizza').val() == '1') {
 			$('.img-fluid').css('display','');
 			$('#img_forma2').css('display','none');
+			$('#sabor2').remove();
+			$('#barra_sabor').remove();
 			qtdsabores = 1;
 		}
 		else if ($('#saboresPizza').val() == '2') {
 			qtdsabores = 2;
+			$('#barra_sabor').html("/");
 			$('#img_forma2').css('display','');
 			$('#forma1').css('display','none');
 			$('.img-fluid').css('display','none'); // Esconde a forma de 2 sabores
