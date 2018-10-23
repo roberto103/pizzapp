@@ -106,6 +106,7 @@
 							<input type="hidden" name="saborpizza" id="saborpizza" value="">
 							<input type="hidden" name="saborpizza2" id="saborpizza2" value="">
 							<input type="hidden" name="imagem_pizza" id="imagem_pizza" value="">
+							<input type="hidden" name="qtdsabores" id="qtdsabores" value="">
 						</div>
 
 						<!-- Sabores e preço da pizza -->
@@ -294,30 +295,19 @@
 
 			$('#finalizar').click(function(){
 
-				// Partes da pizza
-				var partes = $('#modalSabores').attr('data-parteClicada','parte1');
-				var partes2 = $('#modalSabores').attr('data-parteClicada','parte2');
-
-				if (partes != '' && partes2 == '') {
-					var partes_pizza = 1;
-				}if (partes != '' && partes2 != '') {
-					var partes_pizza = 2;
-				} else {
-
-				}
-
 				var valorFinal = $('#valorfinal').val();
 				var tamanhoPizza = $('#tamanhoPizza').val();
 				var saborPizza = $('#saborpizza').val();
 				var saborPizza2 = $('#saborpizza2').val();
 				var imagem_pizza = $('#imagem_pizza').val();
+				var qtd_sabores = $('#qtdsabores').val();
 				
 				$.ajax({
 				  url: 'comprarPizza.php',
 				  type: 'POST',
 				  data: {
 					   id: id_pizza,
-					   qtd_sabores: partes_pizza,
+					   qtd_sabores: qtd_sabores,
 					   valor: valorFinal,
 					   tamanho: tamanhoPizza,
 					   sabor: saborPizza,

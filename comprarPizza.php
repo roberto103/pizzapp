@@ -18,7 +18,7 @@
 		echo 'Tamanho não encontrado';
 	}
 
-	$qtd_sabores = $_POST['qtd_sabores'];
+	$qtd_sabores = $_POST['qtdsabores'];
 
 	if ($qtd_sabores == 2) {
 		$id = $_POST['id']; // Id pizza de 1 parte
@@ -93,7 +93,6 @@
 		$inserir->bindValue(':temporario_sessao', $sessao);
 		$inserir->execute();
 		
-
 		if ($inserir) {
 			// Produto foi adicionado ao carrinho.
 			echo 1;
