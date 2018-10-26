@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: 18-Out-2018 às 17:09
+-- Generation Time: 26-Out-2018 às 18:13
 -- Versão do servidor: 10.1.25-MariaDB
 -- PHP Version: 7.1.7
 
@@ -67,7 +67,9 @@ CREATE TABLE `carrinho_temporario` (
 
 INSERT INTO `carrinho_temporario` (`ID`, `ID_usuarios`, `temporario_produto`, `temporario_nome`, `temporario_quantidade`, `temporario_preco`, `temporario_img`, `temporario_data`, `temporario_sessao`) VALUES
 (22, 1, '0', 'Pizza 0 meia  e meia Frango', 1, 0, '', '2018-10-11 16:09:43', '51155'),
-(23, 1, '6', 'Pizza GG meia Calabresa e meia Calabresa', 1, 2500, '', '2018-10-18 12:05:40', '39798');
+(23, 1, '6', 'Pizza GG meia Calabresa e meia Calabresa', 1, 2500, '', '2018-10-18 12:05:40', '39798'),
+(24, 1, '5', 'Calabresa', 1, 700, 'calabresa.png', '2018-10-19 16:18:14', '52496'),
+(25, 1, '6', 'Pizza G meia Calabresa e meia Calabresa', 2, 1800, '', '2018-10-23 12:01:08', '36066');
 
 -- --------------------------------------------------------
 
@@ -141,7 +143,7 @@ CREATE TABLE `pizzas` (
 --
 
 INSERT INTO `pizzas` (`id`, `sabor`, `precop`, `descricao`, `img_pizza`, `precom`, `precog`, `precogg`) VALUES
-(6, 'Calabresa', 800.00, 'Calabresa, queijo e cebola', '160b6feb063d83a5f8b565a6f735f267.png', 1200.00, 1800.00, 2500.00);
+(6, 'Calabresa', 800.00, 'Calabresa, queijo e cebola', 'pizzas/calabresa.png', 1200.00, 1800.00, 2500.00);
 
 -- --------------------------------------------------------
 
@@ -163,15 +165,15 @@ CREATE TABLE `produtos` (
 --
 
 INSERT INTO `produtos` (`prod_ID`, `prod_nome`, `prod_descricao`, `prod_preco`, `prod_img`, `prod_tipo`) VALUES
-(1, 'Coca-Cola 2L', 'Refrigerante de Cola', '800', 'coca-cola-2l.jpg', 'Bebidas'),
-(2, 'Coca-Cola 350ml', 'Refrigerante de Cola', '500', 'coca-cola-350ml.jpg', 'Bebidas'),
-(3, 'Fanta Laranja 2L', 'Refrigerante de Laranja', '500', 'fanta-laranja-2l.jpg', 'Bebidas'),
-(4, 'Fanta Laranja 350ml', 'Refrigerante de Laranja', '300', 'fanta-laranja-350ml.jpg', 'Bebidas'),
-(5, 'Calabresa', 'Porção de Calabresa', '700', 'calabresa.png', 'Porcoes'),
-(7, 'Guaraná-Lata', 'Refrigerante de guaraná', '350', 'guarana-antartica-350ml.jpg', 'Bebidas'),
-(8, 'Batata Frita', 'Porção de Batata Frita', '1000', 'batata.png', 'Porcoes'),
-(9, 'Camarão', 'Porção de Camarão', '2000', 'camarao.png', 'Porcoes'),
-(10, 'Carne de Sol', 'Porção de Carne de Sol', '1500', 'carne-sol.png', 'Porcoes');
+(1, 'Coca-Cola 2L', 'Refrigerante de Cola', '800', 'bebidas/coca-cola-2l.jpg', 'Bebidas'),
+(2, 'Coca-Cola 350ml', 'Refrigerante de Cola', '500', 'bebidas/coca-cola-350ml.jpg', 'Bebidas'),
+(3, 'Fanta Laranja 2L', 'Refrigerante de Laranja', '500', 'bebidas/fanta-laranja-2l.jpg', 'Bebidas'),
+(4, 'Fanta Laranja 350ml', 'Refrigerante de Laranja', '300', 'bebidas/fanta-laranja-350ml.jpg', 'Bebidas'),
+(5, 'Calabresa', 'Porção de Calabresa', '700', 'porcoes/calabresa.png', 'Porcoes'),
+(7, 'Guaraná-Lata', 'Refrigerante de guaraná', '350', 'bebidas/sprite-350ml.jpg', 'Bebidas'),
+(8, 'Batata Frita', 'Porção de Batata Frita', '1000', 'porcoes/batata.png', 'Porcoes'),
+(9, 'Camarão', 'Porção de Camarão', '2000', 'porcoes/camarao.png', 'Porcoes'),
+(10, 'Carne de Sol', 'Porção de Carne de Sol', '1500', 'porcoes/carne-sol.png', 'Porcoes');
 
 -- --------------------------------------------------------
 
@@ -194,8 +196,8 @@ CREATE TABLE `promocoes` (
 --
 
 INSERT INTO `promocoes` (`id`, `titulo`, `desc_promo`, `preco_promo`, `duracao_promo`, `img_promo`, `data`) VALUES
-(3, 'Combo 1', 'Pizza M + Porção de Bata frita', 2500, '12', 'promo1.png', '2018-09-21 12:04:41'),
-(6, 'Combo 2', 'Pizza G + Refrigerante 2L', 6000, '7', 'promo2.png', '2018-09-25 13:15:04');
+(3, 'Combo 1', 'Pizza M + Porção de Bata frita', 2500, '12', 'promocoes/promo1.png', '2018-10-26 13:09:18'),
+(6, 'Combo 2', 'Pizza G + Refrigerante 2L', 6000, '7', 'promocoes/promo2.png', '2018-10-26 13:09:26');
 
 -- --------------------------------------------------------
 
@@ -287,7 +289,7 @@ ALTER TABLE `adm`
 -- AUTO_INCREMENT for table `carrinho_temporario`
 --
 ALTER TABLE `carrinho_temporario`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 --
 -- AUTO_INCREMENT for table `comentarios`
 --
