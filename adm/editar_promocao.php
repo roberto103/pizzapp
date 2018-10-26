@@ -91,7 +91,8 @@
 		  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalImagensPromocoes">Selecionar imagem</button>
 		</div>
 
-		<input type="hidden" name="img_promo" id="upload" class="form-control">
+		<input type="hidden" class="form-control" name="img" id="upload">
+		<input type="hidden" name="imgvazia" id="imgvazia" value="<?php echo $promocao->img_promo; ?>">
 
 		<button type="submit" class="btn btn-outline-success" style="width: 100%;">Adicionar</button>
 	  </form>
