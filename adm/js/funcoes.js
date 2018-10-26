@@ -65,6 +65,10 @@
 
 		$('.btn-mostrar_pedido').click(function(){
 			$('#bt-salvar-atender').attr('data-sessao_pedido',$(this).attr('data-sessao'));
+
+			$('#bt-salvar-pronto').attr('data-sessao_pedido',$(this).attr('data-sessao'));
+			
+			$('#bt-salvar-entrega').attr('data-sessao_pedido',$(this).attr('data-sessao'));
 		});
 
 		$('.btn-status').click(function(){
