@@ -26,15 +26,16 @@
 		$preco = $_POST['valor']; // Preço da pizza mais cara
 		$sabor = $_POST['sabor']; // Sabor pizza de 1 parte
 		$sabor_2 = $_POST['sabor2']; // Sabores da pizza de 2 partes
+		$img = 'pizzas/default/2sabores.png';
 
 		$descricao_sabor = 'Pizza '.$tamanho.' meia '.$sabor.' e meia '.$sabor_2;
-		$img = $_POST['img'];
 	}else{
 		$img = $_POST['img'];
 		$id = $_POST['id']; // Id pizza de 1 parte
 		$preco = $_POST['valor'];
 		$sabor = $_POST['sabor']; // Sabor pizza de 1 parte
-
+		$img = $_POST['img'];
+		
 		$descricao_sabor = 'Pizza '.$tamanho.' de '.$sabor;
 	}
 
