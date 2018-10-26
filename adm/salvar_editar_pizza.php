@@ -3,7 +3,7 @@
 	require_once 'core/conexao.php';
 	require_once 'core/util.php';
 
-	if (empty($_POST['img_pizza-salva'])) {
+	if (empty($_POST['img'])) {
 
 		$sql = $pdo->prepare("UPDATE pizzas SET sabor = :sabor, descricao = :descricao, precop = :precop, precom = :precom, precog = :precog, precogg = :precogg, img_pizza = :img WHERE id = :id");
 
@@ -13,7 +13,7 @@
 		$sql->bindValue(':precom', decimalBanco($_POST['txtPrecoPizzam']));
 		$sql->bindValue(':precog', decimalBanco($_POST['txtPrecoPizzag']));
 		$sql->bindValue(':precogg', decimalBanco($_POST['txtPrecoPizzagg']));
-		$sql->bindValue(':img', $novo_nome);
+		$sql->bindValue(':img', $_POST['imgvazia']);
 		$sql->bindValue(':id', $_POST['id']);
 		$sql->execute();
 		header('location:index.php');
@@ -30,7 +30,7 @@
 		$sql->bindValue(':precom', decimalBanco($_POST['txtPrecoPizzam']));
 		$sql->bindValue(':precog', decimalBanco($_POST['txtPrecoPizzag']));
 		$sql->bindValue(':precogg', decimalBanco($_POST['txtPrecoPizzagg']));
-		$sql->bindValue(':img', $_POST['img_pizza-salva']);
+		$sql->bindValue(':img', $_POST['img']);
 		$sql->bindValue(':id', $_POST['id']);
 		$sql->execute();
 		header('location:index.php');
