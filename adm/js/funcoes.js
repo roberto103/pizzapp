@@ -67,7 +67,7 @@
 			$('#bt-salvar-atender').attr('data-sessao_pedido',$(this).attr('data-sessao'));
 
 			$('#bt-salvar-pronto').attr('data-sessao_pedido',$(this).attr('data-sessao'));
-			
+
 			$('#bt-salvar-entrega').attr('data-sessao_pedido',$(this).attr('data-sessao'));
 		});
 
@@ -86,6 +86,7 @@
 				success:function(data){
 					if (data == 1) {
 						alert('Status do pedido alterado.');
+						$('#status_'+sessao_pedido).html(status_pedido);
 					}else{
 						alert('O status do pedido não pôde ser alterado.');
 					}
