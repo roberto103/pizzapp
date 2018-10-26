@@ -99,19 +99,19 @@
 										<td>
 											<?php if ($pedido->status == 'Aguardando atendimento'): ?>
 
-												<label class="text-danger" id="statusdanger"><?php echo $pedido->status; ?></label>
+												<label class="text-danger" id="status_<?php echo $pedido->sessao; ?>"><?php echo $pedido->status; ?></label>
 
 											<?php elseif($pedido->status == 'Pedido atendido'): ?>
 
-												<label class="text-warning" id="statuswarning"><?php echo $pedido->status; ?></label>
+												<label class="text-warning" id="status_<?php echo $pedido->sessao; ?>"><?php echo $pedido->status; ?></label>
 
 											<?php elseif($pedido->status == 'Pedido pronto'): ?>
 
-												<label class="text-success" id="statussuccess"><?php echo $pedido->status; ?></label>
+												<label class="text-success" id="status_<?php echo $pedido->sessao; ?>"><?php echo $pedido->status; ?></label>
 
 											<?php elseif($pedido->status == 'Pedido saiu para entrega'): ?>
 
-												<label class="text-primary" id="statusprimary"><?php echo $pedido->status; ?></label>
+												<label class="text-primary" id="status_<?php echo $pedido->sessao; ?>"><?php echo $pedido->status; ?></label>
 
 											<?php endif ?>
 										</td>

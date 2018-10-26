@@ -61,11 +61,12 @@
 			$('#nova-pizza').load(href+'#nova-pizza');
 		});
 
+		// Altera status do pedido
+
 		$('.btn-mostrar_pedido').click(function(){
 			$('#bt-salvar-atender').attr('data-sessao_pedido',$(this).attr('data-sessao'));
 		});
 
-		// Altera status do pedido
 		$('.btn-status').click(function(){
 
 			var sessao_pedido = $(this).attr('data-sessao_pedido');
@@ -81,8 +82,6 @@
 				success:function(data){
 					if (data == 1) {
 						alert('Status do pedido alterado.');
-						$(this).('#descricao').html(recipient_desc);
-						
 					}else{
 						alert('O status do pedido não pôde ser alterado.');
 					}
@@ -91,26 +90,6 @@
 		});
 		// 
 	});
-
-
-	// MODAL PARA EDITAR PRODUTOS
-	$('#modal-produtos').on('show.bs.modal', function (event) {
-		var button = $(event.relatedTarget) // Button that triggered the modal
-		var recipient_id = button.data('id') // Extract info from data-* attributes
-		var recipient_preco = button.data('valor')
-		var recipient_desc = button.data('descricao')
-		var recipient_upload = button.data('upload')
-		var recipient_nome = button.data('nome')
-		var recipient_tipo = button.data('tipo')
-
-		var modal = $(this)
-
-		modal.find('#txtDescricaoProduto').val(recipient_desc)
-		modal.find('#txtPrecoProduto').val(recipient_preco)
-		modal.find('#upload').val(recipient_upload)
-		modal.find('#txtNomeProduto').val(recipient_nome)
-		modal.find('#tiposProduto').val(recipient_tipo)
-	})
 
 
 	// MOSTRAR PEDIDOS
