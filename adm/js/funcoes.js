@@ -61,11 +61,15 @@
 			$('#nova-pizza').load(href+'#nova-pizza');
 		});
 
+		$('.btn-mostrar_pedido').click(function(){
+			$('#bt-salvar-atender').attr('data-sessao_pedido',$(this).attr('data-sessao'));
+		});
+
 		// Altera status do pedido
 		$('.btn-status').click(function(){
 
 			var sessao_pedido = $(this).attr('data-sessao_pedido');
-			var status_pedido = $('#status_pedido').val();
+			var status_pedido = $(this).attr('status');
 
 			$.ajax({
 				url: 'core/status_pedido.php',
@@ -77,6 +81,8 @@
 				success:function(data){
 					if (data == 1) {
 						alert('Status do pedido alterado.');
+						$(this).('#descricao').html(recipient_desc);
+						
 					}else{
 						alert('O status do pedido não pôde ser alterado.');
 					}
@@ -84,43 +90,6 @@
 			});
 		});
 		// 
-
-		$("#btn-salvar").click(function(){
-
-			$('.modal').modal('hide');
-
-			var id = $(this).attr('data-id');
-			var nome = $("#txtNomeProduto").val();
-			var descricao = $("#txtDescricaoProduto").val();
-			var preco = $("#txtPrecoProduto").val();
-			var img = $("#upload").val();
-			var tipo = $("#tiposProduto").val();
-
-			$.ajax({
-				url: 'editarProduto.php',
-				type : 'post',
-				data : {
-						prod: id,
-						prod_nome: nome,
-						prod_descricao: descricao,
-						prod_preco: preco,
-						prod_img: img,
-						prod_tipo: tipo
-				},
-				success : function(data){
-					 if (data == 1) {
-						$("#atualizaImg_"+id).html(img);
-						$("#atualizaTitle_"+id).html(nome);
-						$("#atualizaDesc_"+id).html(descricao);
-						$("#atualiza_"+id).html('R$ '+preco);
-					 } else {
-
-					 } 
-				}//success       
-			}); //ajax
-
-			return false;
-		}); //btn-salvar
 	});
 
 

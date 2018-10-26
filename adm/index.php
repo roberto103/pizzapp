@@ -99,19 +99,19 @@
 										<td>
 											<?php if ($pedido->status == 'Aguardando atendimento'): ?>
 
-												<label class="text-danger"><?php echo $pedido->status; ?></label>
+												<label class="text-danger" id="statusdanger"><?php echo $pedido->status; ?></label>
 
 											<?php elseif($pedido->status == 'Pedido atendido'): ?>
 
-												<label class="text-warning"><?php echo $pedido->status; ?></label>
+												<label class="text-warning" id="statuswarning"><?php echo $pedido->status; ?></label>
 
 											<?php elseif($pedido->status == 'Pedido pronto'): ?>
 
-												<label class="text-success"><?php echo $pedido->status; ?></label>
+												<label class="text-success" id="statussuccess"><?php echo $pedido->status; ?></label>
 
 											<?php elseif($pedido->status == 'Pedido saiu para entrega'): ?>
 
-												<label class="text-primary"><?php echo $pedido->status; ?></label>
+												<label class="text-primary" id="statusprimary"><?php echo $pedido->status; ?></label>
 
 											<?php endif ?>
 										</td>
@@ -335,9 +335,9 @@
 
 						  </div>
 						  <div class="modal-footer">
-							<button type="button" id="bt-salvar atender" class="btn btn-outline-success" disabled>Atender pedido</button>
-							<button type="button" id="bt-salvar pronto" class="btn btn-outline-success" disabled>Pedido pronto</button>
-							<button type="button" id="bt-salvar entrega" class="btn btn-outline-success" disabled>Pedido saiu para entrega</button>
+							<button type="button" id="bt-salvar-atender" class="btn btn-outline-success btn-status" data-sessao_pedido="" status="Pedido atendido">Atender pedido</button>
+							<button type="button" id="bt-salvar-pronto" class="btn btn-outline-success btn-status" data-sessao_pedido="" status="Pedido pronto">Pedido pronto</button>
+							<button type="button" id="bt-salvar-entrega" class="btn btn-outline-success btn-status" data-sessao_pedido="" status="Pedido saiu para entrega">Pedido saiu para entrega</button>
 						  </div>
 						</div>
 					  </div>
