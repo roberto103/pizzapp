@@ -18,7 +18,7 @@
 		echo 'Tamanho não encontrado';
 	}
 
-	$qtd_sabores = $_POST['qtdsabores'];
+	$qtd_sabores = $_POST['qtd_sabores'];
 
 	if ($qtd_sabores == 2) {
 		$id = $_POST['id']; // Id pizza de 1 parte

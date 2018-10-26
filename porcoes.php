@@ -49,7 +49,7 @@
             <div id="lista_bebidas">
 
               <div id="infoBebidas">
-                <img src="img/produtos/produtos/<?php echo $porcoes->prod_img; ?>" id="img-prod">
+                <img src="img/produtos/<?php echo $porcoes->prod_img; ?>" id="img-prod">
                 <h4><?php echo $porcoes->prod_nome; ?></h4>
                 <p><?php echo $porcoes->prod_descricao; ?></p>
                 <hr class="mb-3">

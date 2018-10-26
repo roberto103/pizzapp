@@ -31,12 +31,13 @@ $(document).ready(function () {
 
 				$('#saborpizza').val(sabor);
 				$('#valorfinal').val(preco);
+				$('#imagem_pizza').val(imagem);
 
 				$('#preco').html(formatReal(parseInt(preco)));
 				$('#sabor1').html(sabor);
 
-				$('#parte1').attr('src',imagem);
-				$('#forma1').attr('src',imagem);
+				$('#parte1').attr('src','img/produtos/'+imagem);
+				$('#forma1').attr('src','img/produtos/'+imagem);
 
 				$('#pizzaInfo').attr('data-preco',preco);
 				$('#pizzaInfo').attr('data-imagem',imagem);
@@ -67,7 +68,7 @@ $(document).ready(function () {
 
 				$('#saborpizza2').val(sabor2);
 
-				$('#parte2').attr('src',imagem2);
+				$('#parte2').attr('src','img/produtos/'+imagem2);
 
 				$('#pizzaInfo').attr('data-preco2',preco2);
 				$('#pizzaInfo').attr('data-imagem2',imagem2);

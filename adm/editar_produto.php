@@ -75,13 +75,13 @@
 						<input name="txtPrecoProduto" type="txt" class="form-control money2" id="txtPrecoProduto" maxlength="6" value="<?php echo decimalTela($produto->prod_preco); ?>">
 					</div>
 
-					<div class="form-group col-md-6">
+					<div class="form-group col-md-6" style="display: none;">
 						<label>Tipo de Produto</label>
 						<div class="input-group mb-3">
 							<div class="input-group-prepend">
 								<label class="input-group-text" for="tiposProduto">Tipos</label>
 							</div>
-							<select class="custom-select" id="txt_tipo" name="txt_tipo" id="tiposProduto">
+							<select class="custom-select" id="tiposProduto" name="txt_tipo" id="tiposProduto">
 								<option value="<?php echo $produto->prod_tipo; ?>" selected><?php echo $produto->prod_tipo; ?></option>
 								<option value="Bebidas">Bebidas</option>
 								<option value="Porcoes">Porções</option>
@@ -108,9 +108,11 @@
 
 						<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalImagensPorcoes">Selecionar imagem</button>
 					</div>
+
 				<?php endif ?>
 
 				<input type="hidden" class="form-control" name="img" id="upload">
+
 
 				<button type="submit" class="btn btn-outline-success" style="width: 100%;">Adicionar</button>
 			</form>

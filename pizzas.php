@@ -161,7 +161,7 @@
 							<div id="pizzap" class="card w-75 pizzap" style="margin-bottom: 10px; display: none;">
 								<a href="#" class="escolha-sabor" data-id="<?php echo $pizza->id; ?>" style="color: black;" data-imagem="<?php echo $pizza->img_pizza; ?>" data-preco="<?php echo $pizza->precop; ?>" data-sabor="<?php echo $pizza->sabor; ?>">
 								<div class="card-body" data-dismiss="modal">
-									<img id="img-prod" src="img/produtos/produtos/<?php echo $pizza->img_pizza; ?>" class="img-fluid">
+									<img id="img-prod" src="img/produtos/<?php echo $pizza->img_pizza; ?>" class="img-fluid">
 									<h5 class="card-title"><?php echo $pizza->sabor; ?> - R$ <?php echo decimalTela($pizza->precop); ?></h5>
 									<p class="card-text"><?php echo $pizza->descricao; ?></p>
 								</div>
@@ -172,7 +172,7 @@
 							<div id="pizzam" class="card w-75 pizzam" style="margin-bottom: 10px; display: none;">
 								<a href="#" class="escolha-sabor" data-id="<?php echo $pizza->id; ?>" style="color: black;" data-imagem="<?php echo $pizza->img_pizza; ?>" data-preco="<?php echo $pizza->precom; ?>" data-sabor="<?php echo $pizza->sabor; ?>">
 								<div class="card-body" data-dismiss="modal">
-									<img id="img-prod" src="img/produtos/produtos/<?php echo $pizza->img_pizza; ?>" class="img-fluid">
+									<img id="img-prod" src="img/produtos/<?php echo $pizza->img_pizza; ?>" class="img-fluid">
 									<h5 class="card-title"><?php echo $pizza->sabor; ?> - R$ <?php echo decimalTela($pizza->precom); ?></h5>
 									<p class="card-text"><?php echo $pizza->descricao; ?></p>
 								</div>
@@ -183,7 +183,7 @@
 							<div id="pizzag" class="card w-75 pizzag" style="margin-bottom: 10px; display: none;">
 								<a href="#" class="escolha-sabor" data-id="<?php echo $pizza->id; ?>" style="color: black;" data-imagem="<?php echo $pizza->img_pizza; ?>" data-preco="<?php echo $pizza->precog; ?>" data-sabor="<?php echo $pizza->sabor; ?>">
 								<div class="card-body" data-dismiss="modal">
-									<img id="img-prod" src="img/produtos/produtos/<?php echo $pizza->img_pizza; ?>" class="img-fluid" >
+									<img id="img-prod" src="img/produtos/<?php echo $pizza->img_pizza; ?>" class="img-fluid" >
 									<h5 class="card-title"><?php echo $pizza->sabor; ?> - R$ <?php echo decimalTela($pizza->precog); ?></h5>
 									<p class="card-text"><?php echo $pizza->descricao; ?></p>
 								</div>
@@ -194,7 +194,7 @@
 							<div id="pizzagg" class="card w-75 pizzagg" style="margin-bottom: 10px; display: none;">
 								<a href="#" class="escolha-sabor" data-id="<?php echo $pizza->id; ?>" style="color: black;" data-imagem="<?php echo $pizza->img_pizza; ?>" data-preco="<?php echo $pizza->precogg; ?>" data-sabor="<?php echo $pizza->sabor; ?>">
 								<div class="card-body" data-dismiss="modal">
-									<img id="img-prod" src="img/produtos/produtos/<?php echo $pizza->img_pizza; ?>" class="img-fluid">
+									<img id="img-prod" src="img/produtos/<?php echo $pizza->img_pizza; ?>" class="img-fluid">
 									<h5 class="card-title"><?php echo $pizza->sabor; ?> - R$ <?php echo decimalTela($pizza->precogg); ?></h5>
 									<p class="card-text"><?php echo $pizza->descricao; ?></p>
 								</div>
@@ -237,7 +237,7 @@
 							<div id="pizzam" class="card w-75 pizzam" style="margin-bottom: 10px; display: none;">
 								<a href="#" class="escolha-sabor2" data-id="<?php echo $pizza2->id; ?>" style="color: black;" data-imagem2="<?php echo $pizza2->img_pizza; ?>" data-preco2="<?php echo $pizza2->precom; ?>" data-sabor2="<?php echo $pizza->sabor; ?>">
 								<div class="card-body" data-dismiss="modal">
-									<img id="img-prod" src="img/produtos/produtos/<?php echo $pizza2->img_pizza; ?>" class="img-fluid">
+									<img id="img-prod" src="img/produtos/<?php echo $pizza->img_pizza; ?>" class="img-fluid">
 									<h5 class="card-title"><?php echo $pizza2->sabor; ?> - R$ <?php echo decimalTela($pizza2->precom); ?></h5>
 									<p class="card-text"><?php echo $pizza2->descricao; ?></p>
 								</div>
@@ -248,7 +248,7 @@
 							<div id="pizzag" class="card w-75 pizzag" style="margin-bottom: 10px; display: none;">
 								<a href="#" class="escolha-sabor2" data-id="<?php echo $pizza2->id; ?>" style="color: black;" data-imagem2="<?php echo $pizza2->img_pizza; ?>" data-preco2="<?php echo $pizza2->precog; ?>" data-sabor2="<?php echo $pizza2->sabor; ?>">
 								<div class="card-body" data-dismiss="modal">
-									<img id="img-prod" src="img/produtos/produtos/<?php echo $pizza2->img_pizza; ?>" class="img-fluid" >
+									<img id="img-prod" src="img/produtos/<?php echo $pizza->img_pizza; ?>" class="img-fluid" >
 									<h5 class="card-title"><?php echo $pizza2->sabor; ?> - R$ <?php echo decimalTela($pizza2->precog); ?></h5>
 									<p class="card-text"><?php echo $pizza2->descricao; ?></p>
 								</div>
@@ -259,7 +259,7 @@
 							<div id="pizzagg" class="card w-75 pizzagg" style="margin-bottom: 10px; display: none;">
 								<a href="#" class="escolha-sabor2" data-id="<?php echo $pizza2->id; ?>" style="color: black;" data-imagem2="<?php echo $pizza2->img_pizza; ?>" data-preco2="<?php echo $pizza2->precogg; ?>" data-sabor2="<?php echo $pizza2->sabor; ?>">
 								<div class="card-body" data-dismiss="modal">
-									<img id="img-prod" src="img/produtos/produtos/<?php echo $pizza2->img_pizza; ?>" class="img-fluid" >
+									<img id="img-prod" src="img/produtos/<?php echo $pizza->img_pizza; ?>" class="img-fluid" >
 									<h5 class="card-title"><?php echo $pizza2->sabor; ?> - R$ <?php echo decimalTela($pizza2->precogg); ?></h5>
 									<p class="card-text"><?php echo $pizza2->descricao; ?></p>
 								</div>
