@@ -93,7 +93,6 @@
 		$inserir->bindValue(':temporario_sessao', $sessao);
 		$inserir->execute();
 		
-
 		if ($inserir) {
 			// Produto foi adicionado ao carrinho.
 			echo 1;
