@@ -112,7 +112,7 @@
 				<?php endif ?>
 
 				<input type="hidden" class="form-control" name="img" id="upload">
-
+				<input type="hidden" name="imgvazia" id="imgvazia" value="<?php echo $produto->prod_img; ?>">
 
 				<button type="submit" class="btn btn-outline-success" style="width: 100%;">Adicionar</button>
 			</form>
