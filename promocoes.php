@@ -46,7 +46,7 @@
 
 					<div class="card mb-3" style="border: 0;">
 						<a class="comprarCombo" data-id_promocao="<?php echo $promocao->id; ?>" href>
-							<img class="card-img-top" src="img/produtos/produtos/<?php echo $promocao->img_promo; ?>" title="<?php echo $promocao->titulo; ?>" alt="<?php echo $promocao->titulo; ?>">
+							<img class="card-img-top" src="img/produtos/<?php echo $promocao->img_promo; ?>" title="<?php echo $promocao->titulo; ?>" alt="<?php echo $promocao->titulo; ?>">
 						</a>
 						<div class="card-body">
 							<h5 class="card-title" style="text-transform: capitalize;"><?php echo $promocao->titulo; ?></h5>
