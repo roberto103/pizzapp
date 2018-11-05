@@ -158,6 +158,29 @@ $(document).ready(function () {
 				$('#forma1').css('display','');
 				$('#img_forma2').css('display','none');
 		}
+
+		$('#saboresPizza').change(function(){
+
+			$('#preco').html('');
+			$('#sabor2').html('');
+
+			$('#saborpizza2').val('');
+
+			$('#parte2').attr('src','img/metadedireita.png');
+
+			$('#pizzaInfo').attr('data-preco2','');
+			$('#pizzaInfo').attr('data-imagem2','');
+			$('#pizzaInfo').attr('data-sabor2','');
+
+			$('#sabor1').html('');
+
+			$('#parte1').attr('src','img/metadeesquerda.png');
+
+			$('#forma1').attr('src','img/forma.png');
+
+		});
+
 	});
+
 
 });
