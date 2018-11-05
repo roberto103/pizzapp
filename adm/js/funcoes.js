@@ -86,14 +86,43 @@
 				success:function(data){
 					if (data == 1) {
 						alert('Status do pedido alterado.');
-						$('#status_'+sessao_pedido).html(status_pedido);
+						// $('#status_'+sessao_pedido).html(status_pedido);
+
+						// Imprime a lista do pedido
+						$.ajax({
+							url: 'ticket/imprimir.php',
+							type: 'POST',
+							success: function(response){
+								if(response == 1){
+									alert('Imprimindo...');
+								}else{
+									alert('Erro ao imprimir.');
+								}
+							}
+						});
 					}else{
 						alert('O status do pedido não pôde ser alterado.');
 					}
 				}
 			});
 		});
-		// 
+		//
+
+/*		// Imprime a lista do pedido
+		$('#btnImprimir').click(function(){
+			$.ajax({
+				url: 'ticket/imprimir.php',
+				type: 'POST',
+				success: function(response){
+					if(response == 1){
+						alert('Imprimindo...');
+					}else{
+						alert('Erro');
+					}
+				}
+			});
+		});
+		// */
 	});
 
 
